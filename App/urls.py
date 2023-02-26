@@ -17,21 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework import routers
 
-from Classroom.views import ClassroomView
-from Substitution.views import SubstitutionView
-from Timetable.views import TimetableView
 from global_views import DailySearchView, DailyRoomSearchView, DailyLessonSearchView, DailyRoomLessonView, \
     DailyMetRoomsView, DailyLessonMetRoomsView, EdupageView
 
 router = routers.DefaultRouter()
-router.register(r'classroom', ClassroomView)
-
-router.register(r'timetable', TimetableView)
-router.register(r'substitution', SubstitutionView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('dailySearch/', DailySearchView.as_view()),
+    path('dailySearch/', DailySearchView.as_view()),
     path('roomSearch/', DailyRoomSearchView.as_view()),
     path('edupage/', EdupageView.as_view()),
     path('lessonSearch/', DailyLessonSearchView.as_view()),

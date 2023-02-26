@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'App.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'class_booking',
+        'NAME': 'iClass',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
         'HOST': 'localhost',
