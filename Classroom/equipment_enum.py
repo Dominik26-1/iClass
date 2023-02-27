@@ -1,15 +1,6 @@
 from enum import Enum
 
 
-class Classroom_attributes(Enum):
-    LESSON = "lesson"
-    DATE = "date"
-    CLASSROOM_ID = "classroom"
-    WEEKDAY = "weekday"
-    STRING_DATE = "date_str"
-    EQUIPMENT = [""]
-
-
 class Equipment(Enum):
     PC = "teacher_pc"
     INTERACTIVE_BOARD = "interactive_board"
