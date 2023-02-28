@@ -12,11 +12,11 @@ from Utils.python.result.logic_functions import get_day_records, filter_lesson_r
 from Utils.python.result.result_functions import build_results_by_room, build_results_by_lesson, build_free_rooms, \
     build_free_room_by_lessons
 
-
+'''
 class DailySearchView(APIView):
 
     def get(self, request, *args, **kwargs):
-        # dailySearch/?date=2023-02-27
+        # search/daily/?date=2023-02-27
         str_date = request.query_params[Classroom_filters.DATE.value]
         date = datetime.strptime(str_date, '%Y-%m-%d').date()
 
@@ -28,7 +28,7 @@ class DailySearchView(APIView):
 class DailyRoomSearchView(APIView):
 
     def get(self, request, *args, **kwargs):
-        # roomSearch/?date=2023-02-27&classroom=1
+        # search/classroom/?date=2023-02-27&classroom=1
         str_date = request.query_params.get(Classroom_filters.DATE.value)
         date = datetime.strptime(str_date, '%Y-%m-%d').date()
         room_id = int(request.query_params[Classroom_filters.CLASSROOM_ID.value])
@@ -44,7 +44,7 @@ class DailyRoomSearchView(APIView):
 class DailyLessonSearchView(APIView):
 
     def get(self, request, *args, **kwargs):
-        # lessonSearch/?date=2023-03-17&lesson=1
+        # search/classrooms/?date=2023-03-17&lesson=1
         str_date = request.query_params[Classroom_filters.DATE.value]
         date = datetime.strptime(str_date, '%Y-%m-%d').date()
         lesson = int(request.query_params[Classroom_filters.LESSON.value])
@@ -59,7 +59,7 @@ class DailyLessonSearchView(APIView):
 class DailyRoomLessonView(APIView):
 
     def get(self, request, *args, **kwargs):
-        # roomLessonSearch/?date=2023-03-17&lesson=1&classroom=1
+        # search/lesson/?date=2023-03-17&lesson=1&classroom=1
         str_date = request.query_params[Classroom_filters.DATE.value]
         date = datetime.strptime(str_date, '%Y-%m-%d').date()
         lesson = int(request.query_params[Classroom_filters.LESSON.value])
@@ -76,7 +76,7 @@ class DailyRoomLessonView(APIView):
 class DailyMetRoomsView(APIView):
 
     def get(self, request, *args, **kwargs):
-        # fittedRoomsSearch/?date=2023-03-17&teacher_pc=1&data_projector=1
+        # search/fitted_classrooms/?date=2023-03-17&teacher_pc=1&data_projector=1
         str_date = request.query_params[Classroom_filters.DATE.value]
         date = datetime.strptime(str_date, '%Y-%m-%d').date()
         equipment_args = {}
@@ -95,7 +95,7 @@ class DailyLessonMetRoomsView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
-        # fittedRoomsLessonSearch/?date=2023-03-17&lesson=1&teacher_pc=1&data_projector=1
+        # search/fitted_classrooms_lesson/?date=2023-03-17&lesson=1&teacher_pc=1&data_projector=1
         str_date = request.query_params[Classroom_filters.DATE.value]
         lesson = int(request.query_params[Classroom_filters.LESSON.value])
         date = datetime.strptime(str_date, '%Y-%m-%d').date()
@@ -111,7 +111,7 @@ class DailyLessonMetRoomsView(APIView):
         results = merge_lessons_records(timetable_results, sub_results, date)
         context = build_free_rooms(results, equipment_args)
         return render(request, "search_form.html", context)
-
+'''
 
 class HomeView(APIView):
     def get(self, request, *args, **kwargs):

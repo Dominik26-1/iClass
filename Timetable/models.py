@@ -14,6 +14,7 @@ class Timetable(models.Model):
     day = models.CharField(max_length=10, choices=DAYS_OF_WEEK)
     lesson = models.IntegerField()
     teacher = models.CharField(max_length=30)
+    is_actual = models.BooleanField(default=True)
 
     class Meta:
         unique_together = ("lesson", "day", "student_group", "student_class")
