@@ -4,6 +4,7 @@ from datetime import datetime
 from itertools import chain
 
 from django.http import HttpResponse
+from django.shortcuts import render
 from django.views import View
 from edupage_api import Edupage
 from edupage_api.exceptions import BadCredentialsException
@@ -114,31 +115,34 @@ def parse_edupage_object(timetable_change: TimetableChange, orig_lesson: int, da
 
 class SearchView(View):
     def get(self, request, *args, **kwargs):
-
-        input_date = request.GET.get(Classroom_filters.DATE.value)
-        input_room_id = request.GET.get(Classroom_filters.CLASSROOM_ID.value)
-        input_lesson = request.GET.get(Classroom_filters.LESSON.value)
-        equipment_args = {}
-        for key, value in list(request.GET.items()):
-            if key in [eq.value for eq in Equipment]:
-                equipment_args[key] = value == "1"
-
-        if not input_date:
-            return HttpResponse("Missing date input")
-
-        if input_room_id and len(equipment_args) != 0:
-            return HttpResponse("Wrong combination of inputs.")
-
-        if input_date and input_lesson and not input_room_id and len(equipment_args) == 0:
-            return search_lesson_view(request)
-        if input_date and input_room_id and not input_lesson:
-            return search_room_view(request)
-        if input_date and input_lesson and input_room_id:
-            return search_room_lesson_view(request)
-        if input_date and input_lesson and len(equipment_args) != 0:
-            return search_filter_rooms_lesson(request)
+        # user get without results
+        if (len(list(request.GET.items()))) == 0:
+            return render(request, "search_form.html", {})
         else:
-            return HttpResponse("Wrong combination of inputs.")
+            input_date = request.GET.get(Classroom_filters.DATE.value)
+            input_room_id = request.GET.get(Classroom_filters.CLASSROOM_ID.value)
+            input_lesson = request.GET.get(Classroom_filters.LESSON.value)
+            equipment_args = {}
+            for key, value in list(request.GET.items()):
+                if key in [eq.value for eq in Equipment]:
+                    equipment_args[key] = value == "1"
+
+            if not input_date:
+                return HttpResponse("Missing date input")
+
+            if input_room_id and len(equipment_args) != 0:
+                return HttpResponse("Wrong combination of inputs.")
+
+            if input_date and input_lesson and not input_room_id and len(equipment_args) == 0:
+                return search_lesson_view(request)
+            if input_date and input_room_id and not input_lesson:
+                return search_room_view(request)
+            if input_date and input_lesson and input_room_id:
+                return search_room_lesson_view(request)
+            if input_date and input_lesson and len(equipment_args) != 0:
+                return search_filter_rooms_lesson(request)
+            else:
+                return HttpResponse("Wrong combination of inputs.")
 
 
 def search_room_view(request):
