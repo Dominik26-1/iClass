@@ -3,10 +3,10 @@ from django.contrib.auth import logout, login, authenticate
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from rest_framework.views import APIView
+from django.views import View
 
 
-class LoginView(APIView):
+class LoginView(View):
     def get(self, request, *args, **kwargs):
         return render(request, "login.html", {})
 
@@ -23,8 +23,7 @@ class LoginView(APIView):
             return redirect('login')
 
 
-class LogoutView(APIView):
+class LogoutView(View):
     def get(self, request, *args, **kwargs):
         logout(request)
         return redirect('home')
-

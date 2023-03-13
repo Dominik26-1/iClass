@@ -1,4 +1,6 @@
 # Create your models here.
+import uuid
+
 from django.db import models
 
 from App.data_types import DAYS_OF_WEEK
@@ -6,7 +8,7 @@ from Classroom.models import Classroom
 
 
 class Timetable(models.Model):
-    id = models.BigAutoField(primary_key=True)
+    id = models.IntegerField(primary_key=True, default=uuid.uuid4().int)
     classroom = models.ForeignKey(Classroom, on_delete=models.CASCADE)
     student_class = models.CharField(max_length=30)
     student_group = models.CharField(max_length=30, blank=True, null=True)
@@ -15,6 +17,9 @@ class Timetable(models.Model):
     lesson = models.IntegerField()
     teacher = models.CharField(max_length=30)
     is_actual = models.BooleanField(default=True)
+
+    if id is None:
+        id = uuid.uuid4().int
 
     class Meta:
         unique_together = ("lesson", "day", "student_group", "student_class")

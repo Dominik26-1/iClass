@@ -1,440 +1,1300 @@
+truncate table public."Substitutions" CASCADE;
+truncate table public."Timetables" CASCADE;
+truncate table public."Classrooms" CASCADE;
+ALTER SEQUENCE public."Classrooms_id_seq" RESTART WITH 1;
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('Prima', '2. poschodie', false, false, false, false, false, false, false);
 
 INSERT INTO public."Classrooms"
 ("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
-VALUES('prima', '1. poschodie', false, false, false, false, true, false, false);
-INSERT INTO public."Classrooms"
-("name", "position", "interactive_board", "teacher_pc", "teacher_notebook", "flip_chart", "sink", "data_projector", "ethernet_cable")
-VALUES('ucuj2', '3. poschodie', true, false, true, true, false, true, true);
-INSERT INTO public."Classrooms"
-("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
-VALUES('uinf2', '3. poschodie', true, false, true, true, false, true, true);
-INSERT INTO public."Classrooms"
-("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
-VALUES('uinf3', '3. poschodie', true, true, true, true, false, true, true);
-INSERT INTO public."Classrooms"
-("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
-VALUES('tev1', 'prizemie', false, false, false, false, true, false, false);
+VALUES('Sekunda', '2. poschodie', false, false, false, false, false, false, false);
 
 INSERT INTO public."Classrooms"
 ("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
-VALUES('tev2', 'podzemie', false, false, false, false, true, false, false);
-INSERT INTO public."Classrooms"
-("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
-VALUES('unab', '2.poschodie', false, false, false, true, true, true, false);
-INSERT INTO public."Classrooms"
-("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
-VALUES('sekunda', '1.poschodie', true, false, false, true, true, true, true);
-INSERT INTO public."Classrooms"
-("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
-VALUES('tercia', '2.poschodie', true, false, false, false, true, true, true);
-INSERT INTO public."Classrooms"
-("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
-VALUES('lchem', 'prizemie', false, false, false, false, true, false, false);
+VALUES('Tercia', '1. poschodie', false, true, false, false, false, true, true);
 
 INSERT INTO public."Classrooms"
 ("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
-VALUES('lfyz', 'prizemie', false, false, false, false, true, false, false);
-INSERT INTO public."Classrooms"
-("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
-VALUES('kvarta', '2.pochodie', false, true, false, false, true, true, true);
-INSERT INTO public."Classrooms"
-("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
-VALUES('kvinta', '1.pochodie', true, true, false, false, false, true, true);
-INSERT INTO public."Classrooms"
-("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
-VALUES('ufyz', 'prizemie', false, false, false, false, false, true, true);
-INSERT INTO public."Classrooms"
-("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
-VALUES('ubio', 'prizemie', false, false, false, true, true, true, false);
+VALUES('Kvarta', '1. poschodie', false, true, false, false, false, true, true);
 
 INSERT INTO public."Classrooms"
 ("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
-VALUES('uanj1', '1.pochodie', true, true, false, true, true, true, true);
+VALUES('Kvinta', '2. poschodie', false, false, false, true, true, false, false);
 
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('Sexta', '2. poschodie', false, false, true, true, true, false, false);
 
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Monday',1, 'ANJ', 'Michalov', 1);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Monday',2, 'GEO', 'Hornanska', 1);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Monday',3, 'MAT', 'Trenklerova', 1);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Monday',4, 'SJL', 'Candova', 1);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Monday',5, 'INF', 'Fricova', 3);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Tuesday',1, 'VYV', 'Cepelova', 1);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Tuesday',2, 'MAT', 'Trenklerova', 1);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Tuesday',3, 'SJL', 'Candova', 1);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Tuesday',4, 'KNB', 'Sr. Karola', 7);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Tuesday',5, 'DEJ', 'Zalomova', 1);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Wednesday',1, 'ANJ', 'Marcincinova', 1);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Wednesday',2, 'SJL', 'Candova' 1);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Wednesday',3, 'MAT', 'Trenklerova', 1);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Wednesday',4, 'NEJ', 'Husekova', 2);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Wednesday',5, 'OBN', 'Cizmarova', 1);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Thursday',1, 'MAT', 'Trenklerova', 1);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Thursday',2, 'ANJ', 'Michalov', 1);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Thursday',3, 'SJL', 'Candova', 1);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Thursday',4, 'NEJ', 'Husekova', 2);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Thursday',5, 'BIO', 'Jascurova', 15);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Friday',1, 'SJL', 'Candova', 1);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Friday',2,  'MAT', 'Trenklerova', 1);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Friday',3, 'TSV', 'Svik', 5);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Friday',4, 'ANJ', 'Michalov', 1);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('prima', 'Friday',5, 'KNB', 'Sr.Karola', 7);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Monday',1, 'NEJ', 'Antesova', 12);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Monday',2, 'SJL', 'Korfantova', 12);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Monday',3, 'CHE', 'Tutokyova', 10);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Monday',4, 'FYZ', 'Svikova', 11);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Monday',5, 'MAT', 'Trenklerova', 12);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Tuesday',1, 'ANJ', 'Marcincinova', 16);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Tuesday',2, 'NEJ', 'Antesova', 2);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Tuesday',3, 'OBN', 'Cizmarova', 12);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Tuesday',4, 'MAT', 'Trenklerova', 12);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Tuesday',5, 'TSV', 'Svik', 6);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Wednesday',1, 'MAT', 'Trenklerova', 12);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Wednesday',2, 'GEO', 'Hornanska' 12);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Wednesday',3, 'SJL', 'Korfantova', 12);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Wednesday',4, 'NEJ', 'Antesova', 2);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Wednesday',5, 'ANJ', 'Marcincinova', 12);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Thursday',1, 'BIO', 'Tutokyova', 12);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Thursday',2, 'MAT', 'Trenklerova', 12);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Thursday',3, 'CHE', 'Tutokyova', 12);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Thursday',4, 'SJL', 'Korfantova', 12);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Thursday',5, 'ANJ', 'Hadobas', 16);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Friday',1, 'FYZ', 'Svikova', 12);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Friday',2, 'ANJ', 'Marcincinova', 16);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Friday',3, 'KNB', 'Sr.Karola', 2);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Friday',4, 'SJL', 'Korfantova', 12);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvarta', 'Friday',5, 'INF', 'Fricova', 4);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Monday',1, 'GEO', 'Hornanska', 13);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Monday',2, 'KNB', 'Sr.Karola', 7);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Monday',3, 'MAT', 'Macko', 13);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Monday',4, 'RUJ', 'Pitonakova', 13);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Monday',5, 'BIO', 'Golianova', 15);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Tuesday',1, 'FYZ', 'Svikova', 11);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Tuesday',2, 'SJL', 'Radimska', 13);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Tuesday',3, 'MAT', 'Macko', 13);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Tuesday',4, 'DEJ', 'Zalomova', 13);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Tuesday',5, 'ANJ', 'Michalov', 13);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Wednesday',1, 'SJL', 'Radimska', 13);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Wednesday',2, 'RUJ', 'Pitonakova' 13);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Wednesday',3, 'MAT', 'Macko', 13);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Wednesday',4, 'BIO', 'Golianova', 3);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Wednesday',5, 'ZRUZ', 'Sr.Adriana', 3);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Thursday',1, 'MAT', 'Macko', 13);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Thursday',2, 'SJL', 'Radimska', 13);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Thursday',3, 'ANJ', 'Michalov', 13);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Thursday',4, 'INF', 'Fricova', 4);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Thursday',5, 'INF', 'Fricova', 4);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Friday',1, 'ANJ', 'Hadobas', 13);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Friday',2, 'TSV', 'Svik', 5);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Friday',3, 'RUJ', 'Pitonakova', 13);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Friday',4, 'KNB', 'Sr.Karola', 7);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('kvinta', 'Friday',5, 'CHE', 'Svikova', 11);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Monday',1, 'CHE', 'Simegova', 9);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Monday',2, 'BIO', 'Tutokyova', 9);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Monday',3, 'SJL', 'Korfantova', 9);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Monday',4, 'MAT', 'Trenklerova', 9);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Monday',5, 'ANJ', 'Michalov', 16);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Tuesday',1, 'SJL', 'Korfantova', 9);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Tuesday',2, 'INF', 'Fricova', 4);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Tuesday',3, 'ANJ', 'Michalov', 9);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Tuesday',4, 'SJL', 'Korfantova', 9);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Tuesday',5, 'TSV', 'Svik', 5);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Wednesday',1, 'SJL', 'Korfantova', 9);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Wednesday',2, 'MAT', 'Trenklerova' 9);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Wednesday',3, 'ANJ', 'Michalov', 9);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Wednesday',4, 'GEO', 'Hornanska', 9);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Wednesday',5, 'FYZ', 'Svikova', 11);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Thursday',1, 'FYZ', 'Svikova', 11);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Thursday',2, 'DEJ', 'Zalomova', 9);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Thursday',3, 'MAT', 'Trenklerova', 9);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Thursday',4, 'NEJ', 'Antesova', 2);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Thursday',5, 'KNB', 'Sr.Karola', 7);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Friday',1, 'CHE', 'Simegova', 10);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Friday',2, 'ANJ', 'Hadobas', 9);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Friday',3, 'SJL', 'Korfantova', 9);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Friday',4, 'NEJ', 'Antesova', 2);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('tercia', 'Friday',5, 'MAT', 'Trenklerova', 9);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Monday',1, 'SJL', 'Korfantova', 8);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Monday',2, 'MAT', 'Jascurova', 8);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Monday',3, 'NEJ', 'Antesova', 2);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Monday',4, 'TSV', 'Bolna', 5);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Monday',5, 'ANJ', 'Hadobas', 8);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Tuesday',1, 'MAT', 'Jascurova', 8);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Tuesday',2, 'VYV', 'Cepelova', 8);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Tuesday',3, 'SJL', 'Korfantova', 8);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Tuesday',4, 'ANJ', 'Michalov', 8);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Tuesday',5, 'KNB', 'Sr.Karola', 7);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Wednesday',1, 'CHE', 'Simegova', 8);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Wednesday',2, 'FYZ', 'Svikova' 11);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Wednesday',3, 'INF', 'Fricova', 4);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Wednesday',4, 'BIO', 'Trenklerova', 8);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Wednesday',5, 'KNB', 'Sr.Karola', 7);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Thursday',1, 'NEJ', 'Antesova', 2);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Thursday',2, 'MAT', 'Jascurova', 8);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Thursday',3, 'SJL', 'Korfantova', 8);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Thursday',4, 'OBN', 'Cizmarova', 8);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Thursday',5, 'GEO', 'Hornanska', 8);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Friday',1, 'ANJ', 'Michalov', 8);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Friday',2, 'SJL', 'Korfantova', 8);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Friday',3, 'NEJ', 'Antesova', 2);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Friday',4, 'MAT', 'Jascurova', 8);
-INSERT INTO public."Timetables"
-(student_class, "day", lesson, subject, teacher, classroom_id)
-VALUES('sekunda', 'Friday',5, 'TSV', 'Bolna', 6);
- 
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('1.A', '2. poschodie', false, false, false, false, true, false, false);
 
-INSERT INTO public."Substitutions"
-("date", timetable_id)
-VALUES('20/2/2023', 1);
-INSERT INTO public."Substitutions"
-("date", new_teacher, new_class_id, timetable_id)
-VALUES('20/2/2023', 'Macko', 12, 30);
-INSERT INTO public."Substitutions"
-("date", new_subject, new_teacher, new_class_id, timetable_id)
-VALUES('20/2/2023', 'INF', 'Bruothova', 3, 125);
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('1.B', '2. poschodie', false, false, false, false, true, false, false);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('2.A', '1. poschodie', true, false, true, true, true, true, false);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('2.B', '1. poschodie', false, false, false, false, true, false, false);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('3.A', '1. poschodie', false, true, false, false, true, true, true);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('3.B', '1. poschodie', true, false, true, true, true, true, false);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('3.C', '1. poschodie', true, false, true, true, true, true, false);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('4.A', 'katakomby', false, false, false, false, true, false, false);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('4.B', 'katakomby', false, false, false, false, true, false, false);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('4.C', '1. poschodie', false, false, false, false, true, false, false);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('Učebňa anglického jazyka 1', '1. poschodie', true, true, false, true, false, true, false);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('Učebňa anglického jazyka 2', '3. poschodie', false, false, true, true, true, true, true);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('Učebňa anglického jazyka 3', '3. poschodie', false, false, true, true, true, true, true);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('Laboratórium anglického jazyka', '2. poschodie', false, false, true, false, true, true, true);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('Učebňa cudzích jazykov 1', '2. poschodie', true, false, true, true, false, false, true);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('Učebňa cudzieho jazyka 2', '3. poschodie', false, false, false, true, false, true, true);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('Učebňa cudzieho jazyka 3', '3. poschodie', false, false, false, true, false, true, true);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('Prednášková miestnosť', '3. poschodie', true, true, false, true, false, false, true);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('Učebňa fyziky', 'prízemie', false, true, false, false, true, true, true);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('Učebňa biológie', 'prízemie', true, false, false, true, true, false, true);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('Učebňa náboženstva', '2. poschodie', false, false, false, false, false, false, false);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('Laboratórium biológie', 'prízemie', false, true, false, true, true, true, true);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('Laboratórium chémie', 'prízemie', false, true, false, false, true, false, false);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('Laboratórium fyziky', 'prízemie', false, false, false, false, true, false, false);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('Učebňa informatiky 1', '3. poschodie', true, true, true, true, false, false, true);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('Učebňa informatiky 2', '3. poschodie', false, true, true, true, false, true, true);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('Učebňa informatiky 3', '3. poschodie', false, true, true, true, false, true, true);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('Meditačná miestnosť', '2. poschodie', false, false, true, false, false, true, false);
+
+INSERT INTO public."Classrooms"
+("name", "position", interactive_board, teacher_pc, teacher_notebook, flip_chart, sink, data_projector, ethernet_cable)
+VALUES('Telocvičňa', 'prízemie', false, false, false, false, false, false, false);
+
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1, 'prima', 'Monday', 1, 'Michalov', 19, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (2, 'prima', 'Monday', 1, 'Marcincinova', 1, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (3, 'prima', 'Monday', 2, 'Horvathova', 12, 'GEO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (4, 'prima', 'Monday', 3, 'Trenklerova', 1, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (5, 'prima', 'Monday', 4, 'Candova', 1, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (6, 'prima', 'Monday', 5, 'Husekova', 1, 'NJ', 'NEJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (7, 'prima', 'Monday', 5, 'Ruzicka', 21, 'TJ', 'TAJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (8, 'prima', 'Monday', 6, 'Bruothova', 33, 'INF', 'INF1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (9, 'prima', 'Monday', 6, 'Fricova', 32, 'INF', 'INF2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (10, 'prima', 'Monday', 7, 'Horvathova', 1, 'TH', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (11, 'prima', 'Tuesday', 1, 'Cepissakova', 1, 'VYV', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (12, 'prima', 'Tuesday', 2, 'Trenklerova', 1, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (13, 'prima', 'Tuesday', 3, 'Candova', 1, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (14, 'prima', 'Tuesday', 4, 's.Karola', 1, 'KNB', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (15, 'prima', 'Tuesday', 5, 'Zalomova', 1, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (16, 'prima', 'Wednesday', 1, 'Hadobas', 20, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (17, 'prima', 'Wednesday', 1, 'Marcincinova', 1, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (18, 'prima', 'Wednesday', 2, 'Candova', 1, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (19, 'prima', 'Wednesday', 3, 'Trenklerova', 1, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (20, 'prima', 'Wednesday', 4, 'Husekova', 1, 'NJ', 'NEJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (21, 'prima', 'Wednesday', 4, 'Ruzicka', 21, 'TJ', 'TAJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (22, 'prima', 'Wednesday', 5, 'Cizmarova', 1, 'OBN', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (23, 'prima', 'Wednesday', 6, 'Korfantova', 24, 'HUV', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (24, 'prima', 'Thursday', 1, 'Trenklerova', 1, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (25, 'prima', 'Thursday', 2, 'Michalov', 19, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (26, 'prima', 'Thursday', 2, 'Hadobas', 1, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (27, 'prima', 'Thursday', 3, 'Candova', 11, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (28, 'prima', 'Thursday', 4, 'Husekova', 1, 'NJ', 'NEJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (29, 'prima', 'Thursday', 4, 'Ruzicka', 21, 'TJ', 'TAJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (30, 'prima', 'Thursday', 5, 'Jascurova', 1, 'BIO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (31, 'prima', 'Thursday', 6, 'Svik', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (32, 'prima', 'Thursday', 6, 'Bolna', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (33, 'prima', 'Friday', 1, 'Candova', 1, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (34, 'prima', 'Friday', 2, 'Trenklerova', 1, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (35, 'prima', 'Friday', 3, 'Svik', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (36, 'prima', 'Friday', 3, 'Bolna', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (37, 'prima', 'Friday', 4, 'Michalov', 19, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (38, 'prima', 'Friday', 4, 'Marcincinova', 17, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (39, 'prima', 'Friday', 5, 's.Karola', 27, 'KNB', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (40, 'sekunda', 'Monday', 1, 'Korfantova', 3, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (41, 'sekunda', 'Monday', 2, 'Jascurova', 2, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (42, 'sekunda', 'Monday', 3, 'Antesova', 3, 'NJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (43, 'sekunda', 'Monday', 4, 'Bolna', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (44, 'sekunda', 'Monday', 4, 'Kristanova', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (45, 'sekunda', 'Monday', 5, 'Hadobas', 2, 'AJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (46, 'sekunda', 'Monday', 6, 'Varchol', 25, 'FYZ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (47, 'sekunda', 'Tuesday', 1, 'Jascurova', 2, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (48, 'sekunda', 'Tuesday', 2, 'Cepissakova', 2, 'VYV', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (49, 'sekunda', 'Tuesday', 3, 'Korfantova', 2, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (50, 'sekunda', 'Tuesday', 4, 'Michalov', 2, 'AJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (51, 'sekunda', 'Tuesday', 5, 's.Karola', 2, 'KNB', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (52, 'sekunda', 'Tuesday', 6, 'Trenklerova', 28, 'BIO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (53, 'sekunda', 'Tuesday', 7, 'Cizmarova', 2, 'TH', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (54, 'sekunda', 'Wednesday', 1, 'Simeghova', 29, 'CHE', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (55, 'sekunda', 'Wednesday', 2, 'Varchol', 25, 'FYZ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (56, 'sekunda', 'Wednesday', 3, 'Bruothova', 33, 'INF', 'INF1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (57, 'sekunda', 'Wednesday', 3, 'Fricova', 32, 'INF', 'INF2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (58, 'sekunda', 'Wednesday', 4, 'Trenklerova', 2, 'BIO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (59, 'sekunda', 'Wednesday', 5, 's.Karola', 2, 'KNB', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (60, 'sekunda', 'Wednesday', 6, 'Pitonakova', 3, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (61, 'sekunda', 'Thursday', 1, 'Michalov', 2, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (62, 'sekunda', 'Thursday', 1, 'Antesova', 22, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (63, 'sekunda', 'Thursday', 2, 'Jascurova', 2, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (64, 'sekunda', 'Thursday', 3, 'Korfantova', 2, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (65, 'sekunda', 'Thursday', 4, 'Cizmarova', 2, 'OBN', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (66, 'sekunda', 'Thursday', 5, 'Horvathova', 9, 'GEO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (67, 'sekunda', 'Thursday', 6, 'Michalov', 19, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (68, 'sekunda', 'Thursday', 6, 'Antesova', 22, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (69, 'sekunda', 'Friday', 1, 'Michalov', 2, 'AJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (70, 'sekunda', 'Friday', 2, 'Korfantova', 2, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (71, 'sekunda', 'Friday', 3, 'Antesova', 18, 'NJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (72, 'sekunda', 'Friday', 4, 'Jascurova', 2, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (73, 'sekunda', 'Friday', 5, 'Bolna', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (74, 'sekunda', 'Friday', 5, 'Kristanova', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (75, 'sekunda', 'Friday', 6, 'Korfantova', 2, 'HUV', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (76, 'tercia', 'Monday', 1, 'Simeghova', 26, 'CHE', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (77, 'tercia', 'Monday', 2, 'Tutokyova', 26, 'BIO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (78, 'tercia', 'Monday', 3, 'Korfantova', 3, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (79, 'tercia', 'Monday', 4, 'Trenklerova', 3, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (80, 'tercia', 'Monday', 5, 'Michalov', 19, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (81, 'tercia', 'Monday', 5, 'Antesova', 22, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (82, 'tercia', 'Monday', 6, 'Michalov', 19, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (83, 'tercia', 'Monday', 6, 'Antesova', 22, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (84, 'tercia', 'Monday', 7, 'Cizmarova', 3, 'OBN', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (85, 'tercia', 'Tuesday', 1, 'Korfantova', 3, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (86, 'tercia', 'Tuesday', 2, 'Bruothova', 33, 'INF', 'INF1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (87, 'tercia', 'Tuesday', 2, 'Fricova', 32, 'INF', 'INF2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (88, 'tercia', 'Tuesday', 3, 'Michalov', 3, 'AJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (89, 'tercia', 'Tuesday', 4, 'Korfantova', 3, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (90, 'tercia', 'Tuesday', 5, 'Bolna', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (91, 'tercia', 'Tuesday', 5, 'Svik', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (92, 'tercia', 'Tuesday', 6, 'Zalomova', 3, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (93, 'tercia', 'Tuesday', 7, 's.Karola', 3, 'KNB', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (94, 'tercia', 'Wednesday', 1, 'Korfantova', 3, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (95, 'tercia', 'Wednesday', 2, 'Trenklerova', 3, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (96, 'tercia', 'Wednesday', 3, 'Michalov', 3, 'AJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (97, 'tercia', 'Wednesday', 4, 'Horvathova', 3, 'GEO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (98, 'tercia', 'Wednesday', 5, 'Varchol', 25, 'FYZ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (99, 'tercia', 'Wednesday', 6, 'Bolna', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (100, 'tercia', 'Wednesday', 6, 'Svik', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (101, 'tercia', 'Wednesday', 7, 'Trenklerova', 3, 'TH', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (102, 'tercia', 'Thursday', 1, 'Varchol', 25, 'FYZ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (103, 'tercia', 'Thursday', 2, 'Zalomova', 3, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (104, 'tercia', 'Thursday', 3, 'Trenklerova', 3, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (105, 'tercia', 'Thursday', 4, 'Antesova', 3, 'NJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (106, 'tercia', 'Thursday', 5, 's.Karola', 3, 'KNB', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (107, 'tercia', 'Friday', 1, 'Simeghova', 26, 'CHE', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (108, 'tercia', 'Friday', 2, 'Hadobas', 3, 'AJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (109, 'tercia', 'Friday', 3, 'Korfantova', 3, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (110, 'tercia', 'Friday', 4, 'Antesova', 3, 'NJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (111, 'tercia', 'Friday', 5, 'Trenklerova', 3, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (112, 'kvarta', 'Monday', 1, 'Antesova', 22, 'NJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (113, 'kvarta', 'Monday', 2, 'Korfantova', 4, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (114, 'kvarta', 'Monday', 3, 'Tutokyova', 29, 'CHE', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (115, 'kvarta', 'Monday', 3, 'Svikova', 30, 'FYZ', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (116, 'kvarta', 'Monday', 4, 'Tutokyova', 29, 'CHE', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (117, 'kvarta', 'Monday', 4, 'Svikova', 30, 'FYZ', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (118, 'kvarta', 'Monday', 5, 'Trenklerova', 4, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (119, 'kvarta', 'Monday', 6, 'Zalomova', 4, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (120, 'kvarta', 'Monday', 7, 'Antesova', 4, 'TH', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (121, 'kvarta', 'Tuesday', 1, 'Marcincinova', 4, 'AJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (122, 'kvarta', 'Tuesday', 2, 'Antesova', 22, 'NJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (123, 'kvarta', 'Tuesday', 3, 'Cizmarova', 4, 'OBN', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (124, 'kvarta', 'Tuesday', 4, 'Trenklerova', 4, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (125, 'kvarta', 'Tuesday', 5, 'Bolna', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (126, 'kvarta', 'Tuesday', 5, 'Kristanova', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (127, 'kvarta', 'Tuesday', 6, 'Korfantova', 4, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (128, 'kvarta', 'Wednesday', 1, 'Trenklerova', 4, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (129, 'kvarta', 'Wednesday', 2, 'Horvathova', 4, 'GEO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (130, 'kvarta', 'Wednesday', 3, 'Korfantova', 4, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (131, 'kvarta', 'Wednesday', 4, 'Marcincinova', 17, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (132, 'kvarta', 'Wednesday', 4, 'Antesova', 22, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (133, 'kvarta', 'Wednesday', 5, 'Marcincinova', 17, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (134, 'kvarta', 'Wednesday', 5, 'Antesova', 22, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (135, 'kvarta', 'Wednesday', 6, 'Bolna', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (136, 'kvarta', 'Wednesday', 6, 'Kristanova', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (137, 'kvarta', 'Thursday', 1, 'Tutokyova', 28, 'BIO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (138, 'kvarta', 'Thursday', 2, 'Trenklerova', 4, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (139, 'kvarta', 'Thursday', 3, 'Tutokyova', 4, 'CHE', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (140, 'kvarta', 'Thursday', 4, 'Korfantova', 4, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (141, 'kvarta', 'Thursday', 5, 'Hadobas', 4, 'AJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (142, 'kvarta', 'Thursday', 6, 's.Karola', 27, 'KNB', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (143, 'kvarta', 'Friday', 1, 'Svikova', 25, 'FYZ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (144, 'kvarta', 'Friday', 2, 'Marcincinova', 4, 'AJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (145, 'kvarta', 'Friday', 3, 's.Karola', 27, 'KNB', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (146, 'kvarta', 'Friday', 4, 'Korfantova', 4, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (147, 'kvarta', 'Friday', 5, 'Bruothova', 33, 'INF', 'INF1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (148, 'kvarta', 'Friday', 5, 'Fricova', 32, 'INF', 'INF2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (149, 'kvarta', 'Friday', 6, 'Bruothova', 33, 'INF', 'INF1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (150, 'kvarta', 'Friday', 6, 'Fricova', 32, 'INF', 'INF2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (151, 'kvinta', 'Monday', 1, 'Horvathova', 12, 'GEO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (152, 'kvinta', 'Monday', 2, 's.Karola', 5, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (153, 'kvinta', 'Monday', 2, 'Kristanova', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (154, 'kvinta', 'Monday', 3, 'Goliasova', 28, 'BIO', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (155, 'kvinta', 'Monday', 3, 'Macko', 5, 'MAT', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (156, 'kvinta', 'Monday', 4, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (157, 'kvinta', 'Monday', 4, 'Ruzicka', 21, 'TJ', 'TAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (158, 'kvinta', 'Monday', 4, 'Husekova', 22, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (159, 'kvinta', 'Monday', 5, 'Goliasova', 28, 'BIO', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (160, 'kvinta', 'Monday', 5, 'Macko', 5, 'MAT', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (161, 'kvinta', 'Monday', 6, 's.Karola', 5, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (162, 'kvinta', 'Monday', 6, 'Svik', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (163, 'kvinta', 'Monday', 7, 'Simeghova', 5, 'CHE', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (164, 'kvinta', 'Tuesday', 1, 'Svikova', 25, 'FYZ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (165, 'kvinta', 'Tuesday', 2, 'Radimska', 13, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (166, 'kvinta', 'Tuesday', 3, 'Macko', 5, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (167, 'kvinta', 'Tuesday', 4, 'Zalomova', 13, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (168, 'kvinta', 'Tuesday', 5, 'Michalov', 19, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (169, 'kvinta', 'Tuesday', 5, 'Marcincinova', 5, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (170, 'kvinta', 'Tuesday', 6, 'Cepissakova', 5, 'UAK', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (171, 'kvinta', 'Tuesday', 7, 'Cepissakova', 5, 'UAK', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (172, 'kvinta', 'Tuesday', 8, 'Marcincinova', 5, 'TH', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (173, 'kvinta', 'Wednesday', 1, 'Radimska', 5, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (174, 'kvinta', 'Wednesday', 2, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (175, 'kvinta', 'Wednesday', 2, 'Ruzicka', 21, 'TJ', 'TAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (176, 'kvinta', 'Wednesday', 2, 'Husekova', 22, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (177, 'kvinta', 'Wednesday', 3, 'Macko', 5, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (178, 'kvinta', 'Wednesday', 4, 'Goliasova', 26, 'BIO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (179, 'kvinta', 'Wednesday', 5, 's.Adriana', 20, 'ZRUŽ', 'ZRUŽ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (180, 'kvinta', 'Wednesday', 5, 'Zivicka', 31, 'CER', 'CER', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (181, 'kvinta', 'Wednesday', 6, 'Zalomova', 5, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (182, 'kvinta', 'Wednesday', 7, 'Michalov', 19, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (183, 'kvinta', 'Wednesday', 7, 'Marcincinova', 5, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (184, 'kvinta', 'Thursday', 1, 'Macko', 5, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (185, 'kvinta', 'Thursday', 2, 'Radimska', 5, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (186, 'kvinta', 'Thursday', 3, 'Michalov', 19, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (187, 'kvinta', 'Thursday', 3, 'Marcincinova', 5, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (188, 'kvinta', 'Thursday', 4, 'Bruothova', 33, 'INF', 'INF1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (189, 'kvinta', 'Thursday', 4, 'Fricova', 32, 'INF', 'INF2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (190, 'kvinta', 'Thursday', 5, 'Bruothova', 33, 'INF', 'INF1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (191, 'kvinta', 'Thursday', 5, 'Fricova', 32, 'INF', 'INF2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (192, 'kvinta', 'Thursday', 6, 'Horvathova', 5, 'GEO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (193, 'kvinta', 'Friday', 1, 'Hadobas', 20, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (194, 'kvinta', 'Friday', 1, 'Marcincinova', 17, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (195, 'kvinta', 'Friday', 2, 'Svik', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (196, 'kvinta', 'Friday', 2, 's.Karola', 27, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (197, 'kvinta', 'Friday', 3, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (198, 'kvinta', 'Friday', 3, 'Ruzicka', 7, 'TJ', 'TAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (199, 'kvinta', 'Friday', 3, 'Husekova', 22, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (200, 'kvinta', 'Friday', 4, 'Kristanova', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (201, 'kvinta', 'Friday', 4, 's.Karola', 27, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (202, 'kvinta', 'Friday', 5, 'Svikova', 30, 'FYZ', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (203, 'kvinta', 'Friday', 5, 'Simeghova', 29, 'CHE', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (204, 'kvinta', 'Friday', 6, 'Svikova', 30, 'FYZ', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (205, 'kvinta', 'Friday', 6, 'Simeghova', 29, 'CHE', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (206, 'kvinta', 'Friday', 7, 'Macko', 5, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (207, '1.A', 'Monday', 1, 'Jascurova', 7, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (208, '1.A', 'Monday', 2, 'Mendel', 23, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (209, '1.A', 'Monday', 2, 'Popikova', 7, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (210, '1.A', 'Monday', 3, 's.Julia', 27, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (211, '1.A', 'Monday', 3, 'Kristanova', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (212, '1.A', 'Monday', 4, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (213, '1.A', 'Monday', 4, 'Husekova', 22, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (214, '1.A', 'Monday', 4, 'Hajduk', 7, 'FJ', 'FRJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (215, '1.A', 'Monday', 5, 'Horvathova', 11, 'GEO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (216, '1.A', 'Monday', 6, 'Simeghova', 7, 'CHE', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (217, '1.A', 'Monday', 7, 'Korfantova', 7, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (218, '1.A', 'Tuesday', 1, 's.Julia', 7, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (219, '1.A', 'Tuesday', 1, 'Kristanova', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (220, '1.A', 'Tuesday', 2, 'Jascurova', 7, 'MAT', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (221, '1.A', 'Tuesday', 2, 'Goliasova', 28, 'BIO', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (222, '1.A', 'Tuesday', 3, 'Jascurova', 7, 'MAT', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (223, '1.A', 'Tuesday', 3, 'Goliasova', 28, 'BIO', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (224, '1.A', 'Tuesday', 4, 'Mendel', 20, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (225, '1.A', 'Tuesday', 4, 'Popikova', 7, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (226, '1.A', 'Tuesday', 5, 'Varchol', 25, 'FYZ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (227, '1.A', 'Tuesday', 6, 'Kristanova', 24, 'UAK', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (228, '1.A', 'Tuesday', 7, 'Kristanova', 24, 'UAK', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (229, '1.A', 'Tuesday', 8, 'Kristanova', 7, 'TH', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (230, '1.A', 'Wednesday', 1, 'Pitonakova', 13, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (231, '1.A', 'Wednesday', 2, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (232, '1.A', 'Wednesday', 2, 'Husekova', 22, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (233, '1.A', 'Wednesday', 2, 'Hajduk', 7, 'FJ', 'FRJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (234, '1.A', 'Wednesday', 3, 'Jascurova', 7, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (235, '1.A', 'Wednesday', 4, 'Bruothova', 33, 'INF', 'INF1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (236, '1.A', 'Wednesday', 4, 'Fricova', 32, 'INF', 'INF2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (237, '1.A', 'Wednesday', 5, 'Bruothova', 33, 'INF', 'INF1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (238, '1.A', 'Wednesday', 5, 'Fricova', 32, 'INF', 'INF2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (239, '1.A', 'Wednesday', 6, 'Mendel', 20, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (240, '1.A', 'Wednesday', 6, 'Popikova', 17, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (241, '1.A', 'Wednesday', 7, 'Kristanova', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (242, '1.A', 'Wednesday', 7, 's.Karola', 6, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (243, '1.A', 'Thursday', 1, 'Kristanova', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (244, '1.A', 'Thursday', 1, 's.Karola', 27, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (245, '1.A', 'Thursday', 2, 'Korfantova', 7, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (246, '1.A', 'Thursday', 3, 'Jascurova', 7, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (247, '1.A', 'Thursday', 4, 's.Adriana', 24, 'ZRUŽ', 'ZRUŽ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (248, '1.A', 'Thursday', 4, 'Zivicka', 31, 'CER', 'CER', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (249, '1.A', 'Thursday', 5, 'Varchol', 30, 'FYZ', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (250, '1.A', 'Thursday', 5, 'Simeghova', 29, 'CHE', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (251, '1.A', 'Thursday', 6, 'Varchol', 30, 'FYZ', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (252, '1.A', 'Thursday', 6, 'Simeghova', 29, 'CHE', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (253, '1.A', 'Thursday', 7, 'Goliasova', 28, 'BIO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (254, '1.A', 'Friday', 1, 'Korfantova', 4, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (255, '1.A', 'Friday', 2, 'Pitonakova', 7, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (256, '1.A', 'Friday', 3, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (257, '1.A', 'Friday', 3, 'Husekova', 22, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (258, '1.A', 'Friday', 3, 'Hajduk', 21, 'FJ', 'FRJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (259, '1.A', 'Friday', 4, 'Hadobas', 7, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (260, '1.A', 'Friday', 4, 'Popikova', 18, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (261, '1.A', 'Friday', 5, 'Jascurova', 7, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (262, '1.A', 'Friday', 7, 'Horvathova', 4, 'GEO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (263, '1.B', 'Monday', 1, 'Bruothova', 33, 'INF', 'INF1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (264, '1.B', 'Monday', 1, 'Fricova', 32, 'INF', 'INF2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (265, '1.B', 'Monday', 2, 'Bruothova', 33, 'INF', 'INF1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (266, '1.B', 'Monday', 2, 'Fricova', 32, 'INF', 'INF2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (267, '1.B', 'Monday', 3, 'Ruzicka', 21, 'TJ', 'TAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (268, '1.B', 'Monday', 3, 'Husekova', 22, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (269, '1.B', 'Monday', 4, 'Juhascikova', 8, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (270, '1.B', 'Monday', 5, 'Hajduk', 8, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (271, '1.B', 'Monday', 6, 'Hadobas', 8, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (272, '1.B', 'Monday', 6, 'Galova', 18, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (273, '1.B', 'Monday', 7, 'Pitonakova', 13, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (274, '1.B', 'Tuesday', 1, 'Hadobas', 17, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (275, '1.B', 'Tuesday', 1, 'Galova', 18, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (276, '1.B', 'Tuesday', 2, 'Juhascikova', 8, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (277, '1.B', 'Tuesday', 3, 's.Karola', 13, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (278, '1.B', 'Tuesday', 3, 's.Julia', 8, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (279, '1.B', 'Tuesday', 4, 'Cepissakova', 8, 'UAK', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (280, '1.B', 'Tuesday', 5, 'Cepissakova', 8, 'UAK', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (281, '1.B', 'Tuesday', 6, 'Varchol', 30, 'FYZ', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (282, '1.B', 'Tuesday', 6, 'Simeghova', 29, 'CHE', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (283, '1.B', 'Tuesday', 7, 'Varchol', 30, 'FYZ', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (284, '1.B', 'Tuesday', 7, 'Simeghova', 29, 'CHE', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (285, '1.B', 'Wednesday', 1, 'Juhascikova', 8, 'MAT', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (286, '1.B', 'Wednesday', 1, 'Tutokyova', 12, 'BIO', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (287, '1.B', 'Wednesday', 2, 'Hadobas', 8, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (288, '1.B', 'Wednesday', 2, 'Galova', 18, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (289, '1.B', 'Wednesday', 3, 'Juhascikova', 8, 'MAT', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (290, '1.B', 'Wednesday', 3, 'Tutokyova', 28, 'BIO', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (291, '1.B', 'Wednesday', 4, 'Hajduk', 8, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (292, '1.B', 'Wednesday', 5, 'Ruzicka', 21, 'TJ', 'TAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (293, '1.B', 'Wednesday', 5, 'Husekova', 8, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (294, '1.B', 'Wednesday', 6, 's.Karola', 27, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (295, '1.B', 'Wednesday', 6, 's.Julia', 8, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (296, '1.B', 'Wednesday', 7, 'Horvathova', 13, 'GEO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (297, '1.B', 'Wednesday', 8, 'Juhascikova', 8, 'TH', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (298, '1.B', 'Thursday', 1, 'Juhascikova', 8, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (299, '1.B', 'Thursday', 2, 'Varchol', 8, 'FYZ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (300, '1.B', 'Thursday', 3, 'Hadobas', 17, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (301, '1.B', 'Thursday', 3, 'Galova', 18, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (302, '1.B', 'Thursday', 4, 'Pitonakova', 8, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (303, '1.B', 'Thursday', 5, 'Hajduk', 8, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (304, '1.B', 'Thursday', 6, 's.Adriana', 24, 'ZRUŽ', 'ZRUŽ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (305, '1.B', 'Thursday', 6, 'Zivicka', 31, 'CER', 'CER', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (306, '1.B', 'Thursday', 7, 'Bolna', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (307, '1.B', 'Thursday', 7, 'Kristanova', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (308, '1.B', 'Friday', 1, 'Bolna', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (309, '1.B', 'Friday', 1, 'Kristanova', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (310, '1.B', 'Friday', 2, 'Ruzicka', 21, 'TJ', 'TAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (311, '1.B', 'Friday', 2, 'Husekova', 22, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (312, '1.B', 'Friday', 3, 'Juhascikova', 8, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (313, '1.B', 'Friday', 4, 'Simeghova', 26, 'CHE', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (314, '1.B', 'Friday', 5, 'Tutokyova', 28, 'BIO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (315, '1.B', 'Friday', 6, 'Horvathova', 4, 'GEO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (316, 'sexta', 'Monday', 1, 'Macko', 6, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (317, 'sexta', 'Monday', 2, 'Svikova', 25, 'FYZ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (318, 'sexta', 'Monday', 3, 'Simeghova', 26, 'CHE', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (319, 'sexta', 'Monday', 4, 'Michalov', 19, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (320, 'sexta', 'Monday', 4, 'Marcincinova', 6, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (321, 'sexta', 'Monday', 5, 'Zalomova', 3, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (322, 'sexta', 'Monday', 6, 'Korfantova', 3, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (323, 'sexta', 'Monday', 7, 'Svik', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (324, 'sexta', 'Monday', 7, 's.Karola', 6, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (325, 'sexta', 'Tuesday', 1, 'Zalomova', 6, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (326, 'sexta', 'Tuesday', 2, 'Macko', 6, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (327, 'sexta', 'Tuesday', 3, 'Horvathova', 6, 'GEO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (328, 'sexta', 'Tuesday', 4, 'Bruothova', 33, 'INF', 'INF1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (329, 'sexta', 'Tuesday', 4, 'Fricova', 32, 'INF', 'INF2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (330, 'sexta', 'Tuesday', 5, 'Bruothova', 33, 'INF', 'INF1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (331, 'sexta', 'Tuesday', 5, 'Fricova', 32, 'INF', 'INF2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (332, 'sexta', 'Tuesday', 6, 'Antesova', 22, 'NJ', 'NEJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (333, 'sexta', 'Tuesday', 6, 'Ruzicka', 21, 'TJ', 'TAJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (334, 'sexta', 'Tuesday', 7, 'Michalov', 19, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (335, 'sexta', 'Tuesday', 7, 'Marcincinova', 6, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (336, 'sexta', 'Wednesday', 1, 'Antesova', 22, 'NJ', 'NEJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (337, 'sexta', 'Wednesday', 1, 'Ruzicka', 21, 'TJ', 'TAJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (338, 'sexta', 'Wednesday', 2, 'Simeghova', 29, 'CHE', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (339, 'sexta', 'Wednesday', 2, 'Svikova', 30, 'FYZ', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (340, 'sexta', 'Wednesday', 3, 'Simeghova', 29, 'CHE', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (341, 'sexta', 'Wednesday', 3, 'Svikova', 30, 'FYZ', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (342, 'sexta', 'Wednesday', 4, 'Macko', 6, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (343, 'sexta', 'Wednesday', 5, 'Korfantova', 4, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (344, 'sexta', 'Wednesday', 6, 'Bruothova', 33, 'API', 'API', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (345, 'sexta', 'Wednesday', 6, 'Goliasova', 28, 'BCP', 'BCP1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (346, 'sexta', 'Wednesday', 6, 'Tutokyova', 29, 'BCP', 'BCP2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (347, 'sexta', 'Wednesday', 6, 'Dankova', 31, 'MOF', 'MOF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (348, 'sexta', 'Wednesday', 6, 'Antesova', 22, 'KNJ', 'KNJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (349, 'sexta', 'Wednesday', 6, 'Cizmarova', 9, 'SPS', '2SPS', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (350, 'sexta', 'Wednesday', 6, 'Zivicka', 32, 'CER', 'CER', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (351, 'sexta', 'Wednesday', 7, 'Bruothova', 33, 'API', 'API', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (352, 'sexta', 'Wednesday', 7, 'Goliasova', 28, 'BCP', 'BCP1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (353, 'sexta', 'Wednesday', 7, 'Tutokyova', 29, 'BCP', 'BCP2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (354, 'sexta', 'Wednesday', 7, 'Dankova', 31, 'MOF', 'MOF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (355, 'sexta', 'Wednesday', 7, 'Antesova', 22, 'KNJ', 'KNJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (356, 'sexta', 'Wednesday', 7, 'Cizmarova', 9, 'SPS', '2SPS', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (357, 'sexta', 'Wednesday', 7, 'Zivicka', 32, 'CER', 'CER', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (358, 'sexta', 'Thursday', 1, 'Horvathova', 4, 'GEO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (359, 'sexta', 'Thursday', 2, 'Candova', 27, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (360, 'sexta', 'Thursday', 2, 'Kristanova', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (361, 'sexta', 'Thursday', 3, 's.Karola', 27, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (362, 'sexta', 'Thursday', 3, 'Svik', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (363, 'sexta', 'Thursday', 4, 'Macko', 6, 'MAT', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (364, 'sexta', 'Thursday', 4, 'Trenklerova', 28, 'BIO', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (365, 'sexta', 'Thursday', 5, 'Korfantova', 11, 'TH', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (366, 'sexta', 'Thursday', 6, 'Macko', 6, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (367, 'sexta', 'Thursday', 6, 'Trenklerova', 28, 'BIO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (368, 'sexta', 'Thursday', 7, 'Michalov', 19, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (369, 'sexta', 'Thursday', 7, 'Marcincinova', 17, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (370, 'sexta', 'Friday', 1, 'Antesova', 22, 'NJ', 'NEJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (371, 'sexta', 'Friday', 1, 'Ruzicka', 21, 'TJ', 'TAJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (372, 'sexta', 'Friday', 2, 'Candova', 5, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (373, 'sexta', 'Friday', 2, 'Kristanova', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (374, 'sexta', 'Friday', 3, 'Cizmarova', 6, 'OBN', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (375, 'sexta', 'Friday', 4, 'Cizmarova', 12, 'OBN', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (376, 'sexta', 'Friday', 5, 'Korfantova', 6, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (377, 'sexta', 'Friday', 6, 'Trenklerova', 28, 'BIO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (378, '2.A', 'Monday', 1, 'Goliasova', 29, 'CHE', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (379, '2.A', 'Monday', 1, 'Varchol', 30, 'FYZ', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (380, '2.A', 'Monday', 2, 'Goliasova', 29, 'CHE', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (381, '2.A', 'Monday', 2, 'Varchol', 30, 'FYZ', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (382, '2.A', 'Monday', 3, 'Juhascikova', 9, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (383, '2.A', 'Monday', 4, 'Cizmarova', 9, 'OBN', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (384, '2.A', 'Monday', 5, 'Cizmarova', 9, 'OBN', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (385, '2.A', 'Monday', 6, 'Hajduk', 6, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (386, '2.A', 'Monday', 7, 'Bolna', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (387, '2.A', 'Monday', 7, 's.Julia', 27, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (388, '2.A', 'Tuesday', 1, 'Tutokyova', 28, 'BIO', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (389, '2.A', 'Tuesday', 1, 'Juhascikova', 9, 'MAT', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (390, '2.A', 'Tuesday', 2, 'Horvathova', 9, 'GEO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (391, '2.A', 'Tuesday', 3, 'Tutokyova', 26, 'BIO', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (392, '2.A', 'Tuesday', 3, 'Juhascikova', 9, 'MAT', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (393, '2.A', 'Tuesday', 4, 'Karkosiakova', 11, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (394, '2.A', 'Tuesday', 4, 'Husekova', 22, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (395, '2.A', 'Tuesday', 4, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (396, '2.A', 'Tuesday', 4, 'Ruzicka', 21, 'TJ', 'TAJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (397, '2.A', 'Tuesday', 5, 'Hadobas', 20, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (398, '2.A', 'Tuesday', 5, 'Popikova', 18, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (399, '2.A', 'Tuesday', 6, 's.Julia', 27, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (400, '2.A', 'Tuesday', 6, 'Svik', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (401, '2.A', 'Tuesday', 7, 'Pitonakova', 9, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (402, '2.A', 'Wednesday', 1, 'Hajduk', 6, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (403, '2.A', 'Wednesday', 2, 'Juhascikova', 9, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (404, '2.A', 'Wednesday', 3, 's.Julia', 27, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (405, '2.A', 'Wednesday', 3, 'Svik', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (406, '2.A', 'Wednesday', 4, 'Varchol', 25, 'FYZ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (407, '2.A', 'Wednesday', 5, 's.Julia', 27, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (408, '2.A', 'Wednesday', 5, 'Bolna', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (409, '2.A', 'Wednesday', 6, 'Bruothova', 33, 'API', 'API', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (410, '2.A', 'Wednesday', 6, 'Goliasova', 28, 'BCP', 'BCP1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (411, '2.A', 'Wednesday', 6, 'Tutokyova', 29, 'BCP', 'BCP2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (412, '2.A', 'Wednesday', 6, 'Dankova', 31, 'MOF', 'MOF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (413, '2.A', 'Wednesday', 6, 'Antesova', 22, 'KNJ', 'KNJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (414, '2.A', 'Wednesday', 6, 'Cizmarova', 9, 'SPS', '2SPS', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (415, '2.A', 'Wednesday', 6, 'Zivicka', 32, 'CER', 'CER', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (416, '2.A', 'Wednesday', 7, 'Bruothova', 33, 'API', 'API', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (417, '2.A', 'Wednesday', 7, 'Goliasova', 28, 'BCP', 'BCP1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (418, '2.A', 'Wednesday', 7, 'Tutokyova', 29, 'BCP', 'BCP2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (419, '2.A', 'Wednesday', 7, 'Dankova', 31, 'MOF', 'MOF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (420, '2.A', 'Wednesday', 7, 'Antesova', 22, 'KNJ', 'KNJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (421, '2.A', 'Wednesday', 7, 'Cizmarova', 9, 'SPS', '2SPS', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (422, '2.A', 'Wednesday', 7, 'Zivicka', 32, 'CER', 'CER', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (423, '2.A', 'Thursday', 1, 'Karkosiakova', 11, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (424, '2.A', 'Thursday', 1, 'Husekova', 9, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (425, '2.A', 'Thursday', 1, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (426, '2.A', 'Thursday', 1, 'Ruzicka', 21, 'TJ', 'TAJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (427, '2.A', 'Thursday', 2, 'Bruothova', 33, 'INF', 'INF1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (428, '2.A', 'Thursday', 2, 'Fricova', 32, 'INF', 'INF2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (429, '2.A', 'Thursday', 3, 'Bruothova', 33, 'INF', 'INF1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (430, '2.A', 'Thursday', 3, 'Fricova', 32, 'INF', 'INF2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (431, '2.A', 'Thursday', 4, 'Hadobas', 17, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (432, '2.A', 'Thursday', 4, 'Popikova', 18, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (433, '2.A', 'Thursday', 5, 'Goliasova', 26, 'CHE', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (434, '2.A', 'Thursday', 6, 'Tutokyova', 26, 'BIO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (435, '2.A', 'Friday', 1, 'Pitonakova', 9, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (436, '2.A', 'Friday', 2, 'Hajduk', 6, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (437, '2.A', 'Friday', 3, 'Horvathova', 9, 'GEO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (438, '2.A', 'Friday', 4, 'Karkosiakova', 11, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (439, '2.A', 'Friday', 4, 'Husekova', 22, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (440, '2.A', 'Friday', 4, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (441, '2.A', 'Friday', 4, 'Ruzicka', 21, 'TJ', 'TAJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (442, '2.A', 'Friday', 5, 'Juhascikova', 9, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (443, '2.A', 'Friday', 6, 'Hadobas', 20, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (444, '2.A', 'Friday', 6, 'Popikova', 17, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (445, '2.B', 'Monday', 1, 'Hajduk', 8, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (446, '2.B', 'Monday', 2, 'Hrabovska', 17, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (447, '2.B', 'Monday', 2, 'Marcincinova', 10, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (448, '2.B', 'Monday', 3, 'Bruothova', 33, 'INF', 'INF1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (449, '2.B', 'Monday', 3, 'Fricova', 32, 'INF', 'INF2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (450, '2.B', 'Monday', 4, 'Bruothova', 33, 'INF', 'INF1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (451, '2.B', 'Monday', 4, 'Fricova', 32, 'INF', 'INF2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (452, '2.B', 'Monday', 5, 'Pitonakova', 10, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (453, '2.B', 'Monday', 6, 'Bolna', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (454, '2.B', 'Monday', 6, 's.Julia', 27, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (455, '2.B', 'Monday', 7, 'Juhascikova', 10, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (456, '2.B', 'Tuesday', 1, 'Simeghova', 29, 'CHE', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (457, '2.B', 'Tuesday', 1, 'Varchol', 30, 'FYZ', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (458, '2.B', 'Tuesday', 2, 'Simeghova', 29, 'CHE', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (459, '2.B', 'Tuesday', 2, 'Varchol', 30, 'FYZ', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (460, '2.B', 'Tuesday', 3, 'Hajduk', 24, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (461, '2.B', 'Tuesday', 4, 'Karkosiakova', 11, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (462, '2.B', 'Tuesday', 4, 'Husekova', 22, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (463, '2.B', 'Tuesday', 4, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (464, '2.B', 'Tuesday', 4, 'Ruzicka', 21, 'TJ', 'TAJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (465, '2.B', 'Tuesday', 5, 'Juhascikova', 10, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (466, '2.B', 'Tuesday', 6, 'Goliasova', 10, 'BIO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (467, '2.B', 'Tuesday', 7, 's.Julia', 10, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (468, '2.B', 'Tuesday', 7, 'Bolna', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (469, '2.B', 'Wednesday', 1, 'Svik', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (470, '2.B', 'Wednesday', 1, 's.Karola', 27, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (471, '2.B', 'Wednesday', 2, 'Hrabovska', 20, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (472, '2.B', 'Wednesday', 2, 'Marcincinova', 10, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (473, '2.B', 'Wednesday', 3, 'Varchol', 25, 'FYZ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (474, '2.B', 'Wednesday', 4, 'Pitonakova', 13, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (475, '2.B', 'Wednesday', 5, 'Hajduk', 7, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (476, '2.B', 'Wednesday', 6, 'Bruothova', 33, 'API', 'API', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (477, '2.B', 'Wednesday', 6, 'Goliasova', 28, 'BCP', 'BCP1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (478, '2.B', 'Wednesday', 6, 'Tutokyova', 29, 'BCP', 'BCP2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (479, '2.B', 'Wednesday', 6, 'Dankova', 31, 'MOF', 'MOF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (480, '2.B', 'Wednesday', 6, 'Antesova', 22, 'KNJ', 'KNJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (481, '2.B', 'Wednesday', 6, 'Cizmarova', 9, 'SPS', '2SPS', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (482, '2.B', 'Wednesday', 6, 'Zivicka', 32, 'CER', 'CER', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (483, '2.B', 'Wednesday', 7, 'Bruothova', 33, 'API', 'API', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (484, '2.B', 'Wednesday', 7, 'Goliasova', 28, 'BCP', 'BCP1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (485, '2.B', 'Wednesday', 7, 'Tutokyova', 29, 'BCP', 'BCP2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (486, '2.B', 'Wednesday', 7, 'Dankova', 31, 'MOF', 'MOF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (487, '2.B', 'Wednesday', 7, 'Antesova', 22, 'KNJ', 'KNJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (488, '2.B', 'Wednesday', 7, 'Cizmarova', 9, 'SPS', '2SPS', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (489, '2.B', 'Wednesday', 7, 'Zivicka', 32, 'CER', 'CER', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (490, '2.B', 'Thursday', 1, 'Karkosiakova', 11, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (491, '2.B', 'Thursday', 1, 'Husekova', 9, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (492, '2.B', 'Thursday', 1, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (493, '2.B', 'Thursday', 1, 'Ruzicka', 21, 'TJ', 'TAJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (494, '2.B', 'Thursday', 2, 'Svik', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (495, '2.B', 'Thursday', 2, 's.Karola', 10, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (496, '2.B', 'Thursday', 3, 'Juhascikova', 10, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (497, '2.B', 'Thursday', 4, 'Horvathova', 9, 'GEO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (498, '2.B', 'Thursday', 5, 'Hrabovska', 20, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (499, '2.B', 'Thursday', 5, 'Marcincinova', 17, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (500, '2.B', 'Thursday', 6, 'Cizmarova', 4, 'OBN', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (501, '2.B', 'Thursday', 7, 'Cizmarova', 4, 'OBN', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (502, '2.B', 'Friday', 1, 'Goliasova', 28, 'BIO', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (503, '2.B', 'Friday', 1, 'Juhascikova', 10, 'MAT', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (504, '2.B', 'Friday', 2, 'Goliasova', 28, 'BIO', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (505, '2.B', 'Friday', 2, 'Juhascikova', 10, 'MAT', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (506, '2.B', 'Friday', 3, 'Simeghova', 28, 'CHE', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (507, '2.B', 'Friday', 4, 'Karkosiakova', 11, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (508, '2.B', 'Friday', 4, 'Husekova', 22, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (509, '2.B', 'Friday', 4, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (510, '2.B', 'Friday', 4, 'Ruzicka', 21, 'TJ', 'TAJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (511, '2.B', 'Friday', 5, 'Horvathova', 12, 'GEO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (512, '2.B', 'Friday', 6, 'Hajduk', 10, 'TH', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (513, '3.A', 'Monday', 1, 'Cizmarova', 13, 'SPS', '3SPS1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (514, '3.A', 'Monday', 1, 'Juhascikova', 11, 'SEM', 'SEM', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (515, '3.A', 'Monday', 1, 'Trenklerova', 28, 'SEB', 'SEB1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (516, '3.A', 'Monday', 1, 'Zalomova', 9, 'SED', 'SED', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (517, '3.A', 'Monday', 2, 'Cizmarova', 13, 'SPS', '3SPS1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (518, '3.A', 'Monday', 2, 'Juhascikova', 11, 'SEM', 'SEM', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (519, '3.A', 'Monday', 2, 'Trenklerova', 28, 'SEB', 'SEB1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (520, '3.A', 'Monday', 2, 'Zalomova', 9, 'SED', 'SED', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (521, '3.A', 'Monday', 3, 'Hadobas', 17, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (522, '3.A', 'Monday', 3, 'Hrabovska', 20, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (523, '3.A', 'Monday', 3, 'Popikova', 11, 'AJ', 'ANJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (524, '3.A', 'Monday', 3, 'Mendel', 23, 'AJ', 'ANJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (525, '3.A', 'Monday', 3, 'Galova', 18, 'AJ', 'ANJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (526, '3.A', 'Monday', 3, 'Marcincinova', 19, 'AJ', 'ANJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (527, '3.A', 'Monday', 4, 'o.Bartolomej', 27, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (528, '3.A', 'Monday', 4, 's.Julia', 11, 'KNB', 's.Julia', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (529, '3.A', 'Monday', 5, 'Varchol', 25, 'FYZ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (530, '3.A', 'Monday', 6, 'Kristanova', 21, 'SDU', 'SDU', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (531, '3.A', 'Monday', 6, 'Dankova', 24, 'APE', 'APE', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (532, '3.A', 'Monday', 6, 'Svikova', 30, 'SEF', 'SEF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (533, '3.A', 'Monday', 6, 'Goliasova', 28, 'SEB', 'SEB2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (534, '3.A', 'Monday', 7, 'Kristanova', 21, 'SDU', 'SDU', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (535, '3.A', 'Monday', 7, 'Dankova', 24, 'APE', 'APE', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (536, '3.A', 'Monday', 7, 'Svikova', 30, 'SEF', 'SEF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (537, '3.A', 'Monday', 7, 'Goliasova', 28, 'SEB', 'SEB2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (538, '3.A', 'Tuesday', 1, 'Macko', 11, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (539, '3.A', 'Tuesday', 2, 'Hadobas', 17, 'SAJ', 'SAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (540, '3.A', 'Tuesday', 2, 'Hrabovska', 10, 'SAJ', 'SAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (541, '3.A', 'Tuesday', 2, 'Popikova', 11, 'SAJ', 'SAJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (542, '3.A', 'Tuesday', 2, 'Mendel', 20, 'SAJ', 'SAJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (543, '3.A', 'Tuesday', 2, 'Galova', 18, 'SAJ', 'SAJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (544, '3.A', 'Tuesday', 2, 'Marcincinova', 12, 'SAJ', 'SAJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (545, '3.A', 'Tuesday', 3, 'Hadobas', 17, 'SAJ', 'SAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (546, '3.A', 'Tuesday', 3, 'Hrabovska', 10, 'SAJ', 'SAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (547, '3.A', 'Tuesday', 3, 'Popikova', 11, 'SAJ', 'SAJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (548, '3.A', 'Tuesday', 3, 'Mendel', 20, 'SAJ', 'SAJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (549, '3.A', 'Tuesday', 3, 'Galova', 18, 'SAJ', 'SAJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (550, '3.A', 'Tuesday', 3, 'Marcincinova', 12, 'SAJ', 'SAJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (551, '3.A', 'Tuesday', 4, 'Candova', 9, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (552, '3.A', 'Tuesday', 5, 'Antesova', 3, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (553, '3.A', 'Tuesday', 5, 'Karkosiakova', 11, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (554, '3.A', 'Tuesday', 5, 'Husekova', 22, 'NJ', 'NEJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (555, '3.A', 'Tuesday', 5, 'Ruzicka', 21, 'TJ', 'TAJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (556, '3.A', 'Tuesday', 5, 'Hajduk', 12, 'FJ', 'FRJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (557, '3.A', 'Tuesday', 5, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (558, '3.A', 'Tuesday', 6, 'Bruothova', 33, 'SEI', 'SEI', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (559, '3.A', 'Tuesday', 6, 'Horvathova', 11, 'SEG', 'SEG', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (560, '3.A', 'Tuesday', 6, 'Cizmarova', 31, 'SPS', '3SPS2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (561, '3.A', 'Tuesday', 6, 'Tutokyova', 26, 'SEC', 'SEC', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (562, '3.A', 'Tuesday', 7, 'Zalomova', 11, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (563, '3.A', 'Tuesday', 8, 'Candova', 11, 'TH', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (564, '3.A', 'Wednesday', 1, 'Kristanova', 24, 'SDU', 'SDU', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (565, '3.A', 'Wednesday', 1, 'Dankova', 31, 'APE', 'APE', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (566, '3.A', 'Wednesday', 1, 'Svikova', 25, 'SEF', 'SEF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (567, '3.A', 'Wednesday', 1, 'Goliasova', 26, 'SEB', 'SEB2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (568, '3.A', 'Wednesday', 2, 'Bolna', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (569, '3.A', 'Wednesday', 2, 's.Julia', 27, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (570, '3.A', 'Wednesday', 3, 'Hadobas', 17, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (571, '3.A', 'Wednesday', 3, 'Hrabovska', 20, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (572, '3.A', 'Wednesday', 3, 'Popikova', 19, 'AJ', 'ANJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (573, '3.A', 'Wednesday', 3, 'Mendel', 23, 'AJ', 'ANJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (574, '3.A', 'Wednesday', 3, 'Galova', 18, 'AJ', 'ANJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (575, '3.A', 'Wednesday', 3, 'Marcincinova', 12, 'AJ', 'ANJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (576, '3.A', 'Wednesday', 4, 'Candova', 11, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (577, '3.A', 'Wednesday', 5, 'Zalomova', 11, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (578, '3.A', 'Wednesday', 6, 'Trenklerova', 11, 'BIO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (579, '3.A', 'Wednesday', 7, 'Macko', 11, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (580, '3.A', 'Thursday', 1, 'Hadobas', 12, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (581, '3.A', 'Thursday', 1, 'Hrabovska', 20, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (582, '3.A', 'Thursday', 1, 'Popikova', 17, 'AJ', 'ANJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (583, '3.A', 'Thursday', 1, 'Mendel', 19, 'AJ', 'ANJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (584, '3.A', 'Thursday', 1, 'Galova', 18, 'AJ', 'ANJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (585, '3.A', 'Thursday', 1, 'Marcincinova', 13, 'AJ', 'ANJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (586, '3.A', 'Thursday', 2, 'Antesova', 22, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (587, '3.A', 'Thursday', 2, 'Karkosiakova', 11, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (588, '3.A', 'Thursday', 2, 'Husekova', 13, 'NJ', 'NEJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (589, '3.A', 'Thursday', 2, 'Ruzicka', 21, 'TJ', 'TAJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (590, '3.A', 'Thursday', 2, 'Hajduk', 12, 'FJ', 'FRJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (591, '3.A', 'Thursday', 2, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (592, '3.A', 'Thursday', 3, 'Goliasova', 29, 'CHE', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (593, '3.A', 'Thursday', 3, 'Varchol', 30, 'FYZ', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (594, '3.A', 'Thursday', 4, 'Goliasova', 29, 'CHE', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (595, '3.A', 'Thursday', 4, 'Varchol', 30, 'FYZ', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (596, '3.A', 'Thursday', 5, 'Cizmarova', 31, 'SPS', '3SPS1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (597, '3.A', 'Thursday', 5, 'Juhascikova', 12, 'SEM', 'SEM', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (598, '3.A', 'Thursday', 5, 'Trenklerova', 28, 'SEB', 'SEB1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (599, '3.A', 'Thursday', 5, 'Zalomova', 13, 'SED', 'SED', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (600, '3.A', 'Thursday', 6, 'o.Bartolomej', 11, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (601, '3.A', 'Thursday', 6, 'Kristanova', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (602, '3.A', 'Thursday', 7, 'Macko', 11, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (603, '3.A', 'Friday', 1, 'Bruothova', 33, 'SEI', 'SEI', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (604, '3.A', 'Friday', 1, 'Horvathova', 11, 'SEG', 'SEG', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (605, '3.A', 'Friday', 1, 'Cizmarova', 12, 'SPS', '3SPS2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (606, '3.A', 'Friday', 1, 'Tutokyova', 29, 'SEC', 'SEC', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (607, '3.A', 'Friday', 2, 'Bruothova', 33, 'SEI', 'SEI', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (608, '3.A', 'Friday', 2, 'Horvathova', 11, 'SEG', 'SEG', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (609, '3.A', 'Friday', 2, 'Cizmarova', 12, 'SPS', '3SPS2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (610, '3.A', 'Friday', 2, 'Tutokyova', 29, 'SEC', 'SEC', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (611, '3.A', 'Friday', 3, 'Candova', 11, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (612, '3.A', 'Friday', 4, 'Trenklerova', 28, 'BIO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (613, '3.A', 'Friday', 5, 'Antesova', 22, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (614, '3.A', 'Friday', 5, 'Karkosiakova', 11, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (615, '3.A', 'Friday', 5, 'Husekova', 18, 'NJ', 'NEJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (616, '3.A', 'Friday', 5, 'Ruzicka', 13, 'TJ', 'TAJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (617, '3.A', 'Friday', 5, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (618, '3.A', 'Friday', 5, 'Hajduk', 21, 'FJ', 'FRJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (619, '3.A', 'Friday', 6, 'Bolna', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (620, '3.A', 'Friday', 6, 'Kristanova', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (621, '3.A', 'Friday', 7, 'Cizmarova', 11, 'OBN', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (622, '3.B', 'Monday', 1, 'Cizmarova', 13, 'SPS', '3SPS1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (623, '3.B', 'Monday', 1, 'Juhascikova', 11, 'SEM', 'SEM', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (624, '3.B', 'Monday', 1, 'Trenklerova', 28, 'SEB', 'SEB1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (625, '3.B', 'Monday', 1, 'Zalomova', 9, 'SED', 'SED', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (626, '3.B', 'Monday', 2, 'Cizmarova', 13, 'SPS', '3SPS1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (627, '3.B', 'Monday', 2, 'Juhascikova', 11, 'SEM', 'SEM', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (628, '3.B', 'Monday', 2, 'Trenklerova', 28, 'SEB', 'SEB1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (629, '3.B', 'Monday', 2, 'Zalomova', 9, 'SED', 'SED', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (630, '3.B', 'Monday', 3, 'Hadobas', 17, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (631, '3.B', 'Monday', 3, 'Hrabovska', 20, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (632, '3.B', 'Monday', 3, 'Popikova', 11, 'AJ', 'ANJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (633, '3.B', 'Monday', 3, 'Mendel', 22, 'AJ', 'ANJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (634, '3.B', 'Monday', 3, 'Galova', 18, 'AJ', 'ANJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (635, '3.B', 'Monday', 3, 'Marcincinova', 19, 'AJ', 'ANJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (636, '3.B', 'Monday', 4, 'Macko', 12, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (637, '3.B', 'Monday', 5, 's.Julia', 12, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (638, '3.B', 'Monday', 5, 'Bolna', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (639, '3.B', 'Monday', 6, 'Kristanova', 21, 'SDU', 'SDU', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (640, '3.B', 'Monday', 6, 'Dankova', 24, 'APE', 'APE', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (641, '3.B', 'Monday', 6, 'Svikova', 30, 'SEF', 'SEF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (642, '3.B', 'Monday', 6, 'Goliasova', 28, 'SEB', 'SEB2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (643, '3.B', 'Monday', 7, 'Kristanova', 21, 'SDU', 'SDU', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (644, '3.B', 'Monday', 7, 'Dankova', 24, 'APE', 'APE', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (645, '3.B', 'Monday', 7, 'Svikova', 30, 'SEF', 'SEF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (646, '3.B', 'Monday', 7, 'Goliasova', 28, 'SEB', 'SEB2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (647, '3.B', 'Tuesday', 1, 'Cizmarova', 12, 'OBN', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (648, '3.B', 'Tuesday', 2, 'Hadobas', 17, 'SAJ', 'SAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (649, '3.B', 'Tuesday', 2, 'Hrabovska', 10, 'SAJ', 'SAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (650, '3.B', 'Tuesday', 2, 'Popikova', 11, 'SAJ', 'SAJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (651, '3.B', 'Tuesday', 2, 'Mendel', 20, 'SAJ', 'SAJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (652, '3.B', 'Tuesday', 2, 'Galova', 18, 'SAJ', 'SAJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (653, '3.B', 'Tuesday', 2, 'Marcincinova', 12, 'SAJ', 'SAJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (654, '3.B', 'Tuesday', 3, 'Hadobas', 17, 'SAJ', 'SAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (655, '3.B', 'Tuesday', 3, 'Hrabovska', 10, 'SAJ', 'SAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (656, '3.B', 'Tuesday', 3, 'Popikova', 11, 'SAJ', 'SAJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (657, '3.B', 'Tuesday', 3, 'Mendel', 20, 'SAJ', 'SAJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (658, '3.B', 'Tuesday', 3, 'Galova', 18, 'SAJ', 'SAJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (659, '3.B', 'Tuesday', 3, 'Marcincinova', 12, 'SAJ', 'SAJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (660, '3.B', 'Tuesday', 4, 's.Julia', 12, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (661, '3.B', 'Tuesday', 4, 'Bolna', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (662, '3.B', 'Tuesday', 5, 'Antesova', 3, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (663, '3.B', 'Tuesday', 5, 'Karkosiakova', 11, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (664, '3.B', 'Tuesday', 5, 'Husekova', 22, 'NJ', 'NEJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (665, '3.B', 'Tuesday', 5, 'Ruzicka', 21, 'TJ', 'TAJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (666, '3.B', 'Tuesday', 5, 'Hajduk', 12, 'FJ', 'FRJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (667, '3.B', 'Tuesday', 5, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (668, '3.B', 'Tuesday', 6, 'Bruothova', 33, 'SEI', 'SEI', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (669, '3.B', 'Tuesday', 6, 'Horvathova', 11, 'SEG', 'SEG', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (670, '3.B', 'Tuesday', 6, 'Cizmarova', 31, 'SPS', '3SPS2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (671, '3.B', 'Tuesday', 6, 'Tutokyova', 26, 'SEC', 'SEC', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (672, '3.B', 'Tuesday', 7, 'Hajduk', 12, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (673, '3.B', 'Tuesday', 8, 'Zalomova', 12, 'TH', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (674, '3.B', 'Wednesday', 1, 'Kristanova', 24, 'SDU', 'SDU', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (675, '3.B', 'Wednesday', 1, 'Dankova', 31, 'APE', 'APE', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (676, '3.B', 'Wednesday', 1, 'Svikova', 25, 'SEF', 'SEF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (677, '3.B', 'Wednesday', 1, 'Goliasova', 26, 'SEB', 'SEB2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (678, '3.B', 'Wednesday', 2, 'Goliasova', 26, 'BIO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (679, '3.B', 'Wednesday', 3, 'Hadobas', 17, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (680, '3.B', 'Wednesday', 3, 'Hrabovska', 20, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (681, '3.B', 'Wednesday', 3, 'Popikova', 19, 'AJ', 'ANJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (682, '3.B', 'Wednesday', 3, 'Mendel', 23, 'AJ', 'ANJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (683, '3.B', 'Wednesday', 3, 'Galova', 18, 'AJ', 'ANJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (684, '3.B', 'Wednesday', 3, 'Marcincinova', 12, 'AJ', 'ANJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (685, '3.B', 'Wednesday', 4, 'Zalomova', 12, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (686, '3.B', 'Wednesday', 5, 'Macko', 12, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (687, '3.B', 'Wednesday', 6, 'Hajduk', 12, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (688, '3.B', 'Wednesday', 7, 'Svik', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (689, '3.B', 'Wednesday', 7, 's.Julia', 27, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (690, '3.B', 'Wednesday', 8, 's.Julia', 27, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (691, '3.B', 'Thursday', 1, 'Hadobas', 12, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (692, '3.B', 'Thursday', 1, 'Hrabovska', 20, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (693, '3.B', 'Thursday', 1, 'Popikova', 17, 'AJ', 'ANJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (694, '3.B', 'Thursday', 1, 'Mendel', 19, 'AJ', 'ANJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (695, '3.B', 'Thursday', 1, 'Galova', 18, 'AJ', 'ANJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (696, '3.B', 'Thursday', 1, 'Marcincinova', 13, 'AJ', 'ANJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (697, '3.B', 'Thursday', 2, 'Antesova', 22, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (698, '3.B', 'Thursday', 2, 'Karkosiakova', 11, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (699, '3.B', 'Thursday', 2, 'Husekova', 13, 'NJ', 'NEJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (700, '3.B', 'Thursday', 2, 'Ruzicka', 21, 'TJ', 'TAJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (701, '3.B', 'Thursday', 2, 'Hajduk', 12, 'FJ', 'FRJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (702, '3.B', 'Thursday', 2, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (703, '3.B', 'Thursday', 3, 'Hajduk', 12, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (704, '3.B', 'Thursday', 4, 'Zalomova', 12, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (705, '3.B', 'Thursday', 5, 'Cizmarova', 31, 'SPS', '3SPS1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (706, '3.B', 'Thursday', 5, 'Juhascikova', 12, 'SEM', 'SEM', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (707, '3.B', 'Thursday', 5, 'Trenklerova', 28, 'SEB', 'SEB1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (708, '3.B', 'Thursday', 5, 'Zalomova', 13, 'SED', 'SED', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (709, '3.B', 'Thursday', 6, 'Goliasova', 12, 'BIO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (710, '3.B', 'Thursday', 7, 'Svikova', 25, 'FYZ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (711, '3.B', 'Friday', 1, 'Bruothova', 33, 'SEI', 'SEI', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (712, '3.B', 'Friday', 1, 'Horvathova', 11, 'SEG', 'SEG', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (713, '3.B', 'Friday', 1, 'Cizmarova', 12, 'SPS', '3SPS2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (714, '3.B', 'Friday', 1, 'Tutokyova', 29, 'SEC', 'SEC', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (715, '3.B', 'Friday', 2, 'Bruothova', 33, 'SEI', 'SEI', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (716, '3.B', 'Friday', 2, 'Horvathova', 11, 'SEG', 'SEG', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (717, '3.B', 'Friday', 2, 'Cizmarova', 12, 'SPS', '3SPS2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (718, '3.B', 'Friday', 2, 'Tutokyova', 29, 'SEC', 'SEC', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (719, '3.B', 'Friday', 3, 'Tutokyova', 29, 'CHE', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (720, '3.B', 'Friday', 3, 'Svikova', 30, 'FYZ', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (721, '3.B', 'Friday', 4, 'Tutokyova', 29, 'CHE', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (722, '3.B', 'Friday', 4, 'Svikova', 30, 'FYZ', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (723, '3.B', 'Friday', 5, 'Antesova', 22, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (724, '3.B', 'Friday', 5, 'Karkosiakova', 11, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (725, '3.B', 'Friday', 5, 'Husekova', 18, 'NJ', 'NEJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (726, '3.B', 'Friday', 5, 'Ruzicka', 13, 'TJ', 'TAJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (727, '3.B', 'Friday', 5, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (728, '3.B', 'Friday', 5, 'Hajduk', 21, 'FJ', 'FRJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (729, '3.B', 'Friday', 6, 'Macko', 12, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (730, '3.B', 'Friday', 7, 'Svik', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (731, '3.C', 'Monday', 1, 'Cizmarova', 13, 'SPS', '3SPS1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (732, '3.C', 'Monday', 1, 'Juhascikova', 11, 'SEM', 'SEM', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (733, '3.C', 'Monday', 1, 'Trenklerova', 28, 'SEB', 'SEB1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (734, '3.C', 'Monday', 1, 'Zalomova', 9, 'SED', 'SED', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (735, '3.C', 'Monday', 2, 'Cizmarova', 13, 'SPS', '3SPS1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (736, '3.C', 'Monday', 2, 'Juhascikova', 11, 'SEM', 'SEM', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (737, '3.C', 'Monday', 2, 'Trenklerova', 28, 'SEB', 'SEB1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (738, '3.C', 'Monday', 2, 'Zalomova', 9, 'SED', 'SED', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (739, '3.C', 'Monday', 3, 'Hadobas', 17, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (740, '3.C', 'Monday', 3, 'Hrabovska', 20, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (741, '3.C', 'Monday', 3, 'Popikova', 11, 'AJ', 'ANJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (742, '3.C', 'Monday', 3, 'Mendel', 23, 'AJ', 'ANJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (743, '3.C', 'Monday', 3, 'Galova', 18, 'AJ', 'ANJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (744, '3.C', 'Monday', 3, 'Marcincinova', 19, 'AJ', 'ANJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (745, '3.C', 'Monday', 4, 'Radimska', 13, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (746, '3.C', 'Monday', 5, 's.Julia', 12, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (747, '3.C', 'Monday', 5, 'o.Bartolomej', 27, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (748, '3.C', 'Monday', 6, 'Kristanova', 21, 'SDU', 'SDU', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (749, '3.C', 'Monday', 6, 'Dankova', 24, 'APE', 'APE', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (750, '3.C', 'Monday', 6, 'Svikova', 30, 'SEF', 'SEF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (751, '3.C', 'Monday', 6, 'Goliasova', 28, 'SEB', 'SEB2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (752, '3.C', 'Monday', 7, 'Kristanova', 21, 'SDU', 'SDU', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (753, '3.C', 'Monday', 7, 'Dankova', 24, 'APE', 'APE', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (754, '3.C', 'Monday', 7, 'Svikova', 30, 'SEF', 'SEF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (755, '3.C', 'Monday', 7, 'Goliasova', 28, 'SEB', 'SEB2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (756, '3.C', 'Tuesday', 1, 'Pitonakova', 13, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (757, '3.C', 'Tuesday', 2, 'Hadobas', 17, 'SAJ', 'SAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (758, '3.C', 'Tuesday', 2, 'Hrabovska', 10, 'SAJ', 'SAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (759, '3.C', 'Tuesday', 2, 'Popikova', 11, 'SAJ', 'SAJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (760, '3.C', 'Tuesday', 2, 'Mendel', 20, 'SAJ', 'SAJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (761, '3.C', 'Tuesday', 2, 'Galova', 18, 'SAJ', 'SAJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (762, '3.C', 'Tuesday', 2, 'Marcincinova', 12, 'SAJ', 'SAJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (763, '3.C', 'Tuesday', 3, 'Hadobas', 17, 'SAJ', 'SAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (764, '3.C', 'Tuesday', 3, 'Hrabovska', 10, 'SAJ', 'SAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (765, '3.C', 'Tuesday', 3, 'Popikova', 11, 'SAJ', 'SAJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (766, '3.C', 'Tuesday', 3, 'Mendel', 20, 'SAJ', 'SAJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (767, '3.C', 'Tuesday', 3, 'Galova', 18, 'SAJ', 'SAJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (768, '3.C', 'Tuesday', 3, 'Marcincinova', 12, 'SAJ', 'SAJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (769, '3.C', 'Tuesday', 4, 's.Julia', 12, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (770, '3.C', 'Tuesday', 4, 'o.Bartolomej', 27, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (771, '3.C', 'Tuesday', 5, 'Antesova', 3, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (772, '3.C', 'Tuesday', 5, 'Karkosiakova', 11, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (773, '3.C', 'Tuesday', 5, 'Husekova', 22, 'NJ', 'NEJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (774, '3.C', 'Tuesday', 5, 'Ruzicka', 21, 'TJ', 'TAJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (775, '3.C', 'Tuesday', 5, 'Hajduk', 12, 'FJ', 'FRJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (776, '3.C', 'Tuesday', 5, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (777, '3.C', 'Tuesday', 6, 'Bruothova', 33, 'SEI', 'SEI', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (778, '3.C', 'Tuesday', 6, 'Horvathova', 11, 'SEG', 'SEG', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (779, '3.C', 'Tuesday', 6, 'Cizmarova', 31, 'SPS', '3SPS2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (780, '3.C', 'Tuesday', 6, 'Tutokyova', 26, 'SEC', 'SEC', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (781, '3.C', 'Tuesday', 7, 'Goliasova', 13, 'BIO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (782, '3.C', 'Tuesday', 8, 'Pitonakova', 13, 'TH', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (783, '3.C', 'Wednesday', 1, 'Kristanova', 24, 'SDU', 'SDU', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (784, '3.C', 'Wednesday', 1, 'Dankova', 31, 'APE', 'APE', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (785, '3.C', 'Wednesday', 1, 'Svikova', 25, 'SEF', 'SEF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (786, '3.C', 'Wednesday', 1, 'Goliasova', 26, 'SEB', 'SEB2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (787, '3.C', 'Wednesday', 2, 'Radimska', 13, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (788, '3.C', 'Wednesday', 3, 'Hadobas', 17, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (789, '3.C', 'Wednesday', 3, 'Hrabovska', 20, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (790, '3.C', 'Wednesday', 3, 'Popikova', 19, 'AJ', 'ANJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (791, '3.C', 'Wednesday', 3, 'Mendel', 23, 'AJ', 'ANJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (792, '3.C', 'Wednesday', 3, 'Galova', 18, 'AJ', 'ANJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (793, '3.C', 'Wednesday', 3, 'Marcincinova', 12, 'AJ', 'ANJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (794, '3.C', 'Wednesday', 4, 'Tutokyova', 30, 'CHE', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (795, '3.C', 'Wednesday', 4, 'Svikova', 29, 'FYZ', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (796, '3.C', 'Wednesday', 5, 'Tutokyova', 30, 'CHE', '2.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (797, '3.C', 'Wednesday', 5, 'Svikova', 29, 'FYZ', '1.Skupina', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (798, '3.C', 'Wednesday', 6, 'Juhascikova', 13, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (799, '3.C', 'Wednesday', 7, 'Svik', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (800, '3.C', 'Wednesday', 7, 'Bolna', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (801, '3.C', 'Thursday', 1, 'Hadobas', 13, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (802, '3.C', 'Thursday', 1, 'Hrabovska', 20, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (803, '3.C', 'Thursday', 1, 'Popikova', 17, 'AJ', 'ANJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (804, '3.C', 'Thursday', 1, 'Mendel', 19, 'AJ', 'ANJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (805, '3.C', 'Thursday', 1, 'Galova', 18, 'AJ', 'ANJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (806, '3.C', 'Thursday', 1, 'Marcincinova', 13, 'AJ', 'ANJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (807, '3.C', 'Thursday', 2, 'Antesova', 22, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (808, '3.C', 'Thursday', 2, 'Karkosiakova', 11, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (809, '3.C', 'Thursday', 2, 'Husekova', 13, 'NJ', 'NEJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (810, '3.C', 'Thursday', 2, 'Ruzicka', 21, 'TJ', 'TAJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (811, '3.C', 'Thursday', 2, 'Hajduk', 12, 'FJ', 'FRJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (812, '3.C', 'Thursday', 2, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (813, '3.C', 'Thursday', 3, 'Radimska', 13, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (814, '3.C', 'Thursday', 4, 'Juhascikova', 13, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (815, '3.C', 'Thursday', 5, 'Cizmarova', 31, 'SPS', '3SPS1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (816, '3.C', 'Thursday', 5, 'Juhascikova', 12, 'SEM', 'SEM', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (817, '3.C', 'Thursday', 5, 'Trenklerova', 28, 'SEB', 'SEB1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (818, '3.C', 'Thursday', 5, 'Zalomova', 13, 'SED', 'SED', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (819, '3.C', 'Thursday', 6, 'Svikova', 25, 'FYZ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (820, '3.C', 'Thursday', 7, 'Pitonakova', 13, 'DEJ', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (821, '3.C', 'Friday', 1, 'Bruothova', 33, 'SEI', 'SEI', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (822, '3.C', 'Friday', 1, 'Horvathova', 11, 'SEG', 'SEG', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (823, '3.C', 'Friday', 1, 'Cizmarova', 12, 'SPS', '3SPS2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (824, '3.C', 'Friday', 1, 'Tutokyova', 29, 'SEC', 'SEC', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (825, '3.C', 'Friday', 2, 'Bruothova', 33, 'SEI', 'SEI', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (826, '3.C', 'Friday', 2, 'Horvathova', 11, 'SEG', 'SEG', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (827, '3.C', 'Friday', 2, 'Cizmarova', 12, 'SPS', '3SPS2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (828, '3.C', 'Friday', 2, 'Tutokyova', 29, 'SEC', 'SEC', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (829, '3.C', 'Friday', 3, 'Goliasova', 13, 'BIO', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (830, '3.C', 'Friday', 4, 'Juhascikova', 13, 'MAT', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (831, '3.C', 'Friday', 5, 'Antesova', 22, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (832, '3.C', 'Friday', 5, 'Karkosiakova', 11, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (833, '3.C', 'Friday', 5, 'Husekova', 18, 'NJ', 'NEJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (834, '3.C', 'Friday', 5, 'Ruzicka', 13, 'TJ', 'TAJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (835, '3.C', 'Friday', 5, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (836, '3.C', 'Friday', 5, 'Hajduk', 21, 'FJ', 'FRJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (837, '3.C', 'Friday', 6, 'Cizmarova', 13, 'OBN', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (838, '3.C', 'Friday', 7, 'Svik', 35, 'TSV', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (839, '3.C', 'Friday', 7, 'Bolna', 35, 'TSV', '', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (840, '4.A', 'Monday', 1, 'Candova', 27, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (841, '4.A', 'Monday', 1, 'Bolna', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (842, '4.A', 'Monday', 2, 'Hadobas', 18, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (843, '4.A', 'Monday', 2, 'Michalov', 19, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (844, '4.A', 'Monday', 3, 'Hajduk', 8, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (845, '4.A', 'Monday', 4, 'Dankova', 24, 'EKO', 'EKN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (846, '4.A', 'Monday', 4, 'Jascurova', 28, 'BIO', 'BIO2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (847, '4.A', 'Monday', 4, 'Popikova', 17, 'RAJ', 'RAJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (848, '4.A', 'Monday', 4, 'Galova', 18, 'RAJ', 'RAJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (849, '4.A', 'Monday', 4, 'Mendel', 20, 'RAJ', 'RAJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (850, '4.A', 'Monday', 5, 'Dankova', 24, 'EKO', 'EKN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (851, '4.A', 'Monday', 5, 'Jascurova', 28, 'BIO', 'BIO2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (852, '4.A', 'Monday', 5, 'Popikova', 17, 'RAJ', 'RAJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (853, '4.A', 'Monday', 5, 'Galova', 18, 'RAJ', 'RAJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (854, '4.A', 'Monday', 5, 'Mendel', 20, 'RAJ', 'RAJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (855, '4.A', 'Tuesday', 1, 'Michalov', 14, 'TH', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (856, '4.A', 'Tuesday', 2, 'Hajduk', 5, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (857, '4.A', 'Tuesday', 3, 'Antesova', 22, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (858, '4.A', 'Tuesday', 3, 'Husekova', 16, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (859, '4.A', 'Tuesday', 3, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (860, '4.A', 'Tuesday', 3, 'Ruzicka', 21, 'TJ', 'TAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (861, '4.A', 'Tuesday', 4, 'Cizmarova', 6, 'OBN', 'OBN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (862, '4.A', 'Tuesday', 4, 'Horvathova', 24, 'GEO', 'GEO', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (863, '4.A', 'Tuesday', 4, 'Svikova', 30, 'FYZ', 'FYZ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (864, '4.A', 'Tuesday', 4, 'Macko', 16, 'MAT', 'MAT1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (865, '4.A', 'Tuesday', 4, 'Simeghova', 26, 'CHE', 'CHE', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (866, '4.A', 'Tuesday', 4, 'Hrabovska', 17, 'RAJ', 'RAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (867, '4.A', 'Tuesday', 5, 'Cizmarova', 6, 'OBN', 'OBN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (868, '4.A', 'Tuesday', 5, 'Horvathova', 24, 'GEO', 'GEO', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (869, '4.A', 'Tuesday', 5, 'Svikova', 30, 'FYZ', 'FYZ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (870, '4.A', 'Tuesday', 5, 'Macko', 16, 'MAT', 'MAT1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (871, '4.A', 'Tuesday', 5, 'Simeghova', 26, 'CHE', 'CHE', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (872, '4.A', 'Tuesday', 5, 'Hrabovska', 17, 'RAJ', 'RAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (873, '4.A', 'Tuesday', 6, 'Hadobas', 16, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (874, '4.A', 'Tuesday', 6, 'Michalov', 17, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (875, '4.A', 'Tuesday', 7, 'Svik', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (876, '4.A', 'Tuesday', 7, 'Candova', 27, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (877, '4.A', 'Wednesday', 1, 'Zalomova', 11, 'DEJ', 'DEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (878, '4.A', 'Wednesday', 1, 'Fricova', 32, 'INF', 'INF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (879, '4.A', 'Wednesday', 1, 'Jascurova', 28, 'BIO', 'BIO1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (880, '4.A', 'Wednesday', 1, 'Macko', 16, 'MAT', 'MAT2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (881, '4.A', 'Wednesday', 1, 'Popikova', 17, 'RAJ', 'RAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (882, '4.A', 'Wednesday', 1, 'Michalov', 19, 'RAJ', 'RAJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (883, '4.A', 'Wednesday', 2, 'Zalomova', 11, 'DEJ', 'DEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (884, '4.A', 'Wednesday', 2, 'Fricova', 32, 'INF', 'INF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (885, '4.A', 'Wednesday', 2, 'Jascurova', 28, 'BIO', 'BIO1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (886, '4.A', 'Wednesday', 2, 'Macko', 16, 'MAT', 'MAT2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (887, '4.A', 'Wednesday', 2, 'Popikova', 17, 'RAJ', 'RAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (888, '4.A', 'Wednesday', 2, 'Michalov', 19, 'RAJ', 'RAJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (889, '4.A', 'Wednesday', 3, 'Hajduk', 6, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (890, '4.A', 'Wednesday', 4, 'Dankova', 31, 'EKO', 'EKN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (891, '4.A', 'Wednesday', 4, 'Kristanova', 24, 'DEU', 'DEU', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (892, '4.A', 'Wednesday', 4, 'Jascurova', 28, 'BIO', 'BIO2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (893, '4.A', 'Wednesday', 4, 'Popikova', 9, 'RAJ', 'RAJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (894, '4.A', 'Wednesday', 4, 'Galova', 18, 'RAJ', 'RAJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (895, '4.A', 'Wednesday', 4, 'Mendel', 20, 'RAJ', 'RAJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (896, '4.A', 'Wednesday', 5, 'Dankova', 3, 'EKO', 'EKN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (897, '4.A', 'Wednesday', 5, 'Kristanova', 24, 'DEU', 'DEU', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (898, '4.A', 'Wednesday', 5, 'Jascurova', 28, 'BIO', 'BIO2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (899, '4.A', 'Wednesday', 5, 'Popikova', 9, 'RAJ', 'RAJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (900, '4.A', 'Wednesday', 5, 'Galova', 18, 'RAJ', 'RAJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (901, '4.A', 'Wednesday', 5, 'Mendel', 20, 'RAJ', 'RAJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (902, '4.A', 'Wednesday', 6, 'Hadobas', 18, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (903, '4.A', 'Wednesday', 6, 'Michalov', 19, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (904, '4.A', 'Wednesday', 7, 'Candova', 4, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (905, '4.A', 'Thursday', 1, 'Svik', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (906, '4.A', 'Thursday', 2, 'Cizmarova', 9, 'OBN', 'OBN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (907, '4.A', 'Thursday', 2, 'Horvathova', 31, 'GEO', 'GEO', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (908, '4.A', 'Thursday', 2, 'Svikova', 25, 'FYZ', 'FYZ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (909, '4.A', 'Thursday', 2, 'Macko', 16, 'MAT', 'MAT2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (910, '4.A', 'Thursday', 2, 'Simeghova', 26, 'CHE', 'CHE', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (911, '4.A', 'Thursday', 2, 'Hrabovska', 20, 'RAJ', 'RAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (912, '4.A', 'Thursday', 3, 'Cizmarova', 9, 'OBN', 'OBN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (913, '4.A', 'Thursday', 3, 'Horvathova', 31, 'GEO', 'GEO', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (914, '4.A', 'Thursday', 3, 'Svikova', 25, 'FYZ', 'FYZ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (915, '4.A', 'Thursday', 3, 'Macko', 16, 'MAT', 'MAT2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (916, '4.A', 'Thursday', 3, 'Simeghova', 26, 'CHE', 'CHE', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (917, '4.A', 'Thursday', 3, 'Hrabovska', 20, 'RAJ', 'RAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (918, '4.A', 'Thursday', 4, 'Hajduk', 5, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (919, '4.A', 'Thursday', 5, 'Antesova', 22, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (920, '4.A', 'Thursday', 5, 'Husekova', 16, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (921, '4.A', 'Thursday', 5, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (922, '4.A', 'Thursday', 5, 'Ruzicka', 21, 'TJ', 'TAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (923, '4.A', 'Friday', 1, 'Zalomova', 16, 'DEJ', 'DEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (924, '4.A', 'Friday', 2, 'Zalomova', 24, 'DEJ', 'DEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (925, '4.A', 'Friday', 2, 'Fricova', 32, 'INF', 'INF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (926, '4.A', 'Friday', 2, 'Jascurova', 26, 'BIO', 'BIO1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (927, '4.A', 'Friday', 2, 'Macko', 16, 'MAT', 'MAT2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (928, '4.A', 'Friday', 2, 'Popikova', 17, 'RAJ', 'RAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (929, '4.A', 'Friday', 2, 'Michalov', 19, 'RAJ', 'RAJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (930, '4.A', 'Friday', 3, 'Zalomova', 24, 'DEJ', 'DEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (931, '4.A', 'Friday', 3, 'Fricova', 32, 'INF', 'INF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (932, '4.A', 'Friday', 3, 'Jascurova', 26, 'BIO', 'BIO1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (933, '4.A', 'Friday', 3, 'Macko', 16, 'MAT', 'MAT2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (934, '4.A', 'Friday', 3, 'Popikova', 17, 'RAJ', 'RAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (935, '4.A', 'Friday', 3, 'Michalov', 19, 'RAJ', 'RAJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (936, '4.A', 'Friday', 4, 'Candova', 5, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (937, '4.A', 'Friday', 4, 'Bolna', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (938, '4.A', 'Friday', 5, 'Hadobas', 17, 'AJ', 'ANJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (939, '4.A', 'Friday', 5, 'Michalov', 19, 'AJ', 'ANJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (940, '4.A', 'Friday', 6, 'Antesova', 22, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (941, '4.A', 'Friday', 6, 'Husekova', 18, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (942, '4.A', 'Friday', 6, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (943, '4.A', 'Friday', 6, 'Ruzicka', 21, 'TJ', 'TAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (944, '4.B', 'Monday', 1, 'Mendel', 23, 'AJ', 'ANJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (945, '4.B', 'Monday', 1, 'Galova', 18, 'AJ', 'ANJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (946, '4.B', 'Monday', 1, 'Hrabovska', 20, 'AJ', 'ANJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (947, '4.B', 'Monday', 1, 'Popikova', 17, 'AJ', 'ANJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (948, '4.B', 'Monday', 2, 'Candova', 27, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (949, '4.B', 'Monday', 2, 'Svik', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (950, '4.B', 'Monday', 3, 'Candova', 6, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (951, '4.B', 'Monday', 4, 'Dankova', 24, 'EKO', 'EKN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (952, '4.B', 'Monday', 4, 'Jascurova', 28, 'BIO', 'BIO2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (953, '4.B', 'Monday', 4, 'Popikova', 17, 'RAJ', 'RAJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (954, '4.B', 'Monday', 4, 'Galova', 18, 'RAJ', 'RAJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (955, '4.B', 'Monday', 4, 'Mendel', 20, 'RAJ', 'RAJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (956, '4.B', 'Monday', 5, 'Dankova', 24, 'EKO', 'EKN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (957, '4.B', 'Monday', 5, 'Jascurova', 28, 'BIO', 'BIO2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (958, '4.B', 'Monday', 5, 'Popikova', 17, 'RAJ', 'RAJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (959, '4.B', 'Monday', 5, 'Galova', 18, 'RAJ', 'RAJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (960, '4.B', 'Monday', 5, 'Mendel', 20, 'RAJ', 'RAJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (961, '4.B', 'Tuesday', 1, 'Candova', 27, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (962, '4.B', 'Tuesday', 1, 'Svik', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (963, '4.B', 'Tuesday', 2, 'o.Bartolomej', 27, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (964, '4.B', 'Tuesday', 2, 'Bolna', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (965, '4.B', 'Tuesday', 3, 'Antesova', 22, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (966, '4.B', 'Tuesday', 3, 'Husekova', 16, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (967, '4.B', 'Tuesday', 3, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (968, '4.B', 'Tuesday', 3, 'Ruzicka', 21, 'TJ', 'TAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (969, '4.B', 'Tuesday', 4, 'Cizmarova', 6, 'OBN', 'OBN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (970, '4.B', 'Tuesday', 4, 'Horvathova', 24, 'GEO', 'GEO', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (971, '4.B', 'Tuesday', 4, 'Svikova', 30, 'FYZ', 'FYZ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (972, '4.B', 'Tuesday', 4, 'Macko', 16, 'MAT', 'MAT1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (973, '4.B', 'Tuesday', 4, 'Simeghova', 26, 'CHE', 'CHE', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (974, '4.B', 'Tuesday', 4, 'Hrabovska', 17, 'RAJ', 'RAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (975, '4.B', 'Tuesday', 5, 'Cizmarova', 6, 'OBN', 'OBN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (976, '4.B', 'Tuesday', 5, 'Horvathova', 24, 'GEO', 'GEO', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (977, '4.B', 'Tuesday', 5, 'Svikova', 30, 'FYZ', 'FYZ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (978, '4.B', 'Tuesday', 5, 'Macko', 16, 'MAT', 'MAT1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (979, '4.B', 'Tuesday', 5, 'Simeghova', 26, 'CHE', 'CHE', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (980, '4.B', 'Tuesday', 5, 'Hrabovska', 17, 'RAJ', 'RAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (981, '4.B', 'Tuesday', 6, 'Mendel', 20, 'AJ', 'ANJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (982, '4.B', 'Tuesday', 6, 'Galova', 18, 'AJ', 'ANJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (983, '4.B', 'Tuesday', 6, 'Hrabovska', 1, 'AJ', 'ANJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (984, '4.B', 'Tuesday', 6, 'Popikova', 17, 'AJ', 'ANJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (985, '4.B', 'Tuesday', 7, 'Mendel', 20, 'AJ', 'ANJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (986, '4.B', 'Tuesday', 7, 'Galova', 18, 'AJ', 'ANJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (987, '4.B', 'Tuesday', 7, 'Hrabovska', 1, 'AJ', 'ANJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (988, '4.B', 'Tuesday', 7, 'Popikova', 17, 'AJ', 'ANJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (989, '4.B', 'Wednesday', 1, 'Zalomova', 11, 'DEJ', 'DEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (990, '4.B', 'Wednesday', 1, 'Fricova', 32, 'INF', 'INF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (991, '4.B', 'Wednesday', 1, 'Jascurova', 28, 'BIO', 'BIO1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (992, '4.B', 'Wednesday', 1, 'Macko', 16, 'MAT', 'MAT2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (993, '4.B', 'Wednesday', 1, 'Popikova', 17, 'RAJ', 'RAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (994, '4.B', 'Wednesday', 1, 'Michalov', 19, 'RAJ', 'RAJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (995, '4.B', 'Wednesday', 2, 'Zalomova', 11, 'DEJ', 'DEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (996, '4.B', 'Wednesday', 2, 'Fricova', 32, 'INF', 'INF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (997, '4.B', 'Wednesday', 2, 'Jascurova', 28, 'BIO', 'BIO1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (998, '4.B', 'Wednesday', 2, 'Macko', 16, 'MAT', 'MAT2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (999, '4.B', 'Wednesday', 2, 'Popikova', 17, 'RAJ', 'RAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1000, '4.B', 'Wednesday', 2, 'Michalov', 19, 'RAJ', 'RAJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1001, '4.B', 'Wednesday', 3, 'Candova', 9, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1002, '4.B', 'Wednesday', 4, 'Dankova', 31, 'EKO', 'EKN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1003, '4.B', 'Wednesday', 4, 'Kristanova', 24, 'DEU', 'DEU', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1004, '4.B', 'Wednesday', 4, 'Jascurova', 28, 'BIO', 'BIO2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1005, '4.B', 'Wednesday', 4, 'Popikova', 9, 'RAJ', 'RAJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1006, '4.B', 'Wednesday', 4, 'Galova', 18, 'RAJ', 'RAJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1007, '4.B', 'Wednesday', 4, 'Mendel', 20, 'RAJ', 'RAJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1008, '4.B', 'Wednesday', 5, 'Dankova', 3, 'EKO', 'EKN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1009, '4.B', 'Wednesday', 5, 'Kristanova', 24, 'DEU', 'DEU', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1010, '4.B', 'Wednesday', 5, 'Jascurova', 28, 'BIO', 'BIO2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1011, '4.B', 'Wednesday', 5, 'Popikova', 9, 'RAJ', 'RAJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1012, '4.B', 'Wednesday', 5, 'Galova', 18, 'RAJ', 'RAJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1013, '4.B', 'Wednesday', 5, 'Mendel', 20, 'RAJ', 'RAJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1014, '4.B', 'Wednesday', 7, 'Mendel', 20, 'AJ', 'ANJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1015, '4.B', 'Wednesday', 7, 'Galova', 18, 'AJ', 'ANJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1016, '4.B', 'Wednesday', 7, 'Hadobas', 17, 'AJ', 'ANJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1017, '4.B', 'Thursday', 1, 'Candova', 3, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1018, '4.B', 'Thursday', 2, 'Cizmarova', 9, 'OBN', 'OBN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1019, '4.B', 'Thursday', 2, 'Horvathova', 31, 'GEO', 'GEO', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1020, '4.B', 'Thursday', 2, 'Svikova', 25, 'FYZ', 'FYZ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1021, '4.B', 'Thursday', 2, 'Macko', 16, 'MAT', 'MAT2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1022, '4.B', 'Thursday', 2, 'Simeghova', 26, 'CHE', 'CHE', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1023, '4.B', 'Thursday', 2, 'Hrabovska', 20, 'RAJ', 'RAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1024, '4.B', 'Thursday', 3, 'Cizmarova', 9, 'OBN', 'OBN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1025, '4.B', 'Thursday', 3, 'Horvathova', 31, 'GEO', 'GEO', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1026, '4.B', 'Thursday', 3, 'Svikova', 25, 'FYZ', 'FYZ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1027, '4.B', 'Thursday', 3, 'Macko', 16, 'MAT', 'MAT2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1028, '4.B', 'Thursday', 3, 'Simeghova', 26, 'CHE', 'CHE', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1029, '4.B', 'Thursday', 3, 'Hrabovska', 20, 'RAJ', 'RAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1030, '4.B', 'Thursday', 4, 'Bolna', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1031, '4.B', 'Thursday', 4, 'o.Bartolomej', 16, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1032, '4.B', 'Thursday', 5, 'Antesova', 22, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1033, '4.B', 'Thursday', 5, 'Husekova', 16, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1034, '4.B', 'Thursday', 5, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1035, '4.B', 'Thursday', 5, 'Ruzicka', 21, 'TJ', 'TAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1036, '4.B', 'Friday', 2, 'Zalomova', 24, 'DEJ', 'DEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1037, '4.B', 'Friday', 2, 'Fricova', 32, 'INF', 'INF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1038, '4.B', 'Friday', 2, 'Jascurova', 26, 'BIO', 'BIO1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1039, '4.B', 'Friday', 2, 'Macko', 16, 'MAT', 'MAT2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1040, '4.B', 'Friday', 2, 'Popikova', 17, 'RAJ', 'RAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1041, '4.B', 'Friday', 2, 'Michalov', 19, 'RAJ', 'RAJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1042, '4.B', 'Friday', 3, 'Zalomova', 24, 'DEJ', 'DEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1043, '4.B', 'Friday', 3, 'Fricova', 32, 'INF', 'INF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1044, '4.B', 'Friday', 3, 'Jascurova', 26, 'BIO', 'BIO1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1045, '4.B', 'Friday', 3, 'Macko', 16, 'MAT', 'MAT2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1046, '4.B', 'Friday', 3, 'Popikova', 17, 'RAJ', 'RAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1047, '4.B', 'Friday', 3, 'Michalov', 19, 'RAJ', 'RAJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1048, '4.B', 'Friday', 4, 'Macko', 15, 'TH', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1049, '4.B', 'Friday', 5, 'Candova', 4, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1050, '4.B', 'Friday', 6, 'Antesova', 22, 'NJ', 'NEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1051, '4.B', 'Friday', 6, 'Husekova', 18, 'NJ', 'NEJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1052, '4.B', 'Friday', 6, 'Pitonakova', 23, 'RJ', 'RUJ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1053, '4.B', 'Friday', 6, 'Ruzicka', 21, 'TJ', 'TAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1054, '4.C', 'Monday', 1, 'Mendel', 23, 'AJ', 'ANJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1055, '4.C', 'Monday', 1, 'Galova', 18, 'AJ', 'ANJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1056, '4.C', 'Monday', 1, 'Hrabovska', 20, 'AJ', 'ANJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1057, '4.C', 'Monday', 1, 'Popikova', 17, 'AJ', 'ANJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1058, '4.C', 'Monday', 2, 'Husekova', 22, 'NJ', 'NEJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1059, '4.C', 'Monday', 2, 'Ruzicka', 21, 'TJ', 'TAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1060, '4.C', 'Monday', 3, 'Zalomova', 16, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1061, '4.C', 'Monday', 4, 'Dankova', 24, 'EKO', 'EKN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1062, '4.C', 'Monday', 4, 'Jascurova', 28, 'BIO', 'BIO2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1063, '4.C', 'Monday', 4, 'Popikova', 17, 'RAJ', 'RAJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1064, '4.C', 'Monday', 4, 'Galova', 18, 'RAJ', 'RAJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1065, '4.C', 'Monday', 4, 'Mendel', 20, 'RAJ', 'RAJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1066, '4.C', 'Monday', 5, 'Dankova', 24, 'EKO', 'EKN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1067, '4.C', 'Monday', 5, 'Jascurova', 28, 'BIO', 'BIO2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1068, '4.C', 'Monday', 5, 'Popikova', 17, 'RAJ', 'RAJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1069, '4.C', 'Monday', 5, 'Galova', 18, 'RAJ', 'RAJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1070, '4.C', 'Monday', 5, 'Mendel', 20, 'RAJ', 'RAJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1071, '4.C', 'Tuesday', 0, 'Ruzicka', 16, 'TH', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1072, '4.C', 'Tuesday', 1, 'Husekova', 18, 'NJ', 'NEJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1073, '4.C', 'Tuesday', 1, 'Ruzicka', 21, 'TJ', 'TAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1074, '4.C', 'Tuesday', 2, 'Candova', 16, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1075, '4.C', 'Tuesday', 2, 'Svik', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1076, '4.C', 'Tuesday', 3, 'Svik', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1077, '4.C', 'Tuesday', 4, 'Cizmarova', 6, 'OBN', 'OBN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1078, '4.C', 'Tuesday', 4, 'Horvathova', 24, 'GEO', 'GEO', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1079, '4.C', 'Tuesday', 4, 'Svikova', 30, 'FYZ', 'FYZ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1080, '4.C', 'Tuesday', 4, 'Macko', 16, 'MAT', 'MAT1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1081, '4.C', 'Tuesday', 4, 'Simeghova', 26, 'CHE', 'CHE', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1082, '4.C', 'Tuesday', 4, 'Hrabovska', 17, 'RAJ', 'RAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1083, '4.C', 'Tuesday', 5, 'Cizmarova', 6, 'OBN', 'OBN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1084, '4.C', 'Tuesday', 5, 'Horvathova', 24, 'GEO', 'GEO', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1085, '4.C', 'Tuesday', 5, 'Svikova', 30, 'FYZ', 'FYZ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1086, '4.C', 'Tuesday', 5, 'Macko', 16, 'MAT', 'MAT1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1087, '4.C', 'Tuesday', 5, 'Simeghova', 26, 'CHE', 'CHE', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1088, '4.C', 'Tuesday', 5, 'Hrabovska', 17, 'RAJ', 'RAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1089, '4.C', 'Tuesday', 6, 'Mendel', 20, 'AJ', 'ANJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1090, '4.C', 'Tuesday', 6, 'Galova', 18, 'AJ', 'ANJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1091, '4.C', 'Tuesday', 6, 'Hrabovska', 1, 'AJ', 'ANJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1092, '4.C', 'Tuesday', 6, 'Popikova', 17, 'AJ', 'ANJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1093, '4.C', 'Tuesday', 7, 'Mendel', 20, 'AJ', 'ANJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1094, '4.C', 'Tuesday', 7, 'Galova', 18, 'AJ', 'ANJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1095, '4.C', 'Tuesday', 7, 'Hrabovska', 1, 'AJ', 'ANJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1096, '4.C', 'Tuesday', 7, 'Popikova', 17, 'AJ', 'ANJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1097, '4.C', 'Wednesday', 1, 'Zalomova', 11, 'DEJ', 'DEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1098, '4.C', 'Wednesday', 1, 'Fricova', 32, 'INF', 'INF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1099, '4.C', 'Wednesday', 1, 'Jascurova', 28, 'BIO', 'BIO1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1100, '4.C', 'Wednesday', 1, 'Macko', 16, 'MAT', 'MAT2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1101, '4.C', 'Wednesday', 1, 'Popikova', 17, 'RAJ', 'RAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1102, '4.C', 'Wednesday', 1, 'Michalov', 19, 'RAJ', 'RAJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1103, '4.C', 'Wednesday', 2, 'Zalomova', 11, 'DEJ', 'DEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1104, '4.C', 'Wednesday', 2, 'Fricova', 32, 'INF', 'INF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1105, '4.C', 'Wednesday', 2, 'Jascurova', 28, 'BIO', 'BIO1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1106, '4.C', 'Wednesday', 2, 'Macko', 16, 'MAT', 'MAT2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1107, '4.C', 'Wednesday', 2, 'Popikova', 17, 'RAJ', 'RAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1108, '4.C', 'Wednesday', 2, 'Michalov', 19, 'RAJ', 'RAJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1109, '4.C', 'Wednesday', 3, 'Zalomova', 16, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1110, '4.C', 'Wednesday', 4, 'Dankova', 31, 'EKO', 'EKN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1111, '4.C', 'Wednesday', 4, 'Kristanova', 24, 'DEU', 'DEU', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1112, '4.C', 'Wednesday', 4, 'Jascurova', 28, 'BIO', 'BIO2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1113, '4.C', 'Wednesday', 4, 'Popikova', 9, 'RAJ', 'RAJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1114, '4.C', 'Wednesday', 4, 'Galova', 18, 'RAJ', 'RAJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1115, '4.C', 'Wednesday', 4, 'Mendel', 20, 'RAJ', 'RAJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1116, '4.C', 'Wednesday', 5, 'Dankova', 3, 'EKO', 'EKN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1117, '4.C', 'Wednesday', 5, 'Kristanova', 24, 'DEU', 'DEU', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1118, '4.C', 'Wednesday', 5, 'Jascurova', 28, 'BIO', 'BIO2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1119, '4.C', 'Wednesday', 5, 'Popikova', 9, 'RAJ', 'RAJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1120, '4.C', 'Wednesday', 5, 'Galova', 18, 'RAJ', 'RAJ5', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1121, '4.C', 'Wednesday', 5, 'Mendel', 20, 'RAJ', 'RAJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1122, '4.C', 'Wednesday', 6, 'Husekova', 23, 'NJ', 'NEJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1123, '4.C', 'Wednesday', 6, 'Ruzicka', 21, 'TJ', 'TAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1124, '4.C', 'Wednesday', 7, 'Mendel', 20, 'AJ', 'ANJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1125, '4.C', 'Wednesday', 7, 'Galova', 18, 'AJ', 'ANJ4', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1126, '4.C', 'Wednesday', 7, 'Hadobas', 17, 'AJ', 'ANJ6', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1127, '4.C', 'Thursday', 1, 'Zalomova', 16, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1128, '4.C', 'Thursday', 2, 'Cizmarova', 9, 'OBN', 'OBN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1129, '4.C', 'Thursday', 2, 'Horvathova', 31, 'GEO', 'GEO', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1130, '4.C', 'Thursday', 2, 'Svikova', 25, 'FYZ', 'FYZ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1131, '4.C', 'Thursday', 2, 'Macko', 16, 'MAT', 'MAT2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1132, '4.C', 'Thursday', 2, 'Simeghova', 26, 'CHE', 'CHE', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1133, '4.C', 'Thursday', 2, 'Hrabovska', 20, 'RAJ', 'RAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1134, '4.C', 'Thursday', 3, 'Cizmarova', 9, 'OBN', 'OBN', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1135, '4.C', 'Thursday', 3, 'Horvathova', 31, 'GEO', 'GEO', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1136, '4.C', 'Thursday', 3, 'Svikova', 25, 'FYZ', 'FYZ', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1137, '4.C', 'Thursday', 3, 'Macko', 16, 'MAT', 'MAT2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1138, '4.C', 'Thursday', 3, 'Simeghova', 26, 'CHE', 'CHE', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1139, '4.C', 'Thursday', 3, 'Hrabovska', 20, 'RAJ', 'RAJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1140, '4.C', 'Thursday', 4, 'Svik', 35, 'TSV', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1141, '4.C', 'Thursday', 4, 'Candova', 27, 'KNB', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1142, '4.C', 'Thursday', 5, 'Svik', 35, 'TSV', 'Dievčatá', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1143, '4.C', 'Thursday', 5, 'o.Bartolomej', 27, 'KNB', 'Chlapci', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1144, '4.C', 'Friday', 1, 'Zalomova', 16, 'SJL', null, true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1145, '4.C', 'Friday', 2, 'Zalomova', 24, 'DEJ', 'DEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1146, '4.C', 'Friday', 2, 'Fricova', 32, 'INF', 'INF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1147, '4.C', 'Friday', 2, 'Jascurova', 26, 'BIO', 'BIO1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1148, '4.C', 'Friday', 2, 'Macko', 16, 'MAT', 'MAT2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1149, '4.C', 'Friday', 2, 'Popikova', 17, 'RAJ', 'RAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1150, '4.C', 'Friday', 2, 'Michalov', 19, 'RAJ', 'RAJ3', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1151, '4.C', 'Friday', 3, 'Zalomova', 24, 'DEJ', 'DEJ1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1152, '4.C', 'Friday', 3, 'Fricova', 32, 'INF', 'INF', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1153, '4.C', 'Friday', 3, 'Jascurova', 26, 'BIO', 'BIO1', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1154, '4.C', 'Friday', 3, 'Macko', 16, 'MAT', 'MAT2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1155, '4.C', 'Friday', 3, 'Popikova', 17, 'RAJ', 'RAJ2', true);
+INSERT INTO public."Timetables" (id, student_class, day, lesson, teacher, classroom_id, subject, student_group, is_actual) VALUES (1156, '4.C', 'Friday', 3, 'Michalov', 19, 'RAJ', 'RAJ3', true);
