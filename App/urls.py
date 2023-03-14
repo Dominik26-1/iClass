@@ -27,7 +27,8 @@ urlpatterns = [
     path('login/', LoginView.as_view(), name="login"),
     path('logout/', LogoutView.as_view(), name="logout"),
     path('home', HomeView.as_view(), name='home'),
-    path('search/', include("Edupage.urls"))
+    path('search/', include("Edupage.urls")),
+    path('reservations/', include("Reservation.urls"))
 ]
 '''urlpatterns = [
     path('admin/', admin.site.urls),

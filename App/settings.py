@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'Classroom',
     'Timetable',
-    'Substitution'
+    'Substitution',
+    'Reservation'
 ]
 
 MIDDLEWARE = [

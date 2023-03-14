@@ -9,7 +9,7 @@ from Timetable.models import Timetable
 
 class Substitution(models.Model):
     id = models.IntegerField(primary_key=True, default=uuid.uuid4().int)
-    date = models.DateField(blank=True, null=True)
+    date = models.DateField()
     timetable = models.ForeignKey(Timetable, on_delete=models.CASCADE)
     new_class = models.ForeignKey(Classroom, on_delete=models.CASCADE, blank=True, null=True)
     new_lesson = models.IntegerField(blank=True, null=True)
