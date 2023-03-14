@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
+from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_auto_logout.middleware.auto_logout',
 ]
 
 ROOT_URLCONF = 'App.urls'
@@ -65,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django_auto_logout.context_processors.auto_logout_client',
             ],
         },
     },
@@ -122,9 +125,18 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/assets/'
 
+# SESSION_COOKIE_AGE = 10
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+AUTO_LOGOUT = {
+    'IDLE_TIME': timedelta(minutes=5),
+    'SESSION_TIME': timedelta(minutes=20),
+    'MESSAGE': 'The session has expired. Please login again to continue.',
+    'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
