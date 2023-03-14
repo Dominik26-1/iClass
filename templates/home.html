@@ -1,16 +1,14 @@
+{% extends "skeleton.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <div class="main_image">
-        <img src="{% static 'assets/iCLASS.png' %}" class="center" alt="iClass">
-    </div>
+{% block content %}
+
+<div class="main_image">
+    <img src="{% static 'assets/iCLASS.png' %}" class="center" alt="iClass">
+</div>
+<div class="search_link">
+    <a href="/search">SEARCH</a>
+</div>
 
 
-</body>
-</html>
+{% endblock %}

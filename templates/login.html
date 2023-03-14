@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+{% extends "skeleton.html" %}
+{% load static %}
 
-</head>
-<body>
+{% block content %}
 <div class="container">
     {% if messages %}
         {% for message in messages %}
@@ -20,20 +14,20 @@
         {% endfor %}
     {% endif %}
 </div>
-<form action="" method=POST>
-    {% csrf_token %}
 
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Username</label>
-        <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
-
-    </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" name="password">
-    </div>
-    <input type="submit" value="Submit" class="btn btn-secondary">
-
-</form>
-</body>
-</html>
+<div class="forms">
+    <form method=POST action="./login">
+        {% csrf_token %}
+        <br>
+        <label for="teacher_id">Teacher ID:</label><br>
+        <input type="text" id="teacher_id" name="t_id"><br>
+        <label for="password">Password</label><br>
+        <input type="password" id="password" name="password_name">
+        <br>
+        <br>
+        <input type="submit" value="Login">
+        <br>
+        <br>
+    </form>
+</div>
+{% endblock %}
