@@ -16,13 +16,13 @@
 </div>
 
 <div class="forms">
-    <form method=POST action="./login">
+    <form method=POST action="/login/">
         {% csrf_token %}
         <br>
-        <label for="teacher_id">Teacher ID:</label><br>
-        <input type="text" id="teacher_id" name="t_id"><br>
+        <label for="username">Teacher ID:</label><br>
+        <input type="text" id="username" name="username"><br>
         <label for="password">Password</label><br>
-        <input type="password" id="password" name="password_name">
+        <input type="password" id="password" name="password">
         <br>
         <br>
         <input type="submit" value="Login">

@@ -19,13 +19,6 @@ def merge_lessons_records(regular_lessons: list[Timetable], sub_lessons: list[Su
             lesson.student_class,
             lesson.subject
         )
-        '''reg_record["students"] = lesson.student_class
-        reg_record["search_teacher"] = lesson.teacher
-        reg_record["class_room"] = lesson.classroom.name
-        reg_record["class_room_id"] = lesson.classroom.id
-        reg_record["subject_name"] = lesson.subject
-        reg_record["school_lesson"] = lesson.lesson
-        reg_record["date"] = search_date'''
         reg_records.append(reg_record)
 
     for lesson in sub_lessons:
