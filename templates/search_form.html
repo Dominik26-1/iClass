@@ -8,13 +8,27 @@
     <form action="" id="form">
         <label for="fname">Deň:</label>
         <input type="date" id="date_id" name="date" required>
+
         <label for="fname">Učebňa:</label>
-        <input type="text" id="classroom_id" name="classroom">
+        <input list="browsers" name="classroom">
+        <datalist id="browsers">
+            <option value="Internet Explorer">
+            <option value="Firefox">
+            <option value="Chrome">
+            <option value="Opera">
+            <option value="Safari">
+        </datalist>
+
         <label for="fname">Hodina</label>
-        <input type="text" id="lesson_id" name="lesson">
-        <label for="fname">Vybavenie:</label>
-        <input type="text" id="fname" name="Daco">
+        <input type="number" id="lesson_id" name="lesson" min="0" max="8">
+        <br>
+        <br>
+        <label for="fname">Vybavenie :</label>
+        <input type="checkbox" id="inter_board" name="interactive_board" value="1">
+        <label for="interactive_board"> Interactive board</label>
+        <br>
         <input type="submit" value="Hladat">
+
     </form>
     <br>
 

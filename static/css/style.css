@@ -5,10 +5,17 @@ header{
     text-align: right;
     line-height: 70px;
 }
+.username{
+    color: white;
+    padding:0px 50px;
+}
 .login_text{
-
     padding: 75px;
     color: white;
+}
+.logout_text{
+    color: black;
+    padding:0px 50px;
 }
 .Logo{
     text-align: center;
@@ -35,7 +42,12 @@ footer{
 }
 .search_link{
     text-align: center;
+    color:#57427d;
+    padding:20px 0px;
 }
 .forms{
+    text-align: center;
+}
+.forms_block{
     text-align: center;
 }
