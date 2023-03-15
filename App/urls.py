@@ -15,18 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework import routers
 
 from Authentication.views import LoginView, LogoutView
 from Search.views import HomeView
-
-router = routers.DefaultRouter()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', LoginView.as_view(), name="login"),
     path('logout/', LogoutView.as_view(), name="logout"),
-    path('home', HomeView.as_view(), name='home'),
+    path('', HomeView.as_view(), name='home'),
     path('search/', include("Edupage.urls")),
     path('reservations/', include("Reservation.urls"))
 ]
@@ -36,4 +33,3 @@ urlpatterns = [
     path(r'debug', include(debug_toolbar.urls))
 
 ]'''
-urlpatterns += router.urls
