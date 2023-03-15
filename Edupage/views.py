@@ -14,6 +14,7 @@ from urllib3.exceptions import ReadTimeoutError
 from App.logger import logger
 from Classroom.classroom_enum import Classroom_filters
 from Classroom.equipment_enum import Equipment
+from Classroom.models import Classroom
 from Substitution.models import Substitution
 from Timetable.models import Timetable
 from Utils.python.result.logic_functions import merge_lessons_records, filter_room_equipment_records, \
@@ -166,7 +167,11 @@ class SearchView(View):
         # user get without results
 
         if (len(list(request.GET.items()))) == 0:
-            return render(request, "search_form.html", {})
+            ss = Classroom.objects.all()
+            content = {
+                "classrooms" : ss
+            }
+            return render(request, "search_form.html", content)
         else:
             input_date, input_lesson, input_room_id, equipment_args, parsing_error = parse_inputs(request=request)
 
@@ -228,7 +233,7 @@ def parse_inputs(request):
     equipment_args = {}
     for key, value in list(request.GET.items()):
         if key in [eq.value for eq in Equipment]:
-            if not (equipment_args[key] == "1" or equipment_args[key] == "0"):
+            if not (value == "1" or value == "0"):
                 error_context["errors"].append(
                     f'Parameter:{key} is invalid. Possible option is 0 or 1.')
                 error_context["is_valid"] = False

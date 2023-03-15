@@ -21,9 +21,10 @@ class ReservationDetailView(ReservationBaseView, DetailView):
     """View to list the details from one film.
     Use the 'film' variable in the template to access
     the specific film here and in the Views below"""
-
+    template_name = "reservation_form.html"
 
 class ReservationCreateView(ReservationBaseView, CreateView):
+    template_name = "reservation_form.html"
     """View to create a new film"""
 
 
