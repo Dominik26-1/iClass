@@ -51,3 +51,25 @@ footer{
 .forms_block{
     text-align: center;
 }
+
+.container_taken{
+    margin: auto;
+    width: 45%;
+    height: 80px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    background-color: #ff5e5e;
+}
+.container_free{
+    margin: auto;
+    width: 45%;
+    height: 80px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    background-color:#81f26b;
+}
+table{
+    text-align:center;
+}

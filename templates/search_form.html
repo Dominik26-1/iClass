@@ -6,9 +6,9 @@
     <div class="forms_block">
         <br>
         <form action="" id="search_form">
-            <label for="fname">Deň:</label>
+            <label for="date_id">Deň:</label>
             <input type="date" id="date_id" name="date" required>
-            <label for="fname">Učebňa:</label>
+            <label for="classroom">Učebňa:</label>
             <!-- <select id="browsers">
                 {% for room in classrooms %}
                     <option value={{ room.id }}>{{ room.name }}</option>
@@ -21,12 +21,11 @@
                 {% endfor %}
             </datalist>
 
-            <label for="fname">Hodina</label>
+            <label for="lesson_id">Hodina</label>
             <input type="number" id="lesson_id" name="lesson" min="0" max="8">
             <br>
             <br>
-            <label for="fname">Vybavenie:</label>
-            <input type="checkbox" id="inter_board" name="interactive_board" value="1">
+            <input type="checkbox" id="interactive_board" name="interactive_board" value="1">
             <label for="interactive_board"> Interactive board</label>
             <input type="checkbox" id="data_projector" name="data_projector" value="1">
             <label for="data_projector"> Data projector</label>
@@ -45,6 +44,38 @@
         </form>
         <br>
     </div>
+    <div class="container_free">
+        <table style="width:100%">
+              <tr>
+                <td>Ucebna</td>
+                <td>Trieda</td>
+              </tr>
+        </table>
+        <p class="equipment">Vybavenie: </p>
+    </div>
+    <br>
+    <div class="container_taken">
+        <table style="width:100%">
+              <tr>
+                <td>1</td>
+                <td>Ucebna</td>
+                <td>Trieda</td>
+              </tr>
+        </table>
+        <p class="equipment">Vybavenie: </p>
+    </div>
+    <br>
+    <div class="container_taken">
+        <table style="width:100%">
+              <tr>
+                <td>Ucebna</td>
+                <td>Trieda</td>
+              </tr>
+        </table>
+        <p class="equipment">Vybavenie: </p>
+    </div>
+
+
     <script src="{% static 'js/form_handler.js' %}">
     </script>
 {% endblock %}
