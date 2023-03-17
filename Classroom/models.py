@@ -25,11 +25,14 @@ class Classroom(models.Model):
             "id": self.id,
             "name": self.name,
             "position": self.position,
-            "interactive_board": self.interactive_board,
-            "teacher_pc": self.teacher_pc,
-            "teacher_notebook": self.teacher_notebook,
-            "flip_chart": self.flip_chart,
-            "sink": self.sink,
-            "data_projector": self.data_projector,
-            "ethernet_cable": self.ethernet_cable,
+            "equipment": {
+                "interactive_board": self.interactive_board,
+                "teacher_pc": self.teacher_pc,
+                "teacher_notebook": self.teacher_notebook,
+                "flip_chart": self.flip_chart,
+                "sink": self.sink,
+                "data_projector": self.data_projector,
+                "ethernet_cable": self.ethernet_cable,
+            }
+
         }

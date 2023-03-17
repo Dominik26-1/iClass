@@ -1,4 +1,3 @@
-import json
 import re
 from datetime import datetime
 from itertools import chain
@@ -20,6 +19,7 @@ from Timetable.models import Timetable
 from Utils.python.result.logic_functions import merge_lessons_records, filter_room_equipment_records, \
     filter_lesson_records, filter_room_records
 from Utils.python.result.result_functions import build_results_by_room, build_free_rooms, build_results_by_lesson
+from Utils.python.result.search_result_enum import ResultType
 from Utils.python.utils import get_numeric_class
 
 edupage = Edupage()
@@ -32,7 +32,7 @@ except ReadTimeoutError:
 
 
 def get_day_records(date):
-    substitutions = edupage.get_timetable_changes(date)
+    substitutions: TimetableChange = edupage.get_timetable_changes(date)
     sub_lessons = []
     # skontroluj ci nie je None napr pre vikend
     if substitutions:
@@ -87,7 +87,7 @@ def parse_edupage_object(timetable_change: TimetableChange, orig_lesson: int, da
                 # najdi podla skupiny, o ktoru novu hodinu sa jedna
                 if len(moved_reg_les) > 1:
                     try:
-                        moved_reg_les = moved_reg_les.get(students_group=students_group)
+                        moved_reg_les = moved_reg_les.get(student_group=students_group)
                     except Timetable.DoesNotExist:
                         logger.warning(
                             f'Nenasla sa hodina pre skupinu {students_group} z moznych hodin {[les for les in moved_reg_les]}')
@@ -167,9 +167,9 @@ class SearchView(View):
         # user get without results
 
         if (len(list(request.GET.items()))) == 0:
-            ss = Classroom.objects.all()
             content = {
-                "classrooms" : ss
+                "classrooms": Classroom.objects.all(),
+                "with_results": False
             }
             return render(request, "search_form.html", content)
         else:
@@ -248,8 +248,19 @@ def search_room_view(request, date, room_id):
     timetable_results, sub_results = filter_room_records(timetable_lessons, sub_lessons, room_id)
 
     results = merge_lessons_records(timetable_results, sub_results, date)
-
-    return HttpResponse(json.dumps(build_results_by_lesson(results), default=str))
+    all_classrooms = Classroom.objects.all()
+    context = {
+        "with_results": True,
+        "result": build_results_by_lesson(results),
+        "result_type": ResultType.LessonList.value,
+        "classrooms": all_classrooms,
+        "search_params": {
+            "date": date,
+            "room": room_id,
+        },
+        "search_room": all_classrooms.get(id=room_id).get_dict()
+    }
+    return render(request, "search_form.html", context)
 
 
 def search_lesson_view(request, date, lesson):
@@ -258,7 +269,17 @@ def search_lesson_view(request, date, lesson):
     timetable_results, sub_results = filter_lesson_records(timetable_lessons, sub_lessons, lesson)
 
     results = merge_lessons_records(timetable_results, sub_results, date)
-    return HttpResponse(json.dumps(build_results_by_room(results), default=str))
+    context = {
+        "with_results": True,
+        "result": build_results_by_room(results),
+        "result_type": ResultType.RoomList.value,
+        "classrooms": Classroom.objects.all(),
+        "search_params": {
+            "date": date,
+            "lesson": lesson,
+        }
+    }
+    return render(request, "search_form.html", context)
 
 
 def search_room_lesson_view(request, date, lesson, room_id):
@@ -269,7 +290,20 @@ def search_room_lesson_view(request, date, lesson, room_id):
     timetable_results, sub_results = filter_room_records(timetable_results, sub_results, room_id)
 
     results = merge_lessons_records(timetable_results, sub_results, date)
-    return HttpResponse((len(results) == 0, json.dumps(results, default=str)))
+    context = {
+        "with_results": True,
+        "result": results,
+        "classrooms": Classroom.objects.all(),
+        "is_free": len(results) == 0,
+        "result_type": ResultType.TrueFalse.value,
+        "search_params": {
+            "date": date,
+            "lesson": lesson,
+            "room": room_id,
+        },
+        "search_room": Classroom.objects.get(id=room_id).get_dict()
+    }
+    return render(request, "search_form.html", context)
 
 
 def search_filter_rooms_lesson(request, date, lesson, equipment_args):
@@ -279,5 +313,15 @@ def search_filter_rooms_lesson(request, date, lesson, equipment_args):
     timetable_results, sub_results = filter_room_equipment_records(timetable_results, sub_results, equipment_args)
 
     results = merge_lessons_records(timetable_results, sub_results, date)
-    context = build_free_rooms(results, equipment_args)
-    return HttpResponse(json.dumps(context, default=str))
+    context = {
+        "with_results": True,
+        "result": build_free_rooms(results, equipment_args),
+        "result_type": ResultType.RoomList.value,
+        "classrooms": Classroom.objects.all(),
+        "search_params": {
+            "date": date,
+            "lesson": lesson,
+            "equipment_params": equipment_args,
+        }
+    }
+    return render(request, "search_form.html", context)
