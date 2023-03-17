@@ -8,13 +8,13 @@
         <form action="" id="search_form">
             <label for="date_id">Deň:</label>
             <input type="date" id="date_id" name="date" value="{{ search_params.date|date:"Y-m-d" }}" required>
-            <label for="classroom">Učebňa:</label>
+            <label for="classroom_id">Učebňa:</label>
             <!-- <select id="browsers">
                 {% for room in classrooms %}
                     <option value={{ room.id }}>{{ room.name }}</option>
                 {% endfor %}
             </select> -->
-            <input list="classroom" name="classroom" value="{{ search_params.room }}">
+            <input list="classroom" name="classroom" id="classroom_id" value="{{ search_params.room }}">
             <datalist id="classroom">
                 {% for room in classrooms %}
                     <option value={{ room.id }}>{{ room.name }}</option>
@@ -25,27 +25,29 @@
             <input type="number" id="lesson_id" name="lesson" min="0" max="8" value="{{ search_params.lesson }}">
             <br>
             <br>
-            <input type="checkbox" id="interactive_board" name="interactive_board" value="1"
-                   {% if search_params.equipment_params.interactive_board %}checked {% endif %}>
-            <label for="interactive_board"> Interactive board</label>
-            <input type="checkbox" id="data_projector" name="data_projector" value="1"
-                   {% if search_params.equipment_params.data_projector %}checked {% endif %}>
-            <label for="data_projector"> Data projector</label>
-            <input type="checkbox" id="ethernet_cable" name="ethernet_cable" value="1"
-                   {% if search_params.equipment_params.ethernet_cable %}checked {% endif %}>
-            <label for="ethernet_cable"> Ethernet cable</label>
-            <input type="checkbox" id="sink" name="sink" value="1"
-                   {% if search_params.equipment_params.sink %}checked {% endif %}>
-            <label for="sink"> Sink</label>
-            <input type="checkbox" id="flip_chart" name="flip_chart" value="1"
-                   {% if search_params.equipment_params.flip_chart %}checked {% endif %}>
-            <label for="flip_chart"> Flip chart</label>
-            <input type="checkbox" id="teacher_notebook" name="teacher_notebook" value="1"
-                   {% if search_params.equipment_params.teacher_notebook %}checked {% endif %}>
-            <label for="teacher_notebook"> Teacher ntb</label>
-            <input type="checkbox" id="teacher_pc" name="teacher_pc" value="1"
-                   {% if search_params.equipment_params.teacher_pc %}checked {% endif %}>
-            <label for="teacher_pc"> Teacher pc</label>
+            <fieldset id="equipment_id">
+                <input type="checkbox" id="interactive_board" name="interactive_board" value="1"
+                       {% if search_params.equipment_params.interactive_board %}checked {% endif %}>
+                <label for="interactive_board"> Interactive board</label>
+                <input type="checkbox" id="data_projector" name="data_projector" value="1"
+                       {% if search_params.equipment_params.data_projector %}checked {% endif %}>
+                <label for="data_projector"> Data projector</label>
+                <input type="checkbox" id="ethernet_cable" name="ethernet_cable" value="1"
+                       {% if search_params.equipment_params.ethernet_cable %}checked {% endif %}>
+                <label for="ethernet_cable"> Ethernet cable</label>
+                <input type="checkbox" id="sink" name="sink" value="1"
+                       {% if search_params.equipment_params.sink %}checked {% endif %}>
+                <label for="sink"> Sink</label>
+                <input type="checkbox" id="flip_chart" name="flip_chart" value="1"
+                       {% if search_params.equipment_params.flip_chart %}checked {% endif %}>
+                <label for="flip_chart"> Flip chart</label>
+                <input type="checkbox" id="teacher_notebook" name="teacher_notebook" value="1"
+                       {% if search_params.equipment_params.teacher_notebook %}checked {% endif %}>
+                <label for="teacher_notebook"> Teacher ntb</label>
+                <input type="checkbox" id="teacher_pc" name="teacher_pc" value="1"
+                       {% if search_params.equipment_params.teacher_pc %}checked {% endif %}>
+                <label for="teacher_pc"> Teacher pc</label>
+            </fieldset>
             <br>
             <input type="submit" id="formSubmit" value="Hľadať">
         </form>
