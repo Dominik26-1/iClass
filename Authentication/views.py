@@ -17,10 +17,13 @@ class LoginView(View):
         if user is not None:
             login(request, user)
             messages.success(request, ("Succesfully logged in..."))
+            next_url = request.POST.get("next")
+            if next_url:
+                return redirect(next_url)
             return redirect('home')
         else:
             messages.success(request, ("There Was An Error Logging In, Try Again..."))
-            return redirect('home')
+            return redirect('login')
 
 
 class LogoutView(View):

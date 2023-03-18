@@ -2,32 +2,36 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
-    {% if messages %}
-        {% for message in messages %}
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
 
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                {{ message }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
 
-        {% endfor %}
-    {% endif %}
-</div>
+            {% endfor %}
+        {% endif %}
+    </div>
 
-<div class="forms">
-    <form method=POST action="/login/">
-        {% csrf_token %}
-        <br>
-        <label for="username">Teacher ID:</label><br>
-        <input type="text" id="username" name="username"><br>
-        <label for="password">Password</label><br>
-        <input type="password" id="password" name="password">
-        <br>
-        <br>
-        <input type="submit" value="Login">
-        <br>
-        <br>
-    </form>
-</div>
+    <div class="forms">
+        <form method=POST action="/login/">
+            {% csrf_token %}
+            <br>
+            <label for="username">Teacher ID:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password">
+            <br>
+            <br>
+            <input type="submit" value="Login">
+            {% if request.GET.next %}
+                <input type="text" name="next" value="{{ request.GET.next }}" hidden>
+            {% endif %}
+
+            <br>
+            <br>
+        </form>
+    </div>
 {% endblock %}

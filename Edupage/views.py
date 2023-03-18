@@ -36,7 +36,7 @@ except ReadTimeoutError:
     print("Poor or no connection to internet!")
 
 
-def get_day_records(date):
+def get_day_records(date) -> (list[Timetable], list[Substitution], list[Reservation]):
     reservations = Reservation.objects.filter(date=date)
     substitutions: list[TimetableChange] = edupage.get_timetable_changes(date)
     sub_lessons = []
@@ -89,8 +89,9 @@ def parse_edupage_object(timetable_change: TimetableChange, orig_lesson: int, da
                 moved_lesson = new_lesson_reg.group("moved_lesson")
 
                 # najdi novu hodinu, ktora nahradila odpadnutu
-                moved_reg_les = Timetable.objects.filter(lesson=moved_lesson, day=date.strftime("%A"),
-                                                         student_class=student_class)
+                moved_reg_les = Timetable.objects.filter(Q(lesson=moved_lesson) & Q(day=date.strftime("%A")) &
+                                                         Q(student_class=student_class) & Q(valid_from__lte=date) &
+                                                         (Q(valid_to__gte=date) | Q(valid_to__isnull=True)))
                 # ak bola nova hodina v tom case pre danu triedu spolu s inymi hodinami
                 # najdi podla skupiny, o ktoru novu hodinu sa jedna
                 if len(moved_reg_les) > 1:
@@ -113,9 +114,10 @@ def parse_edupage_object(timetable_change: TimetableChange, orig_lesson: int, da
                                                 new_subject=None, new_teacher=new_teacher)
                 # povodna hodina, ktora odpadla alebo sa suplovala
                 try:
-                    orig_record = Timetable.objects.get(lesson=orig_lesson, day=date.strftime("%A"),
-                                                        student_class=student_class,
-                                                        student_group=students_group)
+                    orig_record = Timetable.objects.get(Q(lesson=orig_lesson) & Q(day=date.strftime("%A")) &
+                                                        Q(student_class=student_class) & Q(
+                        student_group=students_group) & Q(valid_from__lte=date) &
+                                                        (Q(valid_to__gte=date) | Q(valid_to__isnull=True)))
                 except Timetable.DoesNotExist:
                     logger.warning(
                         f'Nenasla sa povodna hodina s parametrami hod:{orig_lesson},{date.strftime("%A")} pre {student_class} a {students_group}'
@@ -128,9 +130,11 @@ def parse_edupage_object(timetable_change: TimetableChange, orig_lesson: int, da
             # iba sa zmenila dana hodina v dany cas na inu hodinu bez presunu
             else:
                 try:
-                    orig_record = Timetable.objects.get(lesson=orig_lesson, day=date.strftime("%A"),
-                                                        student_class=student_class,
-                                                        student_group=students_group)
+
+                    orig_record = Timetable.objects.get(Q(lesson=orig_lesson) & Q(day=date.strftime("%A")) &
+                                                        Q(student_class=student_class) & Q(
+                        student_group=students_group) & Q(valid_from__lte=date) &
+                                                        (Q(valid_to__gte=date) | Q(valid_to__isnull=True)))
                 except Timetable.DoesNotExist:
                     logger.warning(
                         f'Nenasla sa povodna hodina s parametrami hod:{orig_lesson},{date.strftime("%A")} pre {student_class} a {students_group}'
@@ -152,9 +156,11 @@ def parse_edupage_object(timetable_change: TimetableChange, orig_lesson: int, da
             teacher = regex_match.group("teacher")
 
             try:
-                orig_record = Timetable.objects.get(lesson=orig_lesson, day=date.strftime("%A"),
-                                                    student_class=student_class,
-                                                    student_group=students_group)
+
+                orig_record = Timetable.objects.get(Q(lesson=orig_lesson) & Q(day=date.strftime("%A")) &
+                                                    Q(student_class=student_class) & Q(
+                    student_group=students_group) & Q(valid_from__lte=date) &
+                                                    (Q(valid_to__gte=date) | Q(valid_to__isnull=True)))
             except Timetable.DoesNotExist:
                 logger.warning(
                     f'Nenasla sa povodna hodina s parametrami hod:{orig_lesson},{date.strftime("%A")} pre triedu:{student_class} a skupinu:{students_group} '
