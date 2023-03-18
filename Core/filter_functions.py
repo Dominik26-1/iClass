@@ -1,6 +1,5 @@
 from itertools import chain
 
-from Classroom.models import Classroom
 from Reservation.models import Reservation
 from Substitution.models import Substitution
 from Timetable.models import Timetable
@@ -89,3 +88,9 @@ def filter_room_equipment_records(timetable_lessons, sub_lessons, reservation_le
 
     return timetable_lessons, sub_lessons, reservation_lessons
 
+
+def get_room_candidates_by_filter(all_rooms, equipment_filters):
+    filters = {}
+    for key, value in list(equipment_filters.items()):
+        filters[key] = value
+    return list(chain(all_rooms.filter(**filters)))

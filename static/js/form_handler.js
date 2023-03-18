@@ -50,5 +50,4 @@ function handleFormValues(event) {
 
     const params = new URLSearchParams(formData);
     window.location.href = `/search/?${params.toString()}`;
-
 }

@@ -5,7 +5,6 @@ from edupage_api.exceptions import BadCredentialsException
 from urllib3.exceptions import ReadTimeoutError
 
 edupage = Edupage()
-print(edupage)
 edupage_username = os.environ.get('EDUPAGE_USER')
 edupage_password = os.environ.get('EDUPAGE_PASSWORD')
 
