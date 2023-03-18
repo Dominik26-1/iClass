@@ -1,4 +1,5 @@
-# models.py
+MAX_LESSON = 8
+
 DAYS_OF_WEEK = (
     ('Monday', 'Monday'),
     ('Tuesday', 'Tuesday'),

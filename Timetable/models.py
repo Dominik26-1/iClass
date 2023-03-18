@@ -4,7 +4,7 @@ import uuid
 from django.db import models
 from django.db.models import Q
 
-from App.data_types import DAYS_OF_WEEK
+from App.constants import DAYS_OF_WEEK
 from Classroom.models import Classroom
 
 

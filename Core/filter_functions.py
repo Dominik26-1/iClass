@@ -89,9 +89,3 @@ def filter_room_equipment_records(timetable_lessons, sub_lessons, reservation_le
 
     return timetable_lessons, sub_lessons, reservation_lessons
 
-
-def get_room_candidates_by_filter(equipment_filters):
-    filters = {}
-    for key, value in list(equipment_filters.items()):
-        filters[key] = value
-    return list(chain(Classroom.objects.filter(**filters)))

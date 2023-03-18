@@ -1,16 +1,4 @@
 document.getElementById("search_form").addEventListener("submit", handleFormValues);
-function createReservation(event){
-    const lesson = event.target.getAttribute('lesson');
-    const date = event.target.getAttribute('date');
-    const classroom = event.target.getAttribute('classroom');
-    const formData = new FormData();
-    formData.append("date", date);
-    formData.append("lesson", lesson);
-    formData.append("classroom", classroom);
-    const params = new URLSearchParams(formData);
-    window.location.href = `/reservations/create/?${params.toString()}`;
-    return false;
-}
 const classroom_element = document.getElementById('classroom_id');
 const equipment_checkboxes = document.getElementById('equipment_id');
 
@@ -40,14 +28,19 @@ equipment_checkboxes.addEventListener('input', () => {
 
 function handleFormValues(event) {
     event.preventDefault();
-    const classroomInput = document.getElementById('classroom_id');
     const formData = new FormData(event.target);
+    const lesson_element = document.getElementById('lesson_id');
     //validacia ci je zadana ucebna alebo hodina
-    if (formData.get("classroom") === "" && formData.get("lesson") === "") {
-        classroomInput.setCustomValidity("Nezadaná učebňa ani hodina!")
+    if (classroom_element.disabled && formData.get("lesson") === "") {
+        lesson_element.setCustomValidity("Nezadaná hodina!")
+        lesson_element.reportValidity();
         return
     }
-
+    if (formData.get("classroom") === "" && formData.get("lesson") === "") {
+        classroom_element.setCustomValidity("Nezadaná učebňa ani hodina!")
+        classroom_element.reportValidity();
+        return
+    }
     if (formData.get("classroom") === "") {
         formData.delete('classroom');
     }

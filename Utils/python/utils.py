@@ -1,9 +1,9 @@
-def get_numeric_class(riman_class_name):
-    class_name_parts = riman_class_name.split('.')
+def get_numeric_class(roman_class_name):
+    class_name_parts = roman_class_name.split('.')
     if len(class_name_parts) == 2:
         return f'{romanToDecimal(class_name_parts[0])}.{class_name_parts[1]}'
     else:
-        return riman_class_name
+        return roman_class_name
 
 
 # Numerals to Numbers

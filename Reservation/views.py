@@ -8,7 +8,7 @@ from django.views import View
 from django.views.generic import DetailView
 
 from Classroom.models import Classroom
-from Edupage.filters import is_classroom_available
+from Core.functions import is_classroom_available
 from Edupage.views import parse_inputs
 from Reservation.models import Reservation
 

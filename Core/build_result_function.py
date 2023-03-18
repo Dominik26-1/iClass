@@ -1,8 +1,7 @@
+from App.constants import MAX_LESSON
+from Classroom.functions import get_room_candidates_by_filter
 from Classroom.models import Classroom
 from Utils.python.result.RecordResult import Result
-from Utils.python.result.logic_functions import get_room_candidates_by_filter
-
-MAX_LESSON = 8
 
 
 def build_results_by_room(results):
