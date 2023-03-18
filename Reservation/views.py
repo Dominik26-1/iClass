@@ -1,5 +1,5 @@
 # Create your views here.
-
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -40,8 +40,19 @@ class ReservationCreateView(View):
     def get(self, request, *args, **kwargs):
         input_date, input_lesson, input_room_id, _, parsing_error = parse_inputs(
             REST_method=request.GET)
+        if not parsing_error["is_valid"]:
+            messages.warning(request, parsing_error["errors"][0])
+            return redirect('search')
+        if not (input_date and input_lesson and input_room_id):
+            messages.warning(request, "Chýbajúce argumenty (dátum, učebňa alebo hodina) pre rezerváciu učebne.")
+            return redirect('search')
         teacher = f'{request.user.first_name} {request.user.last_name}'
-        classroom = Classroom.objects.get(id=input_room_id)
+        classroom = None
+        try:
+            classroom = Classroom.objects.get(id=input_room_id)
+        except Classroom.DoesNotExist:
+            messages.success(request, f"Učebňa s id {input_room_id} neexistuje.")
+            redirect('search')
         reservation_candidate = Reservation(classroom=classroom, date=input_date, lesson=input_lesson,
                                             teacher=teacher)
         context = {
@@ -54,16 +65,25 @@ class ReservationCreateView(View):
     def post(self, request, *args, **kwargs):
         input_date, input_lesson, input_room_id, _, parsing_error = parse_inputs(
             REST_method=request.POST)
+        if not parsing_error["is_valid"]:
+            messages.warning(request, parsing_error["errors"][0])
+            return redirect('search')
+        if not (input_date and input_lesson and input_room_id):
+            messages.warning(request, "Chýbajúce argumenty (dátum, učebňa alebo hodina) pre rezerváciu učebne.")
+            return redirect('search')
         teacher = f'{request.user.first_name} {request.user.last_name}'
         if is_classroom_available(input_date, input_lesson, input_room_id):
-            classroom = Classroom.objects.get(id=input_room_id)
+            classroom = None
+            try:
+                classroom = Classroom.objects.get(id=input_room_id)
+            except Classroom.DoesNotExist:
+                messages.success(request, f"Učebňa s id {input_room_id} neexistuje.")
+                redirect('search')
             Reservation.objects.create(date=input_date, classroom=classroom, lesson=input_lesson, teacher=teacher)
             return redirect("reservation-list")
         else:
+            messages.warning(request, "Učebňa už nie je voľná pre Vami zadaný deň a hodinu.")
             return redirect("search")
-
-    template_name = "reservation_form.html"
-    """View to create a new film"""
 
 
 class ReservationDeleteView(ReservationBaseView, View):

@@ -1,5 +1,5 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import render, redirect
 from django.views import View
 
 from Classroom.models import Classroom
@@ -12,8 +12,6 @@ from Utils.python.result.search_result_enum import ResultType
 
 class SearchView(View):
     def get(self, request, *args, **kwargs):
-        # user get without results
-
         if (len(list(request.GET.items()))) == 0:
             content = {
                 "classrooms": Classroom.objects.all(),
@@ -25,13 +23,17 @@ class SearchView(View):
                 REST_method=request.GET)
 
             if not parsing_error["is_valid"]:
-                return HttpResponse(" ".join(parsing_error["errors"]))
+                messages.warning(request, parsing_error["errors"][0])
+                return redirect('search')
 
             if not input_date:
-                return HttpResponse("Missing date input")
+                messages.warning(request, "Chýbajúci vstupný argument dátum.")
+                return redirect('search')
 
             if input_room_id and len(equipment_args) != 0:
-                return HttpResponse("Wrong combination of inputs.")
+                messages.warning(request,
+                                 "Vyhľadávanie nie je možné spustiť pre konktrétnu učebňu a zároveň podľa vybavania učební.")
+                return redirect('search')
 
             if input_date and input_lesson and not input_room_id and len(equipment_args) == 0:
                 return search_lesson_view(request, input_date, input_lesson)
@@ -42,7 +44,8 @@ class SearchView(View):
             if input_date and input_lesson and len(equipment_args) != 0:
                 return search_filter_rooms_lesson(request, input_date, input_lesson, equipment_args)
             else:
-                return HttpResponse("Wrong combination of inputs.")
+                messages.warning(request, "Nesprávne argumenty pre vyhľadávanie.")
+                return redirect('search')
 
 
 def search_room_view(request, date, room_id):

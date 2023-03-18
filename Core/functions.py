@@ -54,7 +54,7 @@ def parse_inputs(REST_method):
     try:
         input_lesson = int(REST_method.get(Classroom_filters.LESSON.value))
     except ValueError:
-        error_context["errors"].append(f'Parameter:{Classroom_filters.LESSON.value} can not be converted into int.')
+        error_context["errors"].append(f'Parameter hodina nie je celočíselná hodnota.')
         error_context["is_valid"] = False
         input_lesson = None
     except TypeError:
@@ -64,7 +64,7 @@ def parse_inputs(REST_method):
         input_room_id = int(REST_method.get(Classroom_filters.CLASSROOM_ID.value))
     except ValueError:
         error_context["errors"].append(
-            f'Parameter:{Classroom_filters.CLASSROOM_ID.value} can not be converted into int.')
+            f'Parameter classroom_id nie je celočíselná hodnota.')
         error_context["is_valid"] = False
         input_room_id = None
     except TypeError:
@@ -75,7 +75,7 @@ def parse_inputs(REST_method):
         input_date = datetime.strptime(str_date, '%Y-%m-%d').date()
     except ValueError:
         error_context["errors"].append(
-            f'Parameter:{Classroom_filters.DATE.value} can not be converted into date. It has to be in format YYYY-MM-DD.')
+            f'Parameter dátum nie je uvedený v správnom formáte. Dátum musí byť vo formáte RRRR-MM-DD.')
         error_context["is_valid"] = False
         input_date = None
     except TypeError:
@@ -86,7 +86,7 @@ def parse_inputs(REST_method):
         if key in [eq.value for eq in Equipment]:
             if not (value == "1" or value == "0"):
                 error_context["errors"].append(
-                    f'Parameter:{key} is invalid. Possible option is 0 or 1.')
+                    f'Parameter {key} nie je z uvedených hodnôt 0 alebo 1.')
                 error_context["is_valid"] = False
             equipment_args[key] = value == "1"
     return input_date, input_lesson, input_room_id, equipment_args, error_context
