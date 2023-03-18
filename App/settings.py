@@ -126,6 +126,8 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/assets/'
 
 # SESSION_COOKIE_AGE = 10
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')

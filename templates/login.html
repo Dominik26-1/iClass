@@ -27,7 +27,8 @@
             <br>
             <input type="submit" value="Login">
             {% if request.GET.next %}
-                <input type="text" name="next" value="{{ request.GET.next }}" hidden>
+                <label for="nextUrlText" hidden>Ciel</label>
+                <input type="text" name="next" id="nextUrlText" value="{{ request.GET.next }}" hidden>
             {% endif %}
 
             <br>
