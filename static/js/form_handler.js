@@ -1,4 +1,16 @@
 document.getElementById("search_form").addEventListener("submit", handleFormValues);
+function createReservation(event){
+    const lesson = event.target.getAttribute('lesson');
+    const date = event.target.getAttribute('date');
+    const classroom = event.target.getAttribute('classroom');
+    const formData = new FormData();
+    formData.append("date", date);
+    formData.append("lesson", lesson);
+    formData.append("classroom", classroom);
+    const params = new URLSearchParams(formData);
+    window.location.href = `/reservations/create/?${params.toString()}`;
+    return false;
+}
 const classroom_element = document.getElementById('classroom_id');
 const equipment_checkboxes = document.getElementById('equipment_id');
 

@@ -1,10 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-reservation form
-</body>
-</html>
+{% extends "skeleton.html" %}
+{% load static %}
+
+{% block content %}
+    <form method="POST" id="reservation_form"
+            {% if action == "delete" %}
+          action="/reservations/delete/"
+            {% endif %}>
+        {% csrf_token %}
+        {% if action == "delete" %}
+            <input type="number" id="reservation_id" name="reservation_id" value="{{ result.id }}" required readonly>
+        {% endif %}
+
+        <label for="date_id">Deň:</label>
+        <input type="date" id="date_id" name="date" value="{{ result.date|date:"Y-m-d" }}" required readonly>
+        <label for="classroom_id">Učebňa:</label>
+        <input type="number" name="classroom" id="classroom_name" value="{{ result.classroom.id }}" required readonly>
+        <p>{{ result.classroom.name }}</p>
+
+        <label for="lesson_id">Hodina</label>
+        <input type="number" id="lesson_id" name="lesson" min="0" max="8" value="{{ result.lesson }}" required readonly>
+        <input type="text" id="teacher_id" name="teacher" value="{{ result.teacher }}" required readonly>
+        {% if action == "create" %}
+            <input type="submit" id="createSubmit" value="Rezervovať">
+        {% else %}
+            <input type="submit" id="deleteSubmit" value="Zmaž">
+        {% endif %}
+
+    </form>
+{% endblock %}

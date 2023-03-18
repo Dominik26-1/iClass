@@ -9,11 +9,6 @@
             <label for="date_id">Deň:</label>
             <input type="date" id="date_id" name="date" value="{{ search_params.date|date:"Y-m-d" }}" required>
             <label for="classroom_id">Učebňa:</label>
-            <!-- <select id="browsers">
-                {% for room in classrooms %}
-                    <option value={{ room.id }}>{{ room.name }}</option>
-                {% endfor %}
-            </select> -->
             <input list="classroom" name="classroom" id="classroom_id" value="{{ search_params.room }}">
             <datalist id="classroom">
                 {% for room in classrooms %}
@@ -89,6 +84,7 @@
                                 {% endif %}
                             {% endfor %}
                         </p>
+                        <a href="/reservations/create/?date={{ search_params.date|date:"Y-m-d" }}&classroom={{ value.info.id }}&lesson={{ search_params.lesson }}">tu</a>
                     </div>
                     <br>
                 {% endif %}
@@ -119,7 +115,7 @@
                     <div class="container_free">
                         <table style="width:100%">
                             <tr>
-                                <td>{{ key }}.hodnina</td>
+                                <td>{{ key }}.hodina</td>
                             </tr>
                         </table>
                         <p class="equipment">
@@ -129,6 +125,7 @@
                                 {% endif %}
                             {% endfor %}
                         </p>
+                        <a href="/reservations/create/?date={{ search_params.date|date:"Y-m-d" }}&classroom={{ search_params.room }}&lesson={{ key }}">tu</a>
                     </div>
                     <br>
                 {% endif %}
@@ -137,6 +134,7 @@
             {{ search_room.name }}
             {% if is_free %}
                 Volna
+                 <a href="/reservations/create/?date={{ search_params.date|date:"Y-m-d" }}&classroom={{ search_params.room }}&lesson={{  search_params.lesson }}">tu</a>
             {% else %}
                 Obsadena
                 {% for res in result %}
@@ -168,6 +166,5 @@
     {% endif %}
 
 
-    <script src="{% static 'js/form_handler.js' %}">
-    </script>
+    <script src="{% static 'js/form_handler.js' %}"></script>
 {% endblock %}

@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import date
 
 
 @dataclass
@@ -8,7 +8,6 @@ class Result:
     class_room: str
     room_id: int
     lesson: int
-    date: datetime
+    date: date
     students: str = None
     subject: str = None
-

@@ -1,14 +1,17 @@
 from itertools import chain
 
 from Classroom.models import Classroom
+from Reservation.models import Reservation
 from Substitution.models import Substitution
 from Timetable.models import Timetable
 from Utils.python.result.RecordResult import Result
 
 
-def merge_lessons_records(regular_lessons: list[Timetable], sub_lessons: list[Substitution], search_date):
+def merge_lessons_records(regular_lessons: list[Timetable], sub_lessons: list[Substitution],
+                          reserve_lessons: list[Reservation], search_date):
     reg_records = []
     sub_records = []
+    reserve_records = []
     for lesson in regular_lessons:
         reg_record = Result(
             lesson.teacher,
@@ -20,6 +23,15 @@ def merge_lessons_records(regular_lessons: list[Timetable], sub_lessons: list[Su
             lesson.subject
         )
         reg_records.append(reg_record)
+    for lesson in reserve_lessons:
+        res_record = Result(
+            lesson.teacher,
+            lesson.classroom.name,
+            lesson.classroom.id,
+            lesson.lesson,
+            search_date
+        )
+        reserve_records.append(res_record)
 
     for lesson in sub_lessons:
         if lesson.new_class:
@@ -40,7 +52,8 @@ def merge_lessons_records(regular_lessons: list[Timetable], sub_lessons: list[Su
 
         )
         sub_records.append(sub_record)
-        reg_records.extend(sub_records)
+    reg_records.extend(sub_records)
+    reg_records.extend(reserve_records)
     return reg_records
 
 
@@ -54,12 +67,13 @@ def get_day_records(date):
     return list(chain(timetable_lessons)), list(chain(sub_lessons.exclude(new_lesson=None)))
 
 
-def filter_lesson_records(timetable_lessons, sub_lessons, lesson):
+def filter_lesson_records(timetable_lessons, sub_lessons, reservation_lesson, lesson):
     return list(filter(lambda l: l.lesson == lesson, timetable_lessons)), list(
-        filter(lambda l: l.new_lesson == lesson, sub_lessons))
+        filter(lambda l: l.new_lesson == lesson, sub_lessons)), \
+           list(filter(lambda l: l.lesson == lesson, reservation_lesson))
 
 
-def filter_room_records(timetable_lessons: list[Timetable], sub_lessons, room_id):
+def filter_room_records(timetable_lessons: list[Timetable], sub_lessons, reservation_lessons, room_id):
     def filter_room(subtitution: Substitution, orig_room_id):
         if subtitution.new_class:
             return subtitution.new_class.id == orig_room_id
@@ -67,10 +81,11 @@ def filter_room_records(timetable_lessons: list[Timetable], sub_lessons, room_id
             return False
 
     return list(filter(lambda t: t.classroom.id == room_id, timetable_lessons)), list(
-        filter(lambda s: filter_room(s, room_id), sub_lessons))
+        filter(lambda s: filter_room(s, room_id), sub_lessons)), list(
+        filter(lambda r: r.classroom.id == room_id, reservation_lessons))
 
 
-def filter_room_equipment_records(timetable_lessons, sub_lessons, equipment_filters):
+def filter_room_equipment_records(timetable_lessons, sub_lessons, reservation_lessons, equipment_filters):
     def filter_room(subtitution: Substitution, key, value):
         if subtitution.new_class:
             return getattr(subtitution.new_class, key) == value
@@ -80,8 +95,9 @@ def filter_room_equipment_records(timetable_lessons, sub_lessons, equipment_filt
     for key, value in list(equipment_filters.items()):
         timetable_lessons = list(filter(lambda les: getattr(les.classroom, key) == value, timetable_lessons))
         sub_lessons = list(filter(lambda les: filter_room(les, key, value), sub_lessons))
+        reservation_lessons = list(filter(lambda les: getattr(les.classroom, key) == value, reservation_lessons))
 
-    return timetable_lessons, sub_lessons
+    return timetable_lessons, sub_lessons, reservation_lessons
 
 
 def get_room_candidates_by_filter(equipment_filters):

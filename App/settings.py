@@ -132,12 +132,12 @@ STATICFILES_DIRS = [
 ]
 
 AUTO_LOGOUT = {
-    'IDLE_TIME': timedelta(minutes=5),
+    'IDLE_TIME': timedelta(minutes=10),
     'SESSION_TIME': timedelta(minutes=20),
     'MESSAGE': 'The session has expired. Please login again to continue.',
     'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
 }
-
+LOGIN_URL = '/login'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 

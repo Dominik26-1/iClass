@@ -14,6 +14,7 @@ from App.logger import logger
 from Classroom.classroom_enum import Classroom_filters
 from Classroom.equipment_enum import Equipment
 from Classroom.models import Classroom
+from Reservation.models import Reservation
 from Substitution.models import Substitution
 from Timetable.models import Timetable
 from Utils.python.result.logic_functions import merge_lessons_records, filter_room_equipment_records, \
@@ -32,7 +33,8 @@ except ReadTimeoutError:
 
 
 def get_day_records(date):
-    substitutions: TimetableChange = edupage.get_timetable_changes(date)
+    reservations = Reservation.objects.filter(date=date)
+    substitutions: list[TimetableChange] = edupage.get_timetable_changes(date)
     sub_lessons = []
     # skontroluj ci nie je None napr pre vikend
     if substitutions:
@@ -45,7 +47,8 @@ def get_day_records(date):
     # nezahrn hodiny z rozvrhu, ktore su v dany den v suplovani
     timetable_lessons = Timetable.objects.filter(day=date.strftime("%A")).exclude(
         id__in=map(lambda les: les.timetable_id, sub_lessons))
-    return list(chain(timetable_lessons)), list(filter(lambda les: les.new_lesson is not None, sub_lessons))
+    return list(chain(timetable_lessons)), \
+           list(filter(lambda les: les.new_lesson is not None, sub_lessons)), list(chain(reservations))
 
 
 def parse_edupage_object(timetable_change: TimetableChange, orig_lesson: int, date):
@@ -173,7 +176,8 @@ class SearchView(View):
             }
             return render(request, "search_form.html", content)
         else:
-            input_date, input_lesson, input_room_id, equipment_args, parsing_error = parse_inputs(request=request)
+            input_date, input_lesson, input_room_id, equipment_args, parsing_error = parse_inputs(
+                REST_method=request.GET)
 
             if not parsing_error["is_valid"]:
                 return HttpResponse(" ".join(parsing_error["errors"]))
@@ -196,12 +200,12 @@ class SearchView(View):
                 return HttpResponse("Wrong combination of inputs.")
 
 
-def parse_inputs(request):
+def parse_inputs(REST_method):
     error_context = {"is_valid": True,
                      "errors": []
                      }
     try:
-        input_lesson = int(request.GET.get(Classroom_filters.LESSON.value))
+        input_lesson = int(REST_method.get(Classroom_filters.LESSON.value))
     except ValueError:
         error_context["errors"].append(f'Parameter:{Classroom_filters.LESSON.value} can not be converted into int.')
         error_context["is_valid"] = False
@@ -210,7 +214,7 @@ def parse_inputs(request):
         input_lesson = None
 
     try:
-        input_room_id = int(request.GET.get(Classroom_filters.CLASSROOM_ID.value))
+        input_room_id = int(REST_method.get(Classroom_filters.CLASSROOM_ID.value))
     except ValueError:
         error_context["errors"].append(
             f'Parameter:{Classroom_filters.CLASSROOM_ID.value} can not be converted into int.')
@@ -220,7 +224,7 @@ def parse_inputs(request):
         input_room_id = None
 
     try:
-        str_date = request.GET.get(Classroom_filters.DATE.value)
+        str_date = REST_method.get(Classroom_filters.DATE.value)
         input_date = datetime.strptime(str_date, '%Y-%m-%d').date()
     except ValueError:
         error_context["errors"].append(
@@ -231,7 +235,7 @@ def parse_inputs(request):
         input_date = None
 
     equipment_args = {}
-    for key, value in list(request.GET.items()):
+    for key, value in list(REST_method.items()):
         if key in [eq.value for eq in Equipment]:
             if not (value == "1" or value == "0"):
                 error_context["errors"].append(
@@ -244,10 +248,11 @@ def parse_inputs(request):
 def search_room_view(request, date, room_id):
     # search/?date=2023-02-27&classroom=1
 
-    timetable_lessons, sub_lessons = get_day_records(date)
-    timetable_results, sub_results = filter_room_records(timetable_lessons, sub_lessons, room_id)
+    timetable_lessons, sub_lessons, reserved_lessons = get_day_records(date)
+    timetable_results, sub_results, reserved_lessons = filter_room_records(timetable_lessons, sub_lessons,
+                                                                           reserved_lessons, room_id)
 
-    results = merge_lessons_records(timetable_results, sub_results, date)
+    results = merge_lessons_records(timetable_results, sub_results, reserved_lessons, date)
     all_classrooms = Classroom.objects.all()
     context = {
         "with_results": True,
@@ -265,10 +270,11 @@ def search_room_view(request, date, room_id):
 
 def search_lesson_view(request, date, lesson):
     # search/?date=2023-03-17&lesson=1
-    timetable_lessons, sub_lessons = get_day_records(date)
-    timetable_results, sub_results = filter_lesson_records(timetable_lessons, sub_lessons, lesson)
+    timetable_lessons, sub_lessons, reserved_lessons = get_day_records(date)
+    timetable_results, sub_results, reserved_lessons = filter_lesson_records(timetable_lessons, sub_lessons,
+                                                                             reserved_lessons, lesson)
 
-    results = merge_lessons_records(timetable_results, sub_results, date)
+    results = merge_lessons_records(timetable_results, sub_results, reserved_lessons, date)
     context = {
         "with_results": True,
         "result": build_results_by_room(results),
@@ -283,13 +289,13 @@ def search_lesson_view(request, date, lesson):
 
 
 def search_room_lesson_view(request, date, lesson, room_id):
-    # search/?date=2023-03-17&lesson=1&classroom=1
+    timetable_lessons, sub_lessons, reserved_lessons = get_day_records(date)
+    timetable_results, sub_results, reserved_lessons = filter_lesson_records(timetable_lessons, sub_lessons,
+                                                                             reserved_lessons, lesson)
+    timetable_results, sub_results, reserved_lessons = filter_room_records(timetable_results, sub_results,
+                                                                           reserved_lessons, room_id)
 
-    timetable_lessons, sub_lessons = get_day_records(date)
-    timetable_results, sub_results = filter_lesson_records(timetable_lessons, sub_lessons, lesson)
-    timetable_results, sub_results = filter_room_records(timetable_results, sub_results, room_id)
-
-    results = merge_lessons_records(timetable_results, sub_results, date)
+    results = merge_lessons_records(timetable_results, sub_results, reserved_lessons, date)
     context = {
         "with_results": True,
         "result": results,
@@ -308,11 +314,13 @@ def search_room_lesson_view(request, date, lesson, room_id):
 
 def search_filter_rooms_lesson(request, date, lesson, equipment_args):
     # search/?date=2023-03-17&lesson=1&teacher_pc=1&data_projector=1
-    timetable_lessons, sub_lessons = get_day_records(date)
-    timetable_results, sub_results = filter_lesson_records(timetable_lessons, sub_lessons, lesson)
-    timetable_results, sub_results = filter_room_equipment_records(timetable_results, sub_results, equipment_args)
+    timetable_lessons, sub_lessons, reserved_lessons = get_day_records(date)
+    timetable_results, sub_results, reserved_lessons = filter_lesson_records(timetable_lessons, sub_lessons,
+                                                                             reserved_lessons, lesson)
+    timetable_results, sub_results, reserved_lessons = filter_room_equipment_records(timetable_results, sub_results,
+                                                                                     reserved_lessons, equipment_args)
 
-    results = merge_lessons_records(timetable_results, sub_results, date)
+    results = merge_lessons_records(timetable_results, sub_results, reserved_lessons, date)
     context = {
         "with_results": True,
         "result": build_free_rooms(results, equipment_args),
