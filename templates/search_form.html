@@ -61,7 +61,7 @@
                                 <td>{{ value.occupancy.0.subject }}</td>
                             </tr>
                         </table>
-                        <p class="equipment">
+                        <p class="equipment"> Vybavenie:
                             {% for key, value in value.info.equipment.items %}
                                 {% if value %}
                                     {{ key }}
@@ -77,7 +77,7 @@
                                 <td>{{ value.info.name }}</td>
                             </tr>
                         </table>
-                        <p class="equipment">
+                        <p class="equipment"> Vybavenie:
                             {% for key, value in value.info.equipment.items %}
                                 {% if value %}
                                     {{ key }}
@@ -90,7 +90,7 @@
                 {% endif %}
             {% endfor %}
         {% elif result_type == "lesson_list" %}
-            {{ search_room.name }}
+            <div class="main_message">{{ search_room.name }}</div>
             {% for key, value in result.items %}
                 {% if value.occupancy %}
                     <div class="container_taken">
@@ -102,7 +102,7 @@
                                 <td>{{ value.occupancy.0.subject }}</td>
                             </tr>
                         </table>
-                        <p class="equipment">
+                        <p class="equipment"> Vybavenie:
                             {% for key, value in search_room.equipment.items %}
                                 {% if value %}
                                     {{ key }}
@@ -118,7 +118,7 @@
                                 <td>{{ key }}.hodina</td>
                             </tr>
                         </table>
-                        <p class="equipment">
+                        <p class="equipment"> Vybavenie:
                             {% for key, value in search_room.equipment.items %}
                                 {% if value %}
                                     {{ key }}
@@ -131,12 +131,14 @@
                 {% endif %}
             {% endfor %}
         {% elif result_type == "boolean_result" %}
-            {{ search_room.name }}
-            {% if is_free %}
-                Volna
-                 <a href="/reservations/create/?date={{ search_params.date|date:"Y-m-d" }}&classroom={{ search_params.room }}&lesson={{  search_params.lesson }}">tu</a>
-            {% else %}
-                Obsadena
+            <div class="main_message">
+                {{ search_room.name }}
+                {% if is_free %}
+                    Volna
+                    <a href="/reservations/create/?date={{ search_params.date|date:"Y-m-d" }}&classroom={{ search_params.room }}&lesson={{  search_params.lesson }}">tu</a>
+                {% else %}
+                    Obsadena
+            </div>
                 {% for res in result %}
                     <div class="container_taken">
                         <table style="width:100%">
@@ -147,7 +149,7 @@
                                 <td>{{ res.subject }}</td>
                             </tr>
                         </table>
-                        <p class="equipment">
+                        <p class="equipment"> Vybavenie:
                             {% for key, value in search_room.equipment.items %}
                                 {% if value %}
                                     {{ key }}

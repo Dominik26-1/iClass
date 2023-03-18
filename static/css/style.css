@@ -4,6 +4,11 @@ header{
     background-color:#57427d;
     text-align: right;
     line-height: 70px;
+    font-family: Garamond;
+}
+body{
+    font-family: Garamond;
+    background-color: #f5f5f5;
 }
 .username{
     color: white;
@@ -28,6 +33,7 @@ footer{
     background-color:#fa7914;
     text-align: center;
     line-height: 60px;
+    font-family: Garamond;
 
 }
 .home_pointer{
@@ -53,23 +59,35 @@ footer{
 }
 
 .container_taken{
+    text-align: center;
+    border-radius: 20px
     margin: auto;
-    width: 45%;
+    width: 55%;
     height: 80px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: black;
     background-color: #ff5e5e;
 }
 .container_free{
+    text-align: center;
+    border-radius: 20px
     margin: auto;
-    width: 45%;
+    width: 55%;
     height: 80px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: black;
     background-color:#81f26b;
 }
 table{
-    text-align:center;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+.equipment{
+    line-height: 40px;
+}
+.main_message{
+    font-size:x-la
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+.equipment{
+    line-height: 40px;
 }
