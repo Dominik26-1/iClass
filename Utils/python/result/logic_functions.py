@@ -57,16 +57,6 @@ def merge_lessons_records(regular_lessons: list[Timetable], sub_lessons: list[Su
     return reg_records
 
 
-def get_day_records(date):
-    # nezahrn tie hodiny, ktore odpadli
-    sub_lessons = Substitution.objects.filter(date=date)
-    weekday = date.strftime("%A")
-    # nezahrn tie ktore su v suplovani
-    timetable_lessons = Timetable.objects.filter(day=weekday) \
-        .exclude(id__in=sub_lessons.values_list('timetable_id'))
-    return list(chain(timetable_lessons)), list(chain(sub_lessons.exclude(new_lesson=None)))
-
-
 def filter_lesson_records(timetable_lessons, sub_lessons, reservation_lesson, lesson):
     return list(filter(lambda l: l.lesson == lesson, timetable_lessons)), list(
         filter(lambda l: l.new_lesson == lesson, sub_lessons)), \

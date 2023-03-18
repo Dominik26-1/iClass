@@ -1,7 +1,9 @@
+import os
 import re
 from datetime import datetime
 from itertools import chain
 
+from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
@@ -24,8 +26,10 @@ from Utils.python.result.search_result_enum import ResultType
 from Utils.python.utils import get_numeric_class
 
 edupage = Edupage()
+edupage_username = os.environ.get('EDUPAGE_USER')
+edupage_password = os.environ.get('EDUPAGE_PASSWORD')
 try:
-    edupage.login("JanImrich", "B6TQBWKKTW", subdomain="gta")
+    edupage.login(edupage_username, edupage_password, subdomain="gta")
 except BadCredentialsException:
     print("Wrong username or password!")
 except ReadTimeoutError:
@@ -45,7 +49,8 @@ def get_day_records(date):
                 for lesson in range(sub.lesson_n[0], sub.lesson_n[1] + 1):
                     sub_lessons.extend(parse_edupage_object(sub, lesson, date))
     # nezahrn hodiny z rozvrhu, ktore su v dany den v suplovani
-    timetable_lessons = Timetable.objects.filter(day=date.strftime("%A")).exclude(
+    timetable_lessons = Timetable.objects.filter(Q(day=date.strftime("%A")) & Q(valid_from__lte=date) &
+                                                 (Q(valid_to__gte=date) | Q(valid_to__isnull=True))).exclude(
         id__in=map(lambda les: les.timetable_id, sub_lessons))
     return list(chain(timetable_lessons)), \
            list(filter(lambda les: les.new_lesson is not None, sub_lessons)), list(chain(reservations))

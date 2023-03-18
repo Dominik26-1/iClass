@@ -1,16 +1,5 @@
-from datetime import datetime
-
 from django.shortcuts import render
-from rest_framework import permissions
-from rest_framework.response import Response
 from rest_framework.views import APIView
-
-from Classroom.classroom_enum import Classroom_filters
-from Classroom.equipment_enum import Equipment
-from Utils.python.result.logic_functions import get_day_records, filter_lesson_records, merge_lessons_records, \
-    filter_room_records, filter_room_equipment_records
-from Utils.python.result.result_functions import build_results_by_room, build_results_by_lesson, build_free_rooms, \
-    build_free_room_by_lessons
 
 '''
 class DailySearchView(APIView):
@@ -112,6 +101,7 @@ class DailyLessonMetRoomsView(APIView):
         context = build_free_rooms(results, equipment_args)
         return render(request, "search_form.html", context)
 '''
+
 
 class HomeView(APIView):
     def get(self, request, *args, **kwargs):
