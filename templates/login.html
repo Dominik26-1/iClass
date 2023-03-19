@@ -15,25 +15,36 @@
             {% endfor %}
         {% endif %}
     </div>
+    <div class="res_header">
+    Prihlásenie
+    <hr style="width:50%; margin: auto; background:black;" />
 
-    <div class="forms">
+    <div class="form-center-page">
         <form method=POST action="/login/">
             {% csrf_token %}
-            <br>
-            <label for="username">Teacher ID:</label><br>
-            <input type="text" id="username" name="username"><br>
-            <label for="password">Password</label><br>
-            <input type="password" id="password" name="password">
-            <br>
-            <br>
-            <input type="submit" value="Login">
-            {% if request.GET.next %}
-                <label for="nextUrlText" hidden>Ciel</label>
-                <input type="text" name="next" id="nextUrlText" value="{{ request.GET.next }}" hidden>
-            {% endif %}
-
-            <br>
-            <br>
+            <fieldset>
+                <div class="form-row">
+                    <label for="username">Prihlasovacie meno</label>
+                </div>
+                <div class="form-row">
+                    <input type="text" id="username" name="username">
+                </div>
+                <div class="form-row">
+                    <label for="password">Heslo
+                    </label>
+                </div>
+                <div class="form-row">
+                    <input type="password" id="password" name="password">
+                </div>
+                {% if request.GET.next %}
+                    <label for="nextUrlText" hidden>Ciel
+                        <input type="text" name="next" id="nextUrlText" value="{{ request.GET.next }}"
+                               hidden></label>
+                {% endif %}
+                <div class="form-row">
+                    <input type="submit" value="Prihlásiť" class="submit-button">
+                </div>
+            </fieldset>
         </form>
     </div>
 {% endblock %}
