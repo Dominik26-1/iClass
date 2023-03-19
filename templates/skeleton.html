@@ -14,7 +14,7 @@
 </head>
 <body>
 <header>
-    <img src="{% static 'assets/name_logo.png' %}" class="header_logo" alt="iclass_logo" >
+    <a href="/"><img src="{% static 'assets/name_logo.png' %}" alt="iclass_logo" class="header_logo"></a>
     {% if request.user.is_authenticated %}
         <p class="username">{{ request.user.username }}
             <img src="{% static 'assets/user_icon.png' %}" class="user_icon" alt="user_icon">
