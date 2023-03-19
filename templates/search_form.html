@@ -104,7 +104,6 @@
                             {% endfor %}
                         </p>
                     </div>
-                    <br>
                 {% else %}
                     <div class="container_free">
                         <table style="width:100%">
@@ -121,12 +120,10 @@
                         </div>
                         <a href="/reservations/create/?date={{ search_params.date|date:"Y-m-d" }}&classroom={{ value.info.id }}&lesson={{ search_params.lesson }}">Rezervácia</a>
                     </div>
-                    <br>
                 {% endif %}
             {% endfor %}
         {% elif result_type == "lesson_list" %}
             <div class="name_of_classroom">{{ search_room.name }}</div>
-            <br>
             <div class="equipment"> Vybavenie:
                             {% for key, value in search_room.equipment.items %}
                                 {% if value %}
@@ -134,7 +131,6 @@
                                 {% endif %}
                             {% endfor %}
             </div>
-            <br>
             {% for key, value in result.items %}
                 {% if value.occupancy %}
                     <div class="container_taken">
@@ -149,7 +145,6 @@
                             </table>
                         </div>
                     </div>
-                    <br>
                 {% else %}
                     <div class="container_free">
                         <table style="width:100%">
@@ -159,7 +154,6 @@
                         </table>
                         <a href="/reservations/create/?date={{ search_params.date|date:"Y-m-d" }}&classroom={{ search_params.room }}&lesson={{ key }}">Rezervácia</a>
                     </div>
-                    <br>
                 {% endif %}
             {% endfor %}
         {% elif result_type == "boolean_result" %}
@@ -189,7 +183,6 @@
                                 {% endfor %}
                             </p>
                         </div>
-                        <br>
                     {% endfor %}
                 {% endif %}
         {% endif %}

@@ -14,6 +14,7 @@
 </head>
 <body>
 <header>
+    <img src="{% static 'assets/name_logo.png' %}" class="header_logo" alt="iclass_logo" >
     {% if request.user.is_authenticated %}
         <p class="username">{{ request.user.username }}
             <img src="{% static 'assets/user_icon.png' %}" class="user_icon" alt="user_icon">
@@ -29,9 +30,13 @@
 {% endblock %}
 </div>
 <footer>
-    <a href="/" class="home_pointer">Home</a>
-    <a href="/reservations" class="home_pointer">Reservations</a>
-    <a href="/search" class="home_pointer">Search</a>
+    <table class="footer_links">
+        <tr>
+            <td><a href="/" class="home_pointer">Home</a></td>
+            <td><a href="/reservations" class="home_pointer">Reservations</a></td>
+            <td><a href="/search" class="home_pointer">Search</a></td>
+        </tr>
+    </table>
 </footer>
 </body>
 </html>
