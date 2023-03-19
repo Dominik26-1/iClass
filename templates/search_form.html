@@ -90,13 +90,13 @@
                                 <td>{{ value.info.name }}</td>
                             </tr>
                         </table>
-                        <p class="equipment"> Vybavenie:
+                        <div class="equipment"> Vybavenie:
                             {% for key, value in value.info.equipment.items %}
                                 {% if value %}
                                     {{ key }}
                                 {% endif %}
                             {% endfor %}
-                        </p>
+                        </div>
                         <a href="/reservations/create/?date={{ search_params.date|date:"Y-m-d" }}&classroom={{ value.info.id }}&lesson={{ search_params.lesson }}">tu</a>
                     </div>
                     <br>
@@ -131,13 +131,13 @@
                                 <td>{{ key }}.hodina</td>
                             </tr>
                         </table>
-                        <p class="equipment"> Vybavenie:
+                        <div class="equipment"> Vybavenie:
                             {% for key, value in search_room.equipment.items %}
                                 {% if value %}
                                     {{ key }}
                                 {% endif %}
                             {% endfor %}
-                        </p>
+                        </div>
                         <a href="/reservations/create/?date={{ search_params.date|date:"Y-m-d" }}&classroom={{ search_params.room }}&lesson={{ key }}">tu</a>
                     </div>
                     <br>

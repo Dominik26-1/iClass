@@ -60,17 +60,17 @@ footer{
 
 .container_taken{
     text-align: center;
-    border-radius: 20px
+    border-radius: 20px;
     margin: auto;
-    width: 55%;
+    width: 50%;
     height: 80px;
     background-color: #ff5e5e;
 }
 .container_free{
     text-align: center;
-    border-radius: 20px
+    border-radius: 20px;
     margin: auto;
-    width: 55%;
+    width: 50%;
     height: 80px;
     background-color:#81f26b;
 }
@@ -89,5 +89,5 @@ table{
     font-weight: bold;
 }
 .equipment{
-    line-height: 40px;
+    line-height: 20px;
 }
