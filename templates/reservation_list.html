@@ -2,13 +2,28 @@
 {% load static %}
 
 {% block content %}
-<div class="res_header">
-    Vaše rezervácie
-    <hr style="width:50%; margin: auto; background:black;" />
-    {% for reserve in reservations %}
-        <div class="res_result">
-            <a href="/reservations/{{ reserve.id }}">{{ reserve.id }} {{ reserve }}</a>
+
+    <div class="res_header">
+        Vaše rezervácie
+        <hr style="width:50%; margin: auto; background:black;"/>
+        <div class="form-center-page">
+
+            <table class="reservations">
+                <tr>
+                    <th>Dátum</th>
+                    <th>Učebňa</th>
+                    <th>Hodina</th>
+                </tr>
+
+                {% for reserve in reservations %}
+                    <tr onclick="window.location.href='/reservations/{{ reserve.id }}'">
+                        <td>{{ reserve.date }}</td>
+                        <td>{{ reserve.classroom.name }}</td>
+                        <td>{{ reserve.lesson }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
         </div>
-    {% endfor %}
-</div>
+
+    </div>
 {% endblock %}

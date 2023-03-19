@@ -18,11 +18,10 @@
     {% if request.user.is_authenticated %}
         <p class="username">{{ request.user.username }}
             <img src="{% static 'assets/user_icon.png' %}" class="user_icon" alt="user_icon">
-            <a href="/logout" class="logout_text">Logout</a>
+            <a href="/logout" class="logout_text">Odhlásenie</a>
         </p>
-
     {% else %}
-        <a href="/login" class="login_text">Login</a>
+        <a href="/login" class="login_text">Prihlásenie</a>
     {% endif %}
 </header>
 <div class="transition_in">
@@ -32,9 +31,9 @@
 <footer>
     <table class="footer_links">
         <tr>
-            <td><a href="/" class="home_pointer">Home</a></td>
-            <td><a href="/reservations" class="home_pointer">Reservations</a></td>
-            <td><a href="/search" class="home_pointer">Search</a></td>
+            <td><a href="/" class="home_pointer">Domov</a></td>
+            <td><a href="/search" class="home_pointer">Hľadaj</a></td>
+            <td><a href="/reservations" class="home_pointer">Rezervácie</a></td>
         </tr>
     </table>
 </footer>

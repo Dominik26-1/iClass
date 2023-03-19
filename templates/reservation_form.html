@@ -35,7 +35,7 @@
                         <label for="classroom_id">Učebňa:
                             {{ result.classroom.name }}
                             <input type="number" name="classroom" id="classroom_name"
-                                   value="{{ result.classroom.id }}" required readonly>
+                                   value="{{ result.classroom.id }}" hidden required readonly>
 
                         </label>
                     </div>
@@ -57,7 +57,7 @@
                 {% if action == "create" %}
                     <input type="submit" id="createSubmit" value="Rezervovať" class="submit-button">
                 {% else %}
-                    <input type="submit" id="deleteSubmit" value="Zmaž" class="submit-button">
+                    <input type="submit" id="deleteSubmit" value="Vymazať" class="submit-button">
                 {% endif %}
             </div>
         </form>

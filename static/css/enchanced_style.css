@@ -139,7 +139,53 @@ input[type="checkbox"]:focus {
     display: flex;
     justify-content: center;
     align-items: center;
-    vertical-align: middle;
+    margin-top: 1rem;
     text-align: center;
 }
 
+.reservations table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.reservations td, th {
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+}
+
+.reservations tr:first-child {
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8em;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.reservations tr:not(:first-child) {
+    cursor: pointer;
+    font-family: system-ui, sans-serif;
+    box-sizing: border-box;
+    display: flex;
+    color: black;
+    border-style: solid;
+    border-color: #fa7914;
+    border-radius: 8px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+    padding: 0.25em 0.75em;
+    line-height: 1.1;
+    transition: 220ms all ease-in-out;
+    font-weight: bold;
+    background-color: transparent;
+    margin-bottom: 7px;
+    gap: 0.8em;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.reservations tr:not(:first-child):hover {
+    background-color: #fa7914;
+    color: white;
+}

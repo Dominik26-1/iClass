@@ -1,14 +1,21 @@
 {% extends "skeleton.html" %}
 {% load static %}
-<head><link rel="stylesheet" href="{% static 'css/style.css' %}"></head>
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
 {% block content %}
 
-<div class="main_image">
-    <img src="{% static 'assets/iCLASS.png' %}" class="home_logo" alt="iClass" >
-</div>
-<div class="search_link">
-    <a href="/search">SEARCH</a>
-</div>
+    <div class="main_image">
+        <img src="{% static 'assets/iCLASS.png' %}" class="home_logo" alt="iClass">
+    </div>
+    <div class="form-fieldset-one-row">
+        <div class="submit-button">
+            <a href="/search">Hľadaj</a>
+        </div>
+        <div class="submit-button">
+            <a href="/reservations">Rezervácie</a>
+        </div>
+    </div>
 
 
 {% endblock %}
