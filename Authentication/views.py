@@ -14,16 +14,15 @@ class LoginView(View):
         username = request.POST["username"]
         password = request.POST["password"]
         user = authenticate(request, username=username, password=password)
+        next_url = request.POST.get("next")
         if user is not None:
             login(request, user)
-            messages.success(request, "Úspešne Ste boli prihlasený.")
-            next_url = request.POST.get("next")
             if next_url:
                 return redirect(next_url)
             return redirect('home')
         else:
-            messages.success(request, "Prihlásenie zlyhalo. Skontrolujte Vaše prihlasovacie údaje.")
-            return redirect('login')
+            messages.error(request, "Prihlásenie zlyhalo. Skontrolujte Vaše prihlasovacie údaje.")
+            return render(request, "login.html", {})
 
 
 class LogoutView(View):

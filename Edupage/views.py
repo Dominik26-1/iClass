@@ -23,15 +23,15 @@ class SearchView(View):
                 REST_method=request.GET)
 
             if not parsing_error["is_valid"]:
-                messages.warning(request, parsing_error["errors"][0])
+                messages.error(request, parsing_error["errors"][0])
                 return redirect('search')
 
             if not input_date:
-                messages.warning(request, "Chýbajúci vstupný argument dátum.")
+                messages.error(request, "Chýbajúci vstupný argument dátum.")
                 return redirect('search')
 
             if input_room_id and len(equipment_args) != 0:
-                messages.warning(request,
+                messages.error(request,
                                  "Vyhľadávanie nie je možné spustiť pre konktrétnu učebňu a zároveň podľa vybavania učební.")
                 return redirect('search')
 
@@ -44,7 +44,7 @@ class SearchView(View):
             if input_date and input_lesson and len(equipment_args) != 0:
                 return search_filter_rooms_lesson(request, input_date, input_lesson, equipment_args)
             else:
-                messages.warning(request, "Nesprávne argumenty pre vyhľadávanie.")
+                messages.error(request, "Nesprávne argumenty pre vyhľadávanie.")
                 return redirect('search')
 
 
