@@ -88,7 +88,7 @@
             {% for key, value in result.items %}
                 {% if value.occupancy %}
                     <div class="container_taken">
-                        <table style="width:100%">
+                        <table class="search_results">
                             <tr>
                                 <td>{{ value.info.name }}</td>
                                 <td>{{ value.occupancy.0.students }}</td>
@@ -106,7 +106,7 @@
                     </div>
                 {% else %}
                     <div class="container_free">
-                        <table style="width:100%">
+                        <table class="search_results">
                             <tr>
                                 <td>{{ value.info.name }}</td>
                             </tr>
@@ -135,7 +135,7 @@
                 {% if value.occupancy %}
                     <div class="container_taken">
                         <div class="classroom_hours">
-                            <table>
+                            <table class="search_results">
                                 <tr>
                                     <td>{{ key }}.hodina</td>
                                     <td>{{ value.occupancy.0.students }}</td>
@@ -147,7 +147,7 @@
                     </div>
                 {% else %}
                     <div class="container_free">
-                        <table style="width:100%">
+                        <table class="search_results">
                             <tr>
                                 <td>{{ key }}.hodina</td>
                             </tr>
@@ -167,7 +167,7 @@
                     </div>
                     {% for res in result %}
                         <div class="container_taken">
-                            <table style="width:100%">
+                            <table class="search_results">
                                 <tr>
                                     <td>{{ res.lesson }}.hodina</td>
                                     <td>{{ res.students }}</td>

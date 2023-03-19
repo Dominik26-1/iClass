@@ -87,7 +87,7 @@ footer {
 }
 .classroom_hours{
     line-height:80px;
-    font-size: small;
+    font-size: large;
 }
 .container_free{
     text-align: center;
@@ -99,7 +99,7 @@ footer {
     height: 80px;
     background-color:#81f26b;
 }
-table{
+.search_results{
     text-align: center;
     font-size: large;
     font-weight: bold;
