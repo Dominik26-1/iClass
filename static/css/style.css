@@ -1,35 +1,29 @@
-header {
+header{
     width: 100%;
     height: 80px;
-    background-color: #57427d;
+    background-color:#57427d;
     text-align: right;
     line-height: 70px;
-    font-family: Garamond;
+    font-family: system-ui, sans-serif;
+    font-weight: bold;
 }
-
-body {
-    font-family: Garamond;
+body{
+    font-family: system-ui, sans-serif;
+    font-weight: bold;
     background-color: #f5f5f5;
 }
-
-.username {
+.username{
     color: white;
-    padding: 0px 50px;
+    padding:0px 50px;
 }
-
-.login_text {
+.login_text{
     padding: 75px;
     color: white;
 }
-
-.logout_text {
-    color: black;
-    padding: 0px 50px;
-}
-
-.Logo {
-    text-align: center;
-    padding: 0px;
+.logout_text{
+    padding:0px 50px;
+    color: white;
+    text-align:right;
 }
 
 footer {
@@ -38,40 +32,44 @@ footer {
     bottom: 0;
     width: 100%;
     height: 80px;
-    background-color: #fa7914;
+    background-color:#fa7914;
     text-align: center;
     line-height: 60px;
-    font-family: Garamond;
+    font-family: system-ui, sans-serif;
+    font-weight: bold;
 
 }
-
-.home_pointer {
+.home_pointer{
     color: white;
 
 }
-
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+.home_logo {
+  display: block;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.header_logo {
+    float: left;
+    width: 50px;
+    height: 30px;
 }
 
-.search_link {
+
+.search_link{
     text-align: center;
-    color: #57427d;
-    padding: 20px 0px;
+    color:#57427d;
+    padding:20px 0px;
 }
-
-.forms {
+.forms{
+    text-align: center;
+}
+.forms_block{
     text-align: center;
 }
 
-.forms_block {
-    text-align: center;
-}
-
-.container_taken {
+.container_taken{
     text-align: center;
     border-radius: 20px;
     margin: auto;
@@ -79,40 +77,64 @@ footer {
     height: 80px;
     background-color: #ff5e5e;
 }
-
-.container_free {
+.classroom_hours{
+    line-height:80px;
+    font-size: small;
+}
+.container_free{
     text-align: center;
     border-radius: 20px;
     margin: auto;
     width: 50%;
     height: 80px;
-    background-color: #81f26b;
+    background-color:#81f26b;
 }
-
-table {
+table{
     text-align: center;
     font-size: large;
     font-weight: bold;
+    width:100%;
 }
-
-.equipment {
+.equipment{
     line-height: 40px;
 }
-
-.main_message {
+.main_message{
+    font-size:x-la
     text-align: center;
     font-size: large;
     font-weight: bold;
 }
-
-.equipment {
+.equipment{
     line-height: 20px;
+    text-align: center;
 }
+.name_of_classroom{
+    text-align: center;
+    font-size:xxx-large;
+}
+.res_header {
+    text-align: center;
+    margin-top: 5%;
+    font-size: xxx-large;
 
+
+}
+hr{
+    text-align: center;
+}
+.res_result{
+    color: black;
+    text-align: center;
+    font-size:medium;
+}
 .transition_in {
     animation: fadeInAnimation ease 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+}
+.res_forms{
+    text-align:center;
+    margin-top: 10%;
 }
 
 @keyframes fadeInAnimation {
@@ -122,4 +144,8 @@ table {
     100% {
         opacity: 1;
     }
+}
+
+.user_icon{
+    width:2%;
 }

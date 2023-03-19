@@ -97,31 +97,35 @@
                                 {% endif %}
                             {% endfor %}
                         </div>
-                        <a href="/reservations/create/?date={{ search_params.date|date:"Y-m-d" }}&classroom={{ value.info.id }}&lesson={{ search_params.lesson }}">tu</a>
+                        <a href="/reservations/create/?date={{ search_params.date|date:"Y-m-d" }}&classroom={{ value.info.id }}&lesson={{ search_params.lesson }}">Rezervácia</a>
                     </div>
                     <br>
                 {% endif %}
             {% endfor %}
         {% elif result_type == "lesson_list" %}
-            <div class="main_message">{{ search_room.name }}</div>
-            {% for key, value in result.items %}
-                {% if value.occupancy %}
-                    <div class="container_taken">
-                        <table style="width:100%">
-                            <tr>
-                                <td>{{ key }}.hodina</td>
-                                <td>{{ value.occupancy.0.students }}</td>
-                                <td>{{ value.occupancy.0.teacher }}</td>
-                                <td>{{ value.occupancy.0.subject }}</td>
-                            </tr>
-                        </table>
-                        <p class="equipment"> Vybavenie:
+            <div class="name_of_classroom">{{ search_room.name }}</div>
+            <br>
+            <div class="equipment"> Vybavenie:
                             {% for key, value in search_room.equipment.items %}
                                 {% if value %}
                                     {{ key }}
                                 {% endif %}
                             {% endfor %}
-                        </p>
+            </div>
+            <br>
+            {% for key, value in result.items %}
+                {% if value.occupancy %}
+                    <div class="container_taken">
+                        <div class="classroom_hours">
+                            <table>
+                                <tr>
+                                    <td>{{ key }}.hodina</td>
+                                    <td>{{ value.occupancy.0.students }}</td>
+                                    <td>{{ value.occupancy.0.teacher }}</td>
+                                    <td>{{ value.occupancy.0.subject }}</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                     <br>
                 {% else %}
@@ -131,26 +135,19 @@
                                 <td>{{ key }}.hodina</td>
                             </tr>
                         </table>
-                        <div class="equipment"> Vybavenie:
-                            {% for key, value in search_room.equipment.items %}
-                                {% if value %}
-                                    {{ key }}
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                        <a href="/reservations/create/?date={{ search_params.date|date:"Y-m-d" }}&classroom={{ search_params.room }}&lesson={{ key }}">tu</a>
+                        <a href="/reservations/create/?date={{ search_params.date|date:"Y-m-d" }}&classroom={{ search_params.room }}&lesson={{ key }}">Rezervácia</a>
                     </div>
                     <br>
                 {% endif %}
             {% endfor %}
         {% elif result_type == "boolean_result" %}
-            <div class="main_message">
+            <div class="name_of_classroom">
                 {{ search_room.name }}
                 {% if is_free %}
-                    Volna
-                    <a href="/reservations/create/?date={{ search_params.date|date:"Y-m-d" }}&classroom={{ search_params.room }}&lesson={{ search_params.lesson }}">tu</a>
+                    - Voľná
+                    <a href="/reservations/create/?date={{ search_params.date|date:"Y-m-d" }}&classroom={{ search_params.room }}&lesson={{ search_params.lesson }}">Rezervácia</a>
                 {% else %}
-                    Obsadena
+                     - Obsadená
                     </div>
                     {% for res in result %}
                         <div class="container_taken">

@@ -2,7 +2,13 @@
 {% load static %}
 
 {% block content %}
-{% for reserve in reservations %}
-    <a href="/reservations/{{ reserve.id }}">{{ reserve.id }} {{ reserve }}</a>
-{% endfor %}
+<div class="res_header">
+    Vaše rezervácie
+    <hr style="width:50%; margin: auto; background:black;" />
+    {% for reserve in reservations %}
+        <div class="res_result">
+            <a href="/reservations/{{ reserve.id }}">{{ reserve.id }} {{ reserve }}</a>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}

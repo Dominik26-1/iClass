@@ -2,7 +2,8 @@
 {% load static %}
 
 {% block content %}
-    <form method="POST" id="reservation_form"
+
+    <form method="POST" id="reservation_form" class="res_forms"
             {% if action == "delete" %}
           action="/reservations/delete/"
             {% endif %}>
