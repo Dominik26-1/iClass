@@ -49,12 +49,12 @@
                     <label class="form-control">
                         <input type="checkbox" id="interactive_board" name="interactive_board" value="1"
                                {% if search_params.equipment_params.interactive_board %}checked {% endif %}/>
-                        Interactive board</label>
+                        Interaktívna tabuľa</label>
 
                     <label class="form-control">
                         <input type="checkbox" id="data_projector" name="data_projector" value="1"
                                {% if search_params.equipment_params.data_projector %}checked {% endif %}/>
-                        Data projector</label>
+                        Data projektor</label>
 
                     <label class="form-control">
                         <input type="checkbox" id="ethernet_cable" name="ethernet_cable" value="1"
@@ -81,110 +81,127 @@
             <br>
             <input type="submit" id="formSubmit" value="Hľadať" class="submit-button">
         </form>
-        <br>
     </div>
     {% if with_results %}
         {% if result_type == "classroom_list" %}
-            {% for key, value in result.items %}
-                {% if value.occupancy %}
-                    <div class="container_taken">
-                        <table class="search_results">
-                            <tr>
-                                <td>{{ value.info.name }}</td>
-                                <td>{{ value.occupancy.0.students }}</td>
-                                <td>{{ value.occupancy.0.teacher }}</td>
-                                <td>{{ value.occupancy.0.subject }}</td>
-                            </tr>
-                        </table>
-                        <p class="equipment"> Vybavenie:
-                            {% for key, value in value.info.equipment.items %}
-                                {% if value %}
-                                    {{ key }}
-                                {% endif %}
-                            {% endfor %}
-                        </p>
-                    </div>
-                {% else %}
-                    <div class="container_free">
-                        <table class="search_results">
-                            <tr>
-                                <td>{{ value.info.name }}</td>
-                            </tr>
-                        </table>
-                        <div class="equipment"> Vybavenie:
-                            {% for key, value in value.info.equipment.items %}
-                                {% if value %}
-                                    {{ key }}
-                                {% endif %}
-                            {% endfor %}
+            <div class="name_of_classroom">{{ search_params.lesson }}.hodina</div>
+            <div class="block-container">
+                {% for key, value in result.items %}
+                    {% if value.occupancy %}
+                        <div class="block-occupied">
+                            <div class="flex-item">
+                                <span>{{ value.info.name }}</span>
+                                <span>Študenti: {{ value.occupancy.0.students }}</span>
+                                <span>Učiteľ: {{ value.occupancy.0.teacher }}</span>
+                                <span>Predmet: {{ value.occupancy.0.subject }}</span>
+                            </div>
+                            <div class="flex-item">
+                                <p class="equipment">
+                                    {% for key, value in value.info.equipment.items %}
+                                        {% if value %}
+                                            {{ key }} |
+                                        {% endif %}
+                                    {% endfor %}
+                                </p>
+                            </div>
                         </div>
-                        <a href="/reservations/create/?date={{ search_params.date|date:"Y-m-d" }}&classroom={{ value.info.id }}&lesson={{ search_params.lesson }}">Rezervácia</a>
-                    </div>
-                {% endif %}
-            {% endfor %}
+                    {% else %}
+                        <a class="block-free"
+                           href="/reservations/create/?date={{ search_params.date|date:"Y-m-d" }}&classroom={{ value.info.id }}&lesson={{ search_params.lesson }}">
+                            <div class="flex-item">
+                                <span>{{ value.info.name }}</span>
+                                <span>Voľná</span>
+                            </div>
+                            <div class="flex-item">
+                                <div class="equipment">
+                                    {% for key, value in value.info.equipment.items %}
+                                        {% if value %}
+                                            {{ key }} |
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="flex-item-right">
+                                <span>Rezervovať</span>
+                            </div>
+                        </a>
+                    {% endif %}
+
+                {% endfor %}
+            </div>
         {% elif result_type == "lesson_list" %}
             <div class="name_of_classroom">{{ search_room.name }}</div>
             <div class="equipment"> Vybavenie:
-                            {% for key, value in search_room.equipment.items %}
-                                {% if value %}
-                                    {{ key }}
-                                {% endif %}
-                            {% endfor %}
+                {% for key, value in search_room.equipment.items %}
+                    {% if value %}
+                        {{ key }} |
+                    {% endif %}
+                {% endfor %}
             </div>
-            {% for key, value in result.items %}
-                {% if value.occupancy %}
-                    <div class="container_taken">
-                        <div class="classroom_hours">
-                            <table class="search_results">
-                                <tr>
-                                    <td>{{ key }}.hodina</td>
-                                    <td>{{ value.occupancy.0.students }}</td>
-                                    <td>{{ value.occupancy.0.teacher }}</td>
-                                    <td>{{ value.occupancy.0.subject }}</td>
-                                </tr>
-                            </table>
+            <div class="block-container">
+                {% for key, value in result.items %}
+                    {% if value.occupancy %}
+                        <div class="block-occupied">
+                            <div class="flex-item">
+                                <span>{{ key }}.hodina</span>
+                                <span>Študenti: {{ value.occupancy.0.students }}</span>
+                                <span>Učiteľ: {{ value.occupancy.0.teacher }}</span>
+                                <span>Predmet: {{ value.occupancy.0.subject }}</span>
+                            </div>
+                            <div class="flex-item-right">Obsadená</div>
                         </div>
-                    </div>
-                {% else %}
-                    <div class="container_free">
-                        <table class="search_results">
-                            <tr>
-                                <td>{{ key }}.hodina</td>
-                            </tr>
-                        </table>
-                        <a href="/reservations/create/?date={{ search_params.date|date:"Y-m-d" }}&classroom={{ search_params.room }}&lesson={{ key }}">Rezervácia</a>
-                    </div>
-                {% endif %}
-            {% endfor %}
+                    {% else %}
+                        <a class="block-free">
+                            <div class="flex-item">
+                                <span>{{ key }}.hodina</span>
+                                <span>Voľná</span>
+                            </div>
+                            <div class="flex-item-right">
+                                <span>Rezervovať</span>
+                            </div>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
         {% elif result_type == "boolean_result" %}
             <div class="name_of_classroom">
                 {{ search_room.name }}
+                <p class="equipment"> Vybavenie:
+                    {% for key, value in search_room.equipment.items %}
+                        {% if value %}
+                            {{ key }} |
+                        {% endif %}
+                    {% endfor %}
+                </p>
+            </div>
+            <div class="block-container">
                 {% if is_free %}
-                    - Voľná
-                    <a href="/reservations/create/?date={{ search_params.date|date:"Y-m-d" }}&classroom={{ search_params.room }}&lesson={{ search_params.lesson }}">Rezervácia</a>
+                    <a href="/reservations/create/?date={{ search_params.date|date:"Y-m-d" }}&classroom={{ search_params.room }}&lesson={{ search_params.lesson }}"
+                       class="block-free">
+                        <div class="flex-item">
+                            <span>{{ search_room.name }}</span>
+                            <span>{{ search_params.lesson }}.hodina</span>
+                            <span>Voľná</span>
+                        </div>
+                        <div class="flex-item-right">
+                            <span>Rezervovať</span>
+                        </div>
+                    </a>
                 {% else %}
-                     - Obsadená
-                    </div>
                     {% for res in result %}
-                        <div class="container_taken">
-                            <table class="search_results">
-                                <tr>
-                                    <td>{{ res.lesson }}.hodina</td>
-                                    <td>{{ res.students }}</td>
-                                    <td>{{ res.teacher }}</td>
-                                    <td>{{ res.subject }}</td>
-                                </tr>
-                            </table>
-                            <p class="equipment"> Vybavenie:
-                                {% for key, value in search_room.equipment.items %}
-                                    {% if value %}
-                                        {{ key }}
-                                    {% endif %}
-                                {% endfor %}
-                            </p>
+                        <div class="block-occupied">
+                            <div class="flex-item">
+                                <span>{{ res.lesson }}.hodina</span>
+                                <span>Študenti: {{ res.students }}</span>
+                                <span>Učiteľ: {{ res.teacher }}</span>
+                                <span>Predmet: {{ res.subject }}</span>
+                            </div>
+                            <div class="flex-item-right">Obsadená</div>
+
                         </div>
                     {% endfor %}
                 {% endif %}
+            </div>
         {% endif %}
     {% else %}
         <!--

@@ -18,7 +18,7 @@ class SearchView(View):
                 "classrooms": Classroom.objects.all(),
                 "with_results": False
             }
-            return render(request, "search_results.html", content)
+            return render(request, "search_form.html", content)
         else:
             input_date, input_lesson, input_room_id, equipment_args, parsing_error = parse_inputs(
                 REST_method=request.GET)
@@ -74,7 +74,7 @@ def search_room_view(request, date, room_id):
         },
         "search_room": all_classrooms.get(id=room_id).get_dict()
     }
-    return render(request, "search_results.html", context)
+    return render(request, "search_form.html", context)
 
 
 def search_lesson_view(request, date, lesson):
@@ -101,7 +101,7 @@ def search_lesson_view(request, date, lesson):
             "lesson": lesson,
         }
     }
-    return render(request, "search_results.html", context)
+    return render(request, "search_form.html", context)
 
 
 def search_room_lesson_view(request, date, lesson, room_id):
@@ -131,7 +131,7 @@ def search_room_lesson_view(request, date, lesson, room_id):
         },
         "search_room": all_classrooms.get(id=room_id).get_dict()
     }
-    return render(request, "search_results.html", context)
+    return render(request, "search_form.html", context)
 
 
 def search_filter_rooms_lesson(request, date, lesson, equipment_args):
@@ -166,4 +166,4 @@ def search_filter_rooms_lesson(request, date, lesson, equipment_args):
             "display_equipment": display_equipments,
         }
     }
-    return render(request, "search_results.html", context)
+    return render(request, "search_form.html", context)
