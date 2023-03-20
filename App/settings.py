@@ -20,12 +20,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!l*4t-8o^urb-yxlpy2n#v-t8+g1gjzb*xno=!52#_#uzn(me&'
+SECRET_KEY = os.environ.get('ICLASS-SECRET-KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '*'
+]
 
 # Application definition
 
@@ -77,13 +79,14 @@ WSGI_APPLICATION = 'App.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
+db_user = os.environ.get('ICLASS_USER')
+db_password = os.environ.get('ICLASS_PASSWORD')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'iClass_prep',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        'USER': db_user,
+        'PASSWORD': db_password,
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -134,7 +137,7 @@ STATICFILES_DIRS = [
 ]
 
 AUTO_LOGOUT = {
-    'IDLE_TIME': timedelta(minutes=10),
+    'IDLE_TIME': timedelta(minutes=18),
     'SESSION_TIME': timedelta(minutes=20),
     'MESSAGE': 'The session has expired. Please login again to continue.',
     'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
