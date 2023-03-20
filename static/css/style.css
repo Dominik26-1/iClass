@@ -22,14 +22,15 @@ a, a:hover {
 
 .username {
     color: white;
-    padding: 0px 50px;
+    padding: 0 50px;
 }
 
 .login_text {
     padding: 75px;
     color: white;
 }
-.logout_text:hover{
+
+.logout_text:hover {
     color: #290D70FF;
 }
 
@@ -125,7 +126,7 @@ footer {
 }
 
 .equipment {
-    line-height: 40px;
+    font-size: 0.9em;
 }
 
 .footer_links {
@@ -142,7 +143,7 @@ footer {
 
 .name_of_classroom {
     text-align: center;
-    font-size: xxx-large;
+    font-size: xx-large;
 }
 
 .res_header {
@@ -167,6 +168,7 @@ hr {
     animation: fadeInAnimation ease 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+    margin-bottom: 80px;
 }
 
 @keyframes fadeInAnimation {

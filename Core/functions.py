@@ -3,11 +3,13 @@ from itertools import chain
 
 from django.db.models import Q
 from edupage_api import TimetableChange
+from edupage_api.exceptions import ExpiredSessionException, NotLoggedInException
 
+from App.logger import logger
 from Classroom.classroom_enum import Classroom_filters
 from Classroom.equipment_enum import Equipment
 from Core.filter_functions import filter_lesson_records, merge_lessons_records, filter_room_records
-from Edupage.access import edupage
+from Edupage.access import edupage_account
 from Edupage.functions import parse_edupage_object
 from Reservation.models import Reservation
 from Substitution.models import Substitution
@@ -15,9 +17,28 @@ from Timetable.models import Timetable
 
 
 def get_day_records(date) -> (list[Timetable], list[Substitution], list[Reservation]):
+    error_context = {"is_valid": True,
+                     "errors": []
+                     }
     reservations = Reservation.objects.filter(date=date)
+    substitutions = []
+    # osetri neuspesne volanie na edupage
+    try:
+        substitutions: list[TimetableChange] = edupage_account.get_edupage().get_timetable_changes(date)
+    except (ConnectionError, ConnectionResetError):
+        error_context["is_valid"] = False
+        error_context["errors"].append("Vyskytla sa chyba pri vyhľadávaní. Skúste vyhľadať ešte raz.")
+        logger.warning("Chyba skoreho ukoncenia requestu predtym ako prisla odpoved.")
 
-    substitutions: list[TimetableChange] = edupage.get_timetable_changes(date)
+    except (ExpiredSessionException, NotLoggedInException):
+        edupage_account.login()
+        try:
+            substitutions: list[TimetableChange] = edupage_account.get_edupage().get_timetable_changes(date)
+        except Exception as e:
+            error_context["is_valid"] = False
+            error_context["errors"].append("Vyskytla sa chyba pri vyhľadávaní. Skúste vyhľadať ešte raz.")
+            logger.warning(f'Chyba pripojenia do edupage.{repr(e)}')
+
     sub_lessons = []
     # skontroluj ci nie je None napr pre vikend
     if substitutions:
@@ -32,7 +53,7 @@ def get_day_records(date) -> (list[Timetable], list[Substitution], list[Reservat
                                                  (Q(valid_to__gte=date) | Q(valid_to__isnull=True))).exclude(
         id__in=map(lambda les: les.timetable_id, sub_lessons))
     return list(chain(timetable_lessons)), \
-           list(filter(lambda les: les.new_lesson is not None, sub_lessons)), list(chain(reservations))
+           list(filter(lambda les: les.new_lesson is not None, sub_lessons)), list(chain(reservations)), error_context
 
 
 def is_classroom_available(date, lesson, room_id):
@@ -83,7 +104,7 @@ def parse_inputs(REST_method):
 
     equipment_args = {}
     for key, value in list(REST_method.items()):
-        if key in [eq.value for eq in Equipment]:
+        if key in [eq.value[0] for eq in Equipment]:
             if not (value == "1" or value == "0"):
                 error_context["errors"].append(
                     f'Parameter {key} nie je z uvedených hodnôt 0 alebo 1.')

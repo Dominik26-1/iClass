@@ -1,6 +1,8 @@
 # Create your models here.
 from django.db import models
 
+from Classroom.equipment_enum import Equipment
+
 
 class Classroom(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -26,13 +28,13 @@ class Classroom(models.Model):
             "name": self.name,
             "position": self.position,
             "equipment": {
-                "interactive_board": self.interactive_board,
-                "teacher_pc": self.teacher_pc,
-                "teacher_notebook": self.teacher_notebook,
-                "flip_chart": self.flip_chart,
-                "sink": self.sink,
-                "data_projector": self.data_projector,
-                "ethernet_cable": self.ethernet_cable,
+                Equipment.INTERACTIVE_BOARD.value[1]: self.interactive_board,
+                Equipment.PC.value[1]: self.teacher_pc,
+                Equipment.NOTEBOOK.value[1]: self.teacher_notebook,
+                Equipment.FLIP_CHART.value[1]: self.flip_chart,
+                Equipment.SINK.value[1]: self.sink,
+                Equipment.DATA_PROJECTOR.value[1]: self.data_projector,
+                Equipment.ETHERNET_CABLE.value[1]: self.ethernet_cable,
             }
 
         }

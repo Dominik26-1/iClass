@@ -143,6 +143,141 @@ input[type="checkbox"]:focus {
     text-align: center;
 }
 
+
+.occupied {
+    background-color: red;
+}
+
+.free {
+    background-color: #81f26b;
+    width: 100%;
+}
+
+.block-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    text-align: center;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.block-occupied {
+    display: block; /* zmena smeru flexu na vertikalny */
+    /* zalamovanie flexovych prvkov */
+    /* vyska flex kontajnera */
+    margin-bottom: 1rem;
+    width: 100%;
+    cursor: pointer;
+    font-family: system-ui, sans-serif;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+    padding: 0.25em 0.75em;
+    line-height: 1.1;
+    transition: 220ms all ease-in-out;
+    background-color: #f56565;
+
+}
+
+.block-free {
+    display: block; /* zmena smeru flexu na vertikalny */
+    /* zalamovanie flexovych prvkov */
+    /* vyska flex kontajnera */
+    margin-bottom: 1rem;
+    width: 100%;
+    cursor: pointer;
+    font-family: system-ui, sans-serif;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+    padding: 0.25em 0.75em;
+    line-height: 1.1;
+    transition: 220ms all ease-in-out;
+    background-color: #81f26b;
+
+}
+
+.block-free:hover {
+    filter: brightness(0.7);
+    color: black;
+}
+
+
+.flex-container:hover {
+    background-color: yellow;
+}
+
+
+.flex-item {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    font-family: system-ui, sans-serif;
+    justify-content: space-around;
+}
+.flex-item span {
+    padding-bottom: 0.5em;
+}
+
+.flex-item-right {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    font-family: system-ui, sans-serif;
+    justify-content: right;
+
+
+    /* vytvorenie dvoch stlpcov */ /* vyska flexovych prvkov */
+}
+
+.table_search_results tr:first-child {
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8em;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.table_search_results table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.table_search_results td, th {
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+}
+
+
+.table_search_results tr:not(:first-child) {
+    cursor: pointer;
+    font-family: system-ui, sans-serif;
+    box-sizing: border-box;
+    display: flex;
+    color: black;
+    border-style: solid;
+    border-radius: 8px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+    padding: 0.25em 0.75em;
+    line-height: 1.1;
+    transition: 220ms all ease-in-out;
+    font-weight: bold;
+    margin-bottom: 7px;
+    gap: 0.8em;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.table_search_results tr:not(:first-child):hover {
+}
+
+
 .reservations table {
     table-layout: fixed;
     width: 100%;
