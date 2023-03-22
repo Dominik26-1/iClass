@@ -9,13 +9,7 @@ Step to run Django server:
 5. turn on environment (./venv/Scripts/activate)
 6. install python packages from requirements.txt:  
 pip install -r requirements.txt
-7. set up postgresql database with default settings:
-
-'NAME': 'iClass',
-'USER': 'postgres',
-'PASSWORD': 'postgres',
-'HOST': 'localhost',
-'PORT': '5432'
+7. set up postgresql database with default settings
 
 8. python manage.py makemigrations
 9. python manage.py migrate
