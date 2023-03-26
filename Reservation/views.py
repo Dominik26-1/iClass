@@ -22,8 +22,13 @@ class ReservationListView(View):
     @method_decorator(login_required, name='dispatch')
     def get(self, request, *args):
         teacher = f'{request.user.first_name} {request.user.last_name}'
+        if request.user.is_superuser:
+            reservations = Reservation.objects.all().order_by('date')
+        else:
+            reservations = Reservation.objects.filter(teacher=teacher).order_by('date')
+
         context = {
-            "reservations": Reservation.objects.filter(teacher=teacher).order_by('date')
+            "reservations": reservations
         }
         return render(request, "reservation_list.html", context)
 
