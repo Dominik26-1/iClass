@@ -151,7 +151,8 @@
                             <div class="flex-item-right">Obsadená</div>
                         </div>
                     {% else %}
-                        <a class="block-free">
+                        <a class="block-free"
+                           href="/reservations/create/?date={{ search_params.date|date:"Y-m-d" }}&classroom={{ search_room.id }}&lesson={{ key }}">
                             <div class="flex-item">
                                 <span>{{ key }}.hodina</span>
                                 <span>Voľná</span>

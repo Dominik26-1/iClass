@@ -1,6 +1,14 @@
-document.getElementById("search_form").addEventListener("submit", handleFormValues);
+const form_element = document.getElementById("search_form");
+form_element.addEventListener("submit", handleFormValues);
+
 const classroom_element = document.getElementById('classroom_id');
 const equipment_checkboxes = document.getElementById('equipment_id');
+const lesson_element = document.getElementById('lesson_id');
+
+form_element.addEventListener('input', () => {
+    lesson_element.setCustomValidity("");
+    classroom_element.setCustomValidity("");
+})
 
 classroom_element.addEventListener('input', () => {
     if (classroom_element.value !== "") {
@@ -29,7 +37,6 @@ equipment_checkboxes.addEventListener('input', () => {
 function handleFormValues(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const lesson_element = document.getElementById('lesson_id');
     //validacia ci je zadana ucebna alebo hodina
     if (classroom_element.disabled && formData.get("lesson") === "") {
         lesson_element.setCustomValidity("Nezadaná hodina!")
