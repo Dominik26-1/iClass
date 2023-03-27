@@ -70,7 +70,11 @@ class ReservationCreateView(View):
             messages.error(request, "Chýbajúce argumenty (dátum, učebňa alebo hodina) pre rezerváciu učebne.")
             return redirect('search')
         teacher = f'{request.user.first_name} {request.user.last_name}'
-        if is_classroom_available(input_date, input_lesson, input_room_id):
+        is_available, search_errors = is_classroom_available(input_date, input_lesson, input_room_id)
+        if not search_errors["is_valid"]:
+            messages.error(request, parsing_error["errors"][0])
+            return redirect('search')
+        if is_available:
             classroom = None
             try:
                 classroom = Classroom.objects.get(id=input_room_id)
