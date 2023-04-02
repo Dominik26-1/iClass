@@ -2,6 +2,19 @@
 {% load static %}
 
 {% block content %}
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
+                            aria-hidden="true" onclick="closeMessage()"></button>
+                    {{ message }}
+                </div>
+
+            {% endfor %}
+        {% endif %}
+    </div>
 
     <div class="res_header">
         Vaše rezervácie

@@ -1,11 +1,9 @@
 # Create your views here.
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.utils.decorators import method_decorator
 from django.views import View
-from django.views.generic import DetailView
 
 from Classroom.models import Classroom
 from Core.functions import is_classroom_available
@@ -93,10 +91,16 @@ class ReservationDeleteView(ReservationBaseView, View):
     @method_decorator(login_required, name='dispatch')
     def post(self, request, *args, **kwargs):
         reserved_id = request.POST.get("reservation_id")
-        reservation = Reservation.objects.get(id=reserved_id)
         teacher = f'{request.user.first_name} {request.user.last_name}'
-        if reservation.teacher == teacher:
+        try:
+            reservation = Reservation.objects.get(id=reserved_id)
+            if reservation.teacher != teacher and not request.user.is_superuser:
+                messages.error(request, f"Nedostatočné oprávnenie vymazať rezerváciu s id {id}.")
+                return redirect('reservation-list')
             reservation.delete()
+        except Reservation.DoesNotExist:
+            messages.error(request, f"Rezervácia s {id} neexistuje.")
+            return redirect('reservation-list')
 
         return redirect('reservation-list')
 
@@ -107,11 +111,17 @@ class ReservationDetailView(ReservationBaseView, View):
         try:
             id = kwargs.get("id")
         except TypeError:
-            return HttpResponse("Missing id parameter in url.")
+            messages.error(request, "Chýbajúci parameter id pre rezerváciu.")
+            return redirect('reservation-list')
         try:
             reservation = Reservation.objects.get(id=id)
+            teacher = f'{request.user.first_name} {request.user.last_name}'
+            if reservation.teacher != teacher and not request.user.is_superuser:
+                messages.error(request, f"Nedostatočné oprávnenie na prezretie rezervácie s id {id}.")
+                return redirect('reservation-list')
         except Reservation.DoesNotExist:
-            return HttpResponse(f"Reservation with id {id} does not exist.")
+            messages.error(request, f"Rezervácia s {id} neexistuje.")
+            return redirect('reservation-list')
         context = {
             "result": reservation,
             "action": "delete"
